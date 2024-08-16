@@ -94,6 +94,7 @@ const CalculationTable = ({
     setCalculationTableDownloadUrl,
   ] = useStateIfMounted();
   const [calculation, setCalculation] = useStateIfMounted({
+    u500: [0],
     colourFidelityIndex: [
       { CCT: 0, Duv: 0, Rf: 0, u: 0, v: 0, uPrime: 0, vPrime: 0 },
     ],
@@ -430,6 +431,11 @@ const CalculationTable = ({
             <CalculationTableRow
               heading="Colour Fidelity Index [Rf]"
               samples={calculation.colourFidelityIndex.map(({ Rf }) => Rf)}
+              exponentialNotation={exponentialNotation}
+            />
+            <CalculationTableRow
+              heading="U500"
+              samples={calculation.u500}
               exponentialNotation={exponentialNotation}
             />
             {/* <CalculationTableRow

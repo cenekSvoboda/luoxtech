@@ -89,6 +89,20 @@ export const calculateColourRenderingIndices = (selectedRows) => {
   );
 };
 
+export const calculateU500 = (selectedRows) => {
+  let u500Sum = 0;
+  let totalSum = 0;
+  rowsToSpectra(selectedRows).map(async (spectra) => {
+      spectra.map(async (xx)=>{
+          totalSum += xx[1];
+          if (xx[0] <= 500) {
+              u500Sum += xx[1];
+          }
+      });
+  });
+  return [u500Sum / totalSum];
+};
+
 export const calculateColourFidelityIndices = (selectedRows) => {
   return rowsToSpectra(selectedRows).map((spectra) =>
     calculateColourFidelityIndex(spectra)
@@ -139,6 +153,7 @@ export const calculate = (selectedRows, selectedRowsSampleCount) => {
   );
 
   return {
+    u500: calculateU500(selectedRows),
     colourFidelityIndex: calculateColourFidelityIndices(selectedRows),
     calculateColourFidelityIndexRounded: calculateColourFidelityIndicesRounded(
       selectedRows
