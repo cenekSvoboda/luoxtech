@@ -100,7 +100,8 @@ export const calculateU500 = (selectedRows) => {
           }
       });
   });
-  return [u500Sum / totalSum];
+  const u500Value = u500Sum / totalSum * 100;
+  return [u500Value];
 };
 
 export const calculateColourFidelityIndices = (selectedRows) => {

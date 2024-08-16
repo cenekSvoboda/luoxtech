@@ -434,7 +434,7 @@ const CalculationTable = ({
               exponentialNotation={exponentialNotation}
             />
             <CalculationTableRow
-              heading="U500"
+              heading="U500 [%]"
               samples={calculation.u500}
               exponentialNotation={exponentialNotation}
             />
