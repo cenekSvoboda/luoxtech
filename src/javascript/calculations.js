@@ -90,18 +90,20 @@ export const calculateColourRenderingIndices = (selectedRows) => {
 };
 
 export const calculateU500 = (selectedRows) => {
-  let u500Sum = 0;
-  let totalSum = 0;
+  const result = [];
   rowsToSpectra(selectedRows).map(async (spectra) => {
-      spectra.map(async (xx)=>{
-          totalSum += xx[1];
-          if (xx[0] <= 500) {
-              u500Sum += xx[1];
-          }
-      });
+    let u500Sum = 0;
+    let totalSum = 0;
+    spectra.map(async (xx)=>{
+      totalSum += xx[1];
+      if (xx[0] <= 500) {
+        u500Sum += xx[1];
+      }
+    });
+    const u500Value = u500Sum / totalSum * 100;
+    result.push(u500Value);
   });
-  const u500Value = u500Sum / totalSum * 100;
-  return [u500Value];
+  return result;
 };
 
 export const calculateColourFidelityIndices = (selectedRows) => {
