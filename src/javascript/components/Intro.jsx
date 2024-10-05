@@ -29,6 +29,10 @@ const Intro = () => {
                 Welcome to <span>luoxtech</span>
               </h2>
               <p className="animate__animated animate__fadeInUp">
+                <span style={"color:red;"}>luoxtech.app is a modified clone of luox.app</span>
+                <br />
+                <br />
+                <br />
                 luox is a free-to-use and open-source tool for calculating
                 light- and lighting-related quantities directly in the browser.
                 The tool was inspired by the development of{" "}
