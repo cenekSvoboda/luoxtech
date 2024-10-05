@@ -29,7 +29,7 @@ const Intro = () => {
                 Welcome to <span>luoxtech</span>
               </h2>
               <p className="animate__animated animate__fadeInUp">
-                <span style={"color:red;"}>luoxtech.app is a modified clone of luox.app</span>
+                <span style={{color:"darkred"}}>luoxtech.app is a modified clone of luox.app</span>
                 <br />
                 <br />
                 <br />
