@@ -26,7 +26,7 @@ const Intro = () => {
           <div className="carousel-item active">
             <div className="carousel-container">
               <h2 className="animate__animated animate__fadeInDown">
-                Welcome to <span>luox</span>
+                Welcome to <span>luoxtech</span>
               </h2>
               <p className="animate__animated animate__fadeInUp">
                 luox is a free-to-use and open-source tool for calculating
