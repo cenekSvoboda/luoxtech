@@ -1,7 +1,7 @@
 {
   "name": "lightbox",
   "version": "2.0.0",
-  "description": "",
+  "description": "...",
   "private": true,
   "scripts": {
     "version": "./generate-version-information.sh",
