@@ -6,8 +6,10 @@
   "scripts": {
     "version": "./generate-version-information.sh",
     "test": "npm run version && prettier --check . && eslint --ext .js,.jsx *.js src test && jest",
-    "build": "npm run version && mkdir -p dist && webpack --config webpack.prod.js",
-    "start": "npm run version && mkdir -p dist && webpack-dev-server --open --config webpack.dev.js"
+    "exbuild": "npm run version && mkdir -p dist && webpack --config webpack.prod.js",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && export NODE_OPTIONS=--max_old_space_size=4096 && npm run version && mkdir -p dist && webpack --config webpack.prod.js",
+    "exstart": "npm run version && mkdir -p dist && webpack-dev-server --open --config webpack.dev.js",
+    "start": "export HOST=0.0.0.0 && export PORT=3456 && npm run version && mkdir -p dist && webpack-dev-server --open --config webpack.dev.js --port 3456 --host 0.0.0.0 --disable-host-check"
   },
   "browserslist": [
     "defaults",
@@ -55,7 +57,7 @@
     "url-loader": "^4.1.1",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.2",
+    "webpack-dev-server": "^3.11.3",
     "worker-loader": "^3.0.8"
   },
   "dependencies": {
