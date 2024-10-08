@@ -19,7 +19,7 @@ const NavBar = ({ location }) => {
               className="d-inline-block align-top me-2"
               alt="luox icon"
             />
-            <span className="text-lowercase">luox</span>
+            <span className="text-lowercase">luoxtech</span>
           </a>
         </h1>
       </div>

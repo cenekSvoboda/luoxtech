@@ -8,7 +8,7 @@ import NRCLogo from "../../images/nrc-signature-e-kr.jpg";
 
 const Intro = () => {
   useEffect(() => {
-    document.title = "luox: Home";
+    document.title = "luoxtech: Home";
   });
 
   return (
