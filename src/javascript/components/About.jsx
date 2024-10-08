@@ -4,7 +4,7 @@ import mpiLogo from "../../images/mpi.png";
 
 const About = () => {
   useEffect(() => {
-    document.title = "luox: About this application";
+    document.title = "luoxtech: About this application";
   });
 
   return (

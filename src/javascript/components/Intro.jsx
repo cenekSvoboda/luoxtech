@@ -35,7 +35,9 @@ const Intro = () => {
                   <b>it is an extension for light designers</b>
                   <br/>
                   <br/>
-                  The new formula for U500 (in percent) is added to the system right now. It is an expression of the relative power of shortwave radiation (&quot;blue content&quot;) in visible light. More useful values are coming soon.
+                  The formula for U500 (in percent) is added to the system.
+                  <br/>
+                  It is an expression of the relative power of shortwave radiation (&quot;blue content&quot;) in visible light.
                   <br/>
                   <a style={{color:"white", textDecoration: "underline"}} href="https://brno.cso.lighting/wp-content/uploads/2024/09/CSO-B_WhitePaperU500_9.2024_Fin1ENG.pdf">U500 whitepaper</a>
                 </div>

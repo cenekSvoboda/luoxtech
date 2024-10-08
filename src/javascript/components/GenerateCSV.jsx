@@ -4,7 +4,7 @@ import MultiStepProgressBar from "./MultiStepProgressBar";
 
 const GenerateCSV = () => {
   useEffect(() => {
-    document.title = "luox: Format instructions";
+    document.title = "luoxtech: Format instructions";
   });
 
   return (
