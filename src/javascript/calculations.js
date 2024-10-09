@@ -156,7 +156,6 @@ export const calculate = (selectedRows, selectedRowsSampleCount) => {
   );
 
   return {
-    u500: calculateU500(selectedRows),
     colourFidelityIndex: calculateColourFidelityIndices(selectedRows),
     calculateColourFidelityIndexRounded: calculateColourFidelityIndicesRounded(
       selectedRows
@@ -192,5 +191,6 @@ export const calculate = (selectedRows, selectedRowsSampleCount) => {
     melTotals,
     rodTotals,
     sConeTotals,
+    u500: calculateU500(selectedRows),
   };
 };
