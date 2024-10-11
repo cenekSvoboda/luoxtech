@@ -13,7 +13,8 @@ const NavBar = ({ location }) => {
         <h1 className="text-light">
           <a className="" href="/">
             <img
-              src={luoxIcon}
+              /*src={luoxIcon}*/
+              src="https://placehold.co/40x40"
               width="40"
               height="40"
               className="d-inline-block align-top me-2"

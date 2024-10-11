@@ -95,7 +95,7 @@ const Intro = () => {
               data-aos-easing="ease-in-out"
               data-aos-duration="200"
             >
-              <div className="col-md-3 col-sm-6 col-xs-12 portfolio-wrap filter-card">
+              {/*<div className="col-md-3 col-sm-6 col-xs-12 portfolio-wrap filter-card">
                 <div className="portfolio-item">
                   <a href="http://www.wellcome.ac.uk/">
                     <img
@@ -170,7 +170,7 @@ const Intro = () => {
                     National Research Council of Canada
                   </p>
                 </div>
-              </div>
+              </div>*/}
             </div>
           </div>
         </section>
@@ -186,7 +186,7 @@ const Intro = () => {
               data-aos-easing="ease-in-out"
               data-aos-duration="200"
             >
-              <div className="col-md-2">
+              {/*<div className="col-md-2">
                 <a href="http://cie.co.at/">
                   <img src={CieLogo} width="100%" alt="CIE logo" />
                 </a>
@@ -205,7 +205,7 @@ const Intro = () => {
                   for proper understanding of and calculation of the result of
                   this software.
                 </p>
-              </div>
+              </div>*/}
             </div>
 
             <div
@@ -214,7 +214,7 @@ const Intro = () => {
               data-aos-easing="ease-in-out"
               data-aos-duration="200"
             >
-              <div className="col-md-3 order-1 order-md-2">
+              {/*<div className="col-md-3 order-1 order-md-2">
                 <a href="http://www.ies.org/">
                   <img src={IesLogo} width="100%" alt="IES logo" />
                 </a>
@@ -226,7 +226,7 @@ const Intro = () => {
                   indices from IES TM-30-20. These optional calculations have
                   not been validated.
                 </p>
-              </div>
+              </div>*/}
             </div>
           </div>
         </section>

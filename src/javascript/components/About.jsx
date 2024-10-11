@@ -15,7 +15,7 @@ const About = () => {
             <div className="row">
               <div className="col-12">
                 <div className="row d-flex flex-wrap align-items-center">
-                  <div className="col-md-3 offset-md-3 col-sm-6 col-xs-12">
+                  {/*<div className="col-md-3 offset-md-3 col-sm-6 col-xs-12">
                     <div className="img-item">
                       <a href="https://www.sg.tum.de/en/chronobiology/home/">
                         <img
@@ -38,7 +38,7 @@ const About = () => {
                         />
                       </a>
                     </div>
-                  </div>
+                  </div>*/}
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@ const About = () => {
         <section className="portfolio">
           <div className="container">
             <div className="section-title">
-              <h2>About luox</h2>
+              <h2>About luoxtech</h2>
               <p>
                 A user-friendly, open-access platform for calculating quantities
                 related to light and lighting
@@ -1451,8 +1451,8 @@ const About = () => {
                                   >
                                     <p className="about-us-detail">
                                       The source code is available on GitHub (
-                                      <a href="https://github.com/luox-app/luox/">
-                                        https://github.com/luox-app/luox/
+                                      <a href="https://github.com/cenekSvoboda/luox/tree/U500">
+                                        https://github.com/cenekSvoboda/luox/tree/U500
                                       </a>
                                       ) under the GNU General Public License
                                       v3.0.
