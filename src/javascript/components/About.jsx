@@ -1829,7 +1829,7 @@ const About = () => {
                         </p>
                       </div>
                     </li>
-                    <li>
+                    {/*<li>
                       <a
                         href="#!"
                         data-bs-toggle="collapse"
@@ -1853,7 +1853,7 @@ const About = () => {
                           </ul>
                         </p>
                       </div>
-                    </li>
+                    </li>*/}
                   </ul>
                 </div>
               </div>
