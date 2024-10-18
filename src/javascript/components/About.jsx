@@ -1451,8 +1451,8 @@ const About = () => {
                                   >
                                     <p className="about-us-detail">
                                       The source code is available on GitHub (
-                                      <a href="https://github.com/cenekSvoboda/luox/tree/U500">
-                                        https://github.com/cenekSvoboda/luox/tree/U500
+                                      <a href="https://github.com/cenekSvoboda/luox/tree/CzechWay">
+                                        https://github.com/cenekSvoboda/luox/tree/CzechWay
                                       </a>
                                       ) under the GNU General Public License
                                       v3.0.
