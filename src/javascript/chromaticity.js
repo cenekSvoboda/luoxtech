@@ -28,11 +28,15 @@ const calculateChromaticity = (selectedRows, selectedRowsSampleCount, data) => {
     const x = allX[i] / (allX[i] + allY[i] + allZ[i]);
     const y = allY[i] / (allX[i] + allY[i] + allZ[i]);
     const Y = allY[i];
+    const Z = allZ[i];
+    const X = allX[i];
 
     output[i] = {
       Y,
       x,
       y,
+      X,
+      Z
     };
   }
 

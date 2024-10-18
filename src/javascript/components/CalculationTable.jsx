@@ -113,8 +113,8 @@ const CalculationTable = ({
     ],
     colourRenderingIndex: [{ CCT: 0, Ra: 0 }],
     luminanceTotals: [0],
-    chromaticity31: [{ x: 0, y: 0 }],
-    chromaticity64: [{ x: 0, y: 0 }],
+    chromaticity31: [{ x: 0, y: 0, X: 0, Y: 0, Z: 0 }],
+    chromaticity64: [{ x: 0, y: 0, X: 0, Y: 0, Z: 0 }],
     lConeTotals: [0],
     mConeTotals: [0],
     sConeTotals: [0],
@@ -318,6 +318,21 @@ const CalculationTable = ({
             <CalculationTableRow
               heading="CIE 1931 xy chromaticity [y]"
               samples={calculation.chromaticity31.map(({ y }) => y)}
+              exponentialNotation={exponentialNotation}
+            />
+            <CalculationTableRow
+              heading="CIE XYZ tristimulus values [X]"
+              samples={calculation.chromaticity31.map(({ X }) => X)}
+              exponentialNotation={exponentialNotation}
+            />
+            <CalculationTableRow
+              heading="CIE XYZ tristimulus values [Y]"
+              samples={calculation.chromaticity31.map(({ Y }) => Y)}
+              exponentialNotation={exponentialNotation}
+            />
+            <CalculationTableRow
+              heading="CIE XYZ tristimulus values [Z]"
+              samples={calculation.chromaticity31.map(({ Z }) => Z)}
               exponentialNotation={exponentialNotation}
             />
             {advanced && (
