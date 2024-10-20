@@ -94,27 +94,10 @@ const About = () => {
                                     data-bs-parent=".accordion-list-sub-1"
                                   >
                                     <p className="about-us-detail">
-                                      The purpose of the luox platform is to
-                                      faciliate the calculation of quantities
-                                      related to light and lighting in a
-                                      user-friendly, open-access and free
-                                      fashion. Users can upload spectra (which
-                                      are only stored in the browser) and the
-                                      platform will calculate relevant quantites
-                                      (including (il)luminance, chromaticity,
-                                      and α-opic (ir)radiance and α-opic
-                                      daylight (il)luminances) from the spectra,
-                                      generate a visualisation of the spectrum,
-                                      and enable the export of calculations in
-                                      tabular form. All default quantities
-                                      reported here are supported by the{" "}
-                                      <a href="https://cie.co.at/">
-                                        International Commission on Illumination
-                                        (CIE)
-                                      </a>
-                                      .
+                                      LUOXtech online application is extension based on original platform luox and the purpose is to faciliate the calculation of quantities related to light perception and lighting in open-access and free fashion. Users can upload spectral data and the application will calculate relevant quantites, generate a visualisation of the spectrum, and enable the export of calculations in tabular form. Most of quantities reported here are specified by the <a href="https://cie.co.at/">International
+                                      Commission on Illumination (CIE)</a>.
                                     </p>
-                                    <p>
+                                    {/*<p>
                                       The platform is primarily geared towards
                                       researchers and research users interested
                                       in the effects of light exposure on human
@@ -122,14 +105,14 @@ const About = () => {
                                       interesting to students, academics and
                                       professionals in other disciplines and
                                       areas.
-                                    </p>
-                                    <p className="about-us-detail">
+                                    </p>*/}
+                                    {/*<p className="about-us-detail">
                                       luox is deployed on{" "}
                                       <a href="https://www.netlify.com/">
                                         Netlify
                                       </a>
                                       .
-                                    </p>
+                                    </p>*/}
                                   </div>
                                 </li>
                                 <li>
@@ -147,32 +130,13 @@ const About = () => {
                                     data-bs-parent=".accordion-list-sub-1"
                                   >
                                     <p className="about-us-detail">
-                                      This platform was developed by{" "}
-                                      <a href="https://groupleaders.mpdl.mpg.de/group-leader/manuel-spitschan/">
-                                        Prof. Dr. Manuel Spitschan
-                                      </a>{" "}
-                                      (Technical University of Munich and Max
-                                      Planck Institute for Biological
-                                      Cybernetics) and{" "}
-                                      <a href="https://gofreerange.com/">
-                                        Go Free Range
-                                      </a>
-                                      . Code to calculate colour indices was
-                                      developed by{" "}
-                                      <a href="https://mutsamo.com/">
-                                        Dr. Somang Nam
-                                      </a>{" "}
-                                      and{" "}
-                                      <a href="https://nrc.canada.ca/en/corporate/contact-us/nrc-directory-science-professionals/jennifer-veitch">
-                                        Dr. Jennifer A. Veitch
-                                      </a>{" "}
-                                      at the National Research Council of Canada
-                                      – Construction Research Centre, in
-                                      collaboration with Dr. Spitschan.
+                                      This extended online application is maintained and developed by <a href={"https://ceneksvoboda.eu"}>Čeněk Svoboda</a> (code), Zbyněk Svoboda (management) a Radim Václavíček (concept). Original luox platform was developed by <a href="https://groupleaders.mpdl.mpg.de/group-leader/manuel-spitschan/">Prof.
+                                      Dr. Manuel Spitschan </a> (Technical University of Munich and Max Planck Institute for Biological Cybernetics) and <a href="https://gofreerange.com/">Go
+                                      Free Range</a>. Fore more details see documentation of original luox platform.
                                     </p>
                                   </div>
                                 </li>
-                                <li>
+                                {/*<li>
                                   <a
                                     href="#!"
                                     data-bs-toggle="collapse"
@@ -256,7 +220,7 @@ const About = () => {
                                       appropriate documents, listed below.
                                     </p>
                                   </div>
-                                </li>
+                                </li>*/}
                                 <li>
                                   <a
                                     href="#!"
@@ -274,8 +238,8 @@ const About = () => {
                                     <p className="about-us-detail">
                                       For any support-related questions, please
                                       email{" "}
-                                      <a href="mailto:luox-support@tuebingen.mpg.de">
-                                        luox-support@tuebingen.mpg.de
+                                      <a href="mailto:luoxtech@cso-brno.lighting">
+                                        luoxtech@cso-brno.lighting
                                       </a>
                                       . Please be as specific as possible in
                                       your request.
@@ -300,7 +264,7 @@ const About = () => {
                                       To report bugs and suggest new features,
                                       please raise an issue on the
                                       project&apos;s{" "}
-                                      <a href="https://github.com/luox-app/luox/issues/new">
+                                      <a href="https://github.com/cenekSvoboda/luoxtech/issues">
                                         GitHub page
                                       </a>
                                       . When reporting a bug or any other issue,
@@ -341,9 +305,9 @@ const About = () => {
                                     data-bs-parent=".accordion-list-sub-1"
                                   >
                                     <p>
-                                      Funding to develop luox was provided by:
+                                      This application is managed and operated at the expense of the Czech Lighting Society, group Brno.
                                     </p>
-                                    <p className="about-us-detail">
+{/*                                    <p className="about-us-detail">
                                       <ul>
                                         <li>
                                           <a href="https://wellcome.org/">
@@ -413,7 +377,7 @@ const About = () => {
                                         Netlify Open Source Plan
                                       </a>
                                       .
-                                    </p>
+                                    </p>*/}
                                   </div>
                                 </li>
                                 <li>
