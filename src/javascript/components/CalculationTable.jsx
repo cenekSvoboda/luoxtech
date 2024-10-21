@@ -311,7 +311,7 @@ const CalculationTable = ({
               samples={calculation.luminanceTotals}
               exponentialNotation={exponentialNotation}
             />
-            <CalculationTableRow
+            {/* <CalculationTableRow
               heading="CIE XYZ tristimulus values, normalised to 1 [X]"
               samples={calculation.chromaticity31.map(({ Xnor }) => Xnor)}
               exponentialNotation={exponentialNotation}
@@ -325,7 +325,7 @@ const CalculationTable = ({
               heading="CIE XYZ tristimulus values, normalised to 1 [Z]"
               samples={calculation.chromaticity31.map(({ Znor }) => Znor)}
               exponentialNotation={exponentialNotation}
-            />
+            /> */}
             <CalculationTableRow
               heading="CIE 1931 xy chromaticity [x]"
               samples={calculation.chromaticity31.map(({ x }) => x)}
@@ -454,11 +454,11 @@ const CalculationTable = ({
               samples={calculation.u500}
               exponentialNotation={exponentialNotation}
             />
-            <CalculationTableRow
+            {/* <CalculationTableRow
               heading="U520 (DarkSky) [%]"
               samples={calculation.u520}
               exponentialNotation={exponentialNotation}
-            />
+            /> */}
             {/* <CalculationTableRow
             heading="Colour Fidelity Index [Rf] Rounded"
             samples={calculation.colourFidelityIndexRounded.map(
