@@ -17,6 +17,7 @@ const CalculationTableCSV = ({
   tm30ColourFidelityIndex,
   colourRenderingIndex,
   u500,
+  u520,
 }) => {
   const units =
     radianceOrIrradiance === "radiance" ? "mW ⋅ m⁻² ⋅ sr" : "mW ⋅ m⁻²";
@@ -110,6 +111,10 @@ const CalculationTableCSV = ({
     [
       `U500 [%]`,
       ...u500,
+    ],
+    [
+      `U520 (DarkSky) [%]`,
+      ...u520,
     ],
   ];
 

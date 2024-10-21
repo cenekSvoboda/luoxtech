@@ -135,6 +135,7 @@ const CalculationTable = ({
       mel: [0],
     },
     u500: [0],
+    u520: [0],
   });
 
   const [rfDisplayRows, setRfDisplayRows] = useStateIfMounted();
@@ -451,6 +452,11 @@ const CalculationTable = ({
             <CalculationTableRow
               heading="U500 [%]"
               samples={calculation.u500}
+              exponentialNotation={exponentialNotation}
+            />
+            <CalculationTableRow
+              heading="U520 (DarkSky) [%]"
+              samples={calculation.u520}
               exponentialNotation={exponentialNotation}
             />
             {/* <CalculationTableRow

@@ -130,7 +130,7 @@ const About = () => {
                                     data-bs-parent=".accordion-list-sub-1"
                                   >
                                     <p className="about-us-detail">
-                                      This extended online application is maintained and developed by <a href={"https://ceneksvoboda.eu"}>Čeněk Svoboda</a> (code), Zbyněk Svoboda (management) a Radim Václavíček (concept). Original luox platform was developed by <a href="https://groupleaders.mpdl.mpg.de/group-leader/manuel-spitschan/">Prof.
+                                      This extended online application is maintained and developed by <a href={"https://ceneksvoboda.eu"}>Čeněk Svoboda</a> (code), Zbyněk Svoboda (management) and Radim Václavíček (concept). Original luox platform was developed by <a href="https://groupleaders.mpdl.mpg.de/group-leader/manuel-spitschan/">Prof.
                                       Dr. Manuel Spitschan </a> (Technical University of Munich and Max Planck Institute for Biological Cybernetics) and <a href="https://gofreerange.com/">Go
                                       Free Range</a>. Fore more details see documentation of original luox platform.
                                     </p>

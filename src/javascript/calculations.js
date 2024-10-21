@@ -106,6 +106,23 @@ export const calculateU500 = (selectedRows) => {
   return result;
 };
 
+export const calculateU520 = (selectedRows) => {
+  const result = [];
+  rowsToSpectra(selectedRows).map(async (spectra) => {
+    let u520Sum = 0;
+    let totalSum = 0;
+    spectra.map(async (xx)=>{
+      totalSum += xx[1];
+      if (xx[0] <= 520) {
+        u520Sum += xx[1];
+      }
+    });
+    const u520Value = u520Sum / totalSum * 100;
+    result.push(u520Value);
+  });
+  return result;
+};
+
 export const calculateColourFidelityIndices = (selectedRows) => {
   return rowsToSpectra(selectedRows).map((spectra) =>
     calculateColourFidelityIndex(spectra)
@@ -192,5 +209,6 @@ export const calculate = (selectedRows, selectedRowsSampleCount) => {
     rodTotals,
     sConeTotals,
     u500: calculateU500(selectedRows),
+    u520: calculateU520(selectedRows),
   };
 };
