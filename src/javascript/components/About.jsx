@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 //import tumLogo from "../../images/tum.png";
 //import mpiLogo from "../../images/mpi.png";
-import csoLogo from "../../images/cso.png";
+import csoLogo from "../../images/CSO-Brno_Logo_Positive_GRAY_ENG.svg";
 
 
 const About = () => {
@@ -310,7 +310,7 @@ const About = () => {
                                       This application is managed and operated at the expense of the Czech Lighting Society, group Brno.
                                       <br/>
                                       <div style={{width: "100%", display: "flex", justifyContent: "center" }}>
-                                        <img src={csoLogo} alt="logo ČSO" />
+                                        <img src={csoLogo} alt="logo ČSO" style={{width: "200px"}} />
                                       </div>
                                     </p>
                                     {/* <p className="about-us-detail">
