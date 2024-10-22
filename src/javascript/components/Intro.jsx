@@ -38,11 +38,11 @@ const Intro = () => {
                   <br/>
                 </div>
                 <div style={{backgroundColor: "transparent", color:"#96dffc", padding: "10px" }}>
-                  The formula for U500 (in percent) is added to the system.
+                  The formula for U500 is added to the system.
                   <br/>
-                  It is an expression of the relative power of shortwave radiation (&quot;blue content&quot;) in visible light.
+                  It is a percentage expression of the relative power of shortwave radiation (&quot;blue content&quot;) in visible light.
                   <br/>
-                  For more details see related whitepaper: <a style={{color:"white", textDecoration: "underline"}} href="https://brno.cso.lighting/wp-content/uploads/2024/09/CSO-B_WhitePaperU500_9.2024_Fin1ENG.pdf">U500 whitepaper</a>
+                  For more details see related document: <a style={{color:"white", textDecoration: "underline"}} href="https://brno.cso.lighting/wp-content/uploads/2024/09/CSO-B_WhitePaperU500_9.2024_Fin1ENG.pdf">U500 whitepaper</a>
                 </div>
                 <br />
                 <br />
