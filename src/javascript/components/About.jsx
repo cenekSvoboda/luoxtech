@@ -51,8 +51,8 @@ const About = () => {
             <div className="section-title">
               <h2>About LUOXtech</h2>
               <p>
-                A user-friendly, open-access platform for calculating quantities
-                related to light and lighting
+                {/* A user-friendly, */} Open-access platform for calculating quantities
+                related to perception of light and lighting
               </p>
             </div>
           </div>
