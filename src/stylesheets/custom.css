@@ -36,7 +36,7 @@
 }
 
 #hero::after {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url("../images/light.jpeg") !important;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2)), url("../images/light.jpeg") !important;
     background-position: initial !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;

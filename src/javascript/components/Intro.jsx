@@ -25,7 +25,7 @@ const Intro = () => {
         >
           <div className="carousel-item active">
             <div className="carousel-container">
-              <h2 className="animate__animated animate__fadeInDown">
+              <h2 className="animate__animated animate__fadeInDown" style={{marginTop:"25px"}}>
                 Welcome to <span>LUOXtech</span>
               </h2>
               <p className="animate__animated animate__fadeInUp">
