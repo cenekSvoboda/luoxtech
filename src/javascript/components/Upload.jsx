@@ -49,7 +49,7 @@ const Upload = () => {
 
   useEffect(() => {
     // code to run after render goes here
-    document.title = "luoxtech: Upload spectrum and generate report";
+    document.title = "LUOXtech: Upload spectrum and generate report";
   });
 
   return (

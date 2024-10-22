@@ -3,7 +3,7 @@
 }
 
 #header.header-scrolled {
-    background: rgba(30, 67, 86, 1) !important;
+    background: rgba(0, 0, 0, 1) !important;
     height: 60px !important;
 }
 
@@ -36,7 +36,7 @@
 }
 
 #hero::after {
-    background-image: linear-gradient(to right, rgba(30, 67, 86, 1), rgba(30, 67, 86, 0.9)), url("../images/light.jpeg") !important;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url("../images/light.jpeg") !important;
     background-position: initial !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;

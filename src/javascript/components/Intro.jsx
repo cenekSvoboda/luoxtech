@@ -8,7 +8,7 @@ import NRCLogo from "../../images/nrc-signature-e-kr.jpg";
 
 const Intro = () => {
   useEffect(() => {
-    document.title = "luoxtech: Home";
+    document.title = "LUOXtech: Home";
   });
 
   return (
@@ -26,15 +26,18 @@ const Intro = () => {
           <div className="carousel-item active">
             <div className="carousel-container">
               <h2 className="animate__animated animate__fadeInDown">
-                Welcome to <span>luoxtech</span>
+                Welcome to <span>LUOXtech</span>
               </h2>
               <p className="animate__animated animate__fadeInUp">
-                <div style={{backgroundColor: "#2481a6", color:"#b7c726", boxShadow: "0px 0px 20px red", padding: "10px" }}>
-                  <b>luoxtech.app is a modified clone of luox.app</b>
+                {/* <div style={{backgroundColor: "#2481a6", color:"#b7c726", boxShadow: "0px 0px 20px red", padding: "10px" }}> */}
+                <div style={{backgroundColor: "transparent", color:"#ff9300", padding: "10px" }}>
+                  <b>LUOXtech.app is a modified clone of luox.app</b>
                   <br/>
                   <b>it is an extension for light designers</b>
                   <br/>
                   <br/>
+                </div>
+                <div style={{backgroundColor: "transparent", color:"#96dffc", padding: "10px" }}>
                   The formula for U500 (in percent) is added to the system.
                   <br/>
                   It is an expression of the relative power of shortwave radiation (&quot;blue content&quot;) in visible light.
@@ -44,17 +47,18 @@ const Intro = () => {
                 <br />
                 <br />
                 <br />
-                luox is a free-to-use and open-source tool for calculating
-                light- and lighting-related quantities directly in the browser.
-                The tool was inspired by the development of{" "}
-                <a href="https://doi.org/10.3390/clockssleep1030024">
-                  minimum reporting guidelines
-                </a>{" "}
-                for reporting the stimulus conditions involving light as an
-                intervention in chronobiology, sleep research and environmental
-                psychology experiments.
+                LUOXtech is a free-to-use and open-source tool for calculating
+                lighting-related quantities directly in the browser. The tool was inspired by
+                the development in chronobiology and circadian environment.
+                <br/>
+                <br/>
+                You will need a CSV (comma-separated) or SPDX (following ANSI/IES
+                TM-27-20) file containing the spectral data in range 380 - 780 nm.
+                <br/>
+                <br/>
+                <span style={{color: "gray"}}>LUOXtech is operated by the Czech Lighting Society, group Brno.</span>
               </p>
-              <p className="animate__animated animate__fadeInUp">
+              {/* <p className="animate__animated animate__fadeInUp">
                 For further information about purpose, calculated quantities,
                 and key references, please see{" "}
                 <a href="/about" title="About page">
@@ -77,12 +81,12 @@ const Intro = () => {
                 className="btn-get-started animate__animated animate__fadeInUp"
               >
                 Start Now
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
       </section>
-      <main>
+      {/* <main>
         <section className="portfolio">
           <div className="container">
             <div className="section-title">
@@ -95,7 +99,7 @@ const Intro = () => {
               data-aos-easing="ease-in-out"
               data-aos-duration="200"
             >
-              {/*<div className="col-md-3 col-sm-6 col-xs-12 portfolio-wrap filter-card">
+              <div className="col-md-3 col-sm-6 col-xs-12 portfolio-wrap filter-card">
                 <div className="portfolio-item">
                   <a href="http://www.wellcome.ac.uk/">
                     <img
@@ -170,7 +174,7 @@ const Intro = () => {
                     National Research Council of Canada
                   </p>
                 </div>
-              </div>*/}
+              </div>
             </div>
           </div>
         </section>
@@ -186,7 +190,7 @@ const Intro = () => {
               data-aos-easing="ease-in-out"
               data-aos-duration="200"
             >
-              {/*<div className="col-md-2">
+              <div className="col-md-2">
                 <a href="http://cie.co.at/">
                   <img src={CieLogo} width="100%" alt="CIE logo" />
                 </a>
@@ -205,7 +209,7 @@ const Intro = () => {
                   for proper understanding of and calculation of the result of
                   this software.
                 </p>
-              </div>*/}
+              </div>
             </div>
 
             <div
@@ -214,7 +218,7 @@ const Intro = () => {
               data-aos-easing="ease-in-out"
               data-aos-duration="200"
             >
-              {/*<div className="col-md-3 order-1 order-md-2">
+              <div className="col-md-3 order-1 order-md-2">
                 <a href="http://www.ies.org/">
                   <img src={IesLogo} width="100%" alt="IES logo" />
                 </a>
@@ -226,11 +230,11 @@ const Intro = () => {
                   indices from IES TM-30-20. These optional calculations have
                   not been validated.
                 </p>
-              </div>*/}
+              </div>
             </div>
           </div>
         </section>
-      </main>
+      </main> */}
     </>
   );
 };

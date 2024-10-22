@@ -1,4 +1,4 @@
-# luoxtech
+# LUOXtech
 
 ## Development
 

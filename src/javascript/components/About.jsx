@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import tumLogo from "../../images/tum.png";
-import mpiLogo from "../../images/mpi.png";
+//import tumLogo from "../../images/tum.png";
+//import mpiLogo from "../../images/mpi.png";
+import csoLogo from "../../images/cso.png";
+
 
 const About = () => {
   useEffect(() => {
-    document.title = "luoxtech: About this application";
+    document.title = "LUOXtech: About this application";
   });
 
   return (
@@ -15,7 +17,7 @@ const About = () => {
             <div className="row">
               <div className="col-12">
                 <div className="row d-flex flex-wrap align-items-center">
-                  {/*<div className="col-md-3 offset-md-3 col-sm-6 col-xs-12">
+                  {/* <div className="col-md-3 offset-md-3 col-sm-6 col-xs-12">
                     <div className="img-item">
                       <a href="https://www.sg.tum.de/en/chronobiology/home/">
                         <img
@@ -38,7 +40,7 @@ const About = () => {
                         />
                       </a>
                     </div>
-                  </div>*/}
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -47,7 +49,7 @@ const About = () => {
         <section className="portfolio">
           <div className="container">
             <div className="section-title">
-              <h2>About luoxtech</h2>
+              <h2>About LUOXtech</h2>
               <p>
                 A user-friendly, open-access platform for calculating quantities
                 related to light and lighting
@@ -97,7 +99,7 @@ const About = () => {
                                       LUOXtech online application is extension based on original platform luox and the purpose is to faciliate the calculation of quantities related to light perception and lighting in open-access and free fashion. Users can upload spectral data and the application will calculate relevant quantites, generate a visualisation of the spectrum, and enable the export of calculations in tabular form. Most of quantities reported here are specified by the <a href="https://cie.co.at/">International
                                       Commission on Illumination (CIE)</a>.
                                     </p>
-                                    {/*<p>
+                                    {/* <p>
                                       The platform is primarily geared towards
                                       researchers and research users interested
                                       in the effects of light exposure on human
@@ -105,14 +107,14 @@ const About = () => {
                                       interesting to students, academics and
                                       professionals in other disciplines and
                                       areas.
-                                    </p>*/}
-                                    {/*<p className="about-us-detail">
+                                    </p> */}
+                                    {/* <p className="about-us-detail">
                                       luox is deployed on{" "}
                                       <a href="https://www.netlify.com/">
                                         Netlify
                                       </a>
                                       .
-                                    </p>*/}
+                                    </p> */}
                                   </div>
                                 </li>
                                 <li>
@@ -136,7 +138,7 @@ const About = () => {
                                     </p>
                                   </div>
                                 </li>
-                                {/*<li>
+                                {/* <li>
                                   <a
                                     href="#!"
                                     data-bs-toggle="collapse"
@@ -220,7 +222,7 @@ const About = () => {
                                       appropriate documents, listed below.
                                     </p>
                                   </div>
-                                </li>*/}
+                                </li> */}
                                 <li>
                                   <a
                                     href="#!"
@@ -306,8 +308,10 @@ const About = () => {
                                   >
                                     <p>
                                       This application is managed and operated at the expense of the Czech Lighting Society, group Brno.
+                                      <br/>
+                                      <img src={csoLogo} alt="logo ČSO"/>
                                     </p>
-{/*                                    <p className="about-us-detail">
+                                    {/* <p className="about-us-detail">
                                       <ul>
                                         <li>
                                           <a href="https://wellcome.org/">
@@ -377,10 +381,10 @@ const About = () => {
                                         Netlify Open Source Plan
                                       </a>
                                       .
-                                    </p>*/}
+                                    </p> */}
                                   </div>
                                 </li>
-                                <li>
+                                {/* <li>
                                   <a
                                     href="#!"
                                     data-bs-toggle="collapse"
@@ -651,7 +655,7 @@ const About = () => {
                                       .
                                     </p>
                                   </div>
-                                </li>
+                                </li> */}
                               </ul>
                             </div>
                           </div>
@@ -729,7 +733,7 @@ const About = () => {
                                     </p>
                                   </div>
                                 </li>
-                                <li>
+                                {/* <li>
                                   <a
                                     href="#!"
                                     data-bs-toggle="collapse"
@@ -777,14 +781,14 @@ const About = () => {
                                       sharing URL into MPG.PuRE is permanent.
                                     </p>
                                   </div>
-                                </li>
+                                </li> */}
                               </ul>
                             </div>
                           </div>
                         </div>
                       </div>
                     </li>
-                    <li>
+                    {/* <li>
                       <a
                         href="#!"
                         data-bs-toggle="collapse"
@@ -916,7 +920,7 @@ const About = () => {
                           </div>
                         </div>
                       </div>
-                    </li>
+                    </li> */}
                     <li>
                       <a
                         href="#!"
@@ -994,17 +998,17 @@ const About = () => {
                                       represented under the double precision
                                       will then be limited to approximately 16
                                       decimal places of precision. The
-                                      calculations in <em>_luox_</em> follow the
+                                      calculations in <em>_LUOXtech_</em> follow the
                                       published documents strictly, including
                                       any guidance concerning rounding at
-                                      intermediate stages. This can introduce
+                                      intermediate stages. {/* This can introduce
                                       what appear to be rounding errors when
                                       compared to other calculation tools. In
                                       order to mitigate this issue and to
                                       maximise transparency, <em>_luox_</em>{" "}
                                       provides an option to display all
                                       intermediate values in the calculation, in
-                                      which can be useful to track down errors.
+                                      which can be useful to track down errors. */}
                                     </p>
                                   </div>
                                 </li>
@@ -1293,13 +1297,13 @@ const About = () => {
                                             properties of light sources
                                           </a>
                                         </li>
-                                        <li>
+                                        {/* <li>
                                           <a href="https://store.ies.org/product/tm-30-20-ies-method-for-evaluating-light-source-color-rendition/">
                                             IES TM-30-20: IES method for
                                             evaluating light source color
                                             rendition
                                           </a>
-                                        </li>
+                                        </li> */}
                                       </ul>
                                     </p>
                                   </div>
@@ -1423,7 +1427,7 @@ const About = () => {
                                     </p>
                                   </div>
                                 </li>
-                                <li>
+                                {/* <li>
                                   <a
                                     href="#!"
                                     data-bs-toggle="collapse"
@@ -1476,8 +1480,8 @@ const About = () => {
                                       validated.
                                     </p>
                                   </div>
-                                </li>
-                                <li>
+                                </li> */}
+                                {/* <li>
                                   <a
                                     href="#!"
                                     data-bs-toggle="collapse"
@@ -1527,14 +1531,14 @@ const About = () => {
                                       .
                                     </p>
                                   </div>
-                                </li>
+                                </li> */}
                               </ul>
                             </div>
                           </div>
                         </div>
                       </div>
                     </li>
-                    <li>
+                    {/* <li>
                       <a
                         href="#!"
                         data-bs-toggle="collapse"
@@ -1558,8 +1562,8 @@ const About = () => {
                           Joachim Stormly Hansen, and Hao Xie.
                         </p>
                       </div>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                       <a
                         href="#!"
                         data-bs-toggle="collapse"
@@ -1792,8 +1796,8 @@ const About = () => {
                           are governed by German law.
                         </p>
                       </div>
-                    </li>
-                    {/*<li>
+                    </li> */}
+                    {/* <li>
                       <a
                         href="#!"
                         data-bs-toggle="collapse"
@@ -1817,7 +1821,7 @@ const About = () => {
                           </ul>
                         </p>
                       </div>
-                    </li>*/}
+                    </li> */}
                   </ul>
                 </div>
               </div>

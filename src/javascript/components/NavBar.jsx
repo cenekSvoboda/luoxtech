@@ -1,6 +1,6 @@
 import React from "react";
 import ReactRouterPropTypes from "react-router-prop-types";
-import luoxIcon from "../../images/icon.svg";
+import LUOXtechIcon from "../../images/LUOXtech_Logo_WHITE_alfa1.svg";
 
 const NavBar = ({ location }) => {
   const isHome = location.pathname === "/";
@@ -14,13 +14,13 @@ const NavBar = ({ location }) => {
           <a className="" href="/">
             <img
               /* src={luoxIcon} */
-              src="https://placehold.co/40x40"
-              width="40"
+              src={LUOXtechIcon}
+              width="180"
               height="40"
               className="d-inline-block align-top me-2"
               alt="luox icon"
             />
-            <span className="text-lowercase">luoxtech</span>
+            {/* <span className="text-lowercase">LUOXtech</span> */}
           </a>
         </h1>
       </div>
@@ -39,7 +39,8 @@ const NavBar = ({ location }) => {
           </li>
           <li>
             <a className={isUpload ? "active" : ""} href="/upload">
-              Upload spectrum and generate report
+              {/* Upload spectrum and generate report */}
+              Spectral data upload
             </a>
           </li>
           <li>
