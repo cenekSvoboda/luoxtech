@@ -1,6 +1,6 @@
 import React from "react";
 import ReactRouterPropTypes from "react-router-prop-types";
-import LUOXtechIcon from "../../images/LUOXtech_Logo_WHITE_alfa1.svg";
+import LUOXtechIcon from "../../images/LUOXtech_Logo_GRAY_alfa1.svg";
 
 const NavBar = ({ location }) => {
   const isHome = location.pathname === "/";
