@@ -309,8 +309,9 @@ const About = () => {
                                     <p>
                                       This application is managed and operated at the expense of the Czech Lighting Society, group Brno.
                                       <br/>
-                                      <div style={{width: "100%", display: "flex", justifyContent: "center" }}>
-                                        <img src={csoLogo} alt="logo ČSO" style={{width: "200px"}} />
+                                      <br/>
+                                      <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+                                        <img src={csoLogo} alt="logo ČSO" style={{ width: "170px" }} />
                                       </div>
                                     </p>
                                     {/* <p className="about-us-detail">
