@@ -132,30 +132,31 @@ const About = () => {
                                     data-bs-parent=".accordion-list-sub-1"
                                   >
                                     <p className="about-us-detail">
-                                      This extended online application is maintained and developed by <a href={"https://ceneksvoboda.eu"}>Čeněk Svoboda</a> (code), Zbyněk Svoboda (management) and Radim Václavíček (concept). Original luox platform was developed by <a href="https://groupleaders.mpdl.mpg.de/group-leader/manuel-spitschan/">Prof.
+                                      This extended online application is maintained and developed by <a href={"https://ceneksvoboda.eu"}>Čeněk Svoboda</a> (code), Zbyněk Svoboda (management), and Radim Václavíček (concept). The original luox platform was developed by <a href="https://groupleaders.mpdl.mpg.de/group-leader/manuel-spitschan/">Prof.
                                       Dr. Manuel Spitschan </a> (Technical University of Munich and Max Planck Institute for Biological Cybernetics) and <a href="https://gofreerange.com/">Go
-                                      Free Range</a>. Fore more details see documentation of original luox platform.
+                                      Free Range</a>. For more details, see the documentation of the original <a href={"https://luox.app/"}>luox platform</a>.
                                     </p>
                                   </div>
                                 </li>
-                                {/* <li>
+                                <li>
                                   <a
                                     href="#!"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#accordion-list-1-3"
                                     className="collapsed"
                                   >
-                                    Citing
+                                    {/*Citing*/}
+                                    How to cite
                                   </a>
                                   <div
                                     id="accordion-list-1-3"
                                     className="collapse show"
                                     data-bs-parent=".accordion-list-sub-1"
                                   >
-                                    <p>
+                                    {/*<p>
                                       If you use luox for calculations, please
                                       cite the following (APA format):
-                                    </p>
+                                    </p>*/}
                                     <p>Software:</p>
                                     <p className="about-us-detail">
                                       <strong>
@@ -184,7 +185,7 @@ const About = () => {
                                         doi:10.12688/wellcomeopenres.16595.3
                                       </strong>
                                     </p>
-                                    <p>For citing the source code:</p>
+                                    {/*<p>For citing the source code:</p>
                                     <p className="about-us-detail">
                                       <strong>
                                         Spitschan, M., Nam, S., & Veitch, J. A.
@@ -220,9 +221,9 @@ const About = () => {
                                       When citing other outputs from this
                                       software, we recommend citing the
                                       appropriate documents, listed below.
-                                    </p>
+                                    </p>*/}
                                   </div>
-                                </li> */}
+                                </li>
                                 <li>
                                   <a
                                     href="#!"
@@ -1424,6 +1425,14 @@ const About = () => {
                                       The source code is available on GitHub (
                                       <a href="https://github.com/cenekSvoboda/luox/tree/CzechWay">
                                         https://github.com/cenekSvoboda/luox/tree/CzechWay
+                                      </a>
+                                      ) under the GNU General Public License
+                                      v3.0.
+                                    </p>
+                                    <p className="about-us-detail">
+                                      Original luox platform source code is available on GitHub (
+                                      <a href="https://github.com/luox-app">
+                                        https://github.com/luox-app
                                       </a>
                                       ) under the GNU General Public License
                                       v3.0.
