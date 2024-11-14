@@ -96,7 +96,7 @@ const About = () => {
                                     data-bs-parent=".accordion-list-sub-1"
                                   >
                                     <p className="about-us-detail">
-                                      LUOXtech online application is extension based on original platform luox and the purpose is to faciliate the calculation of quantities related to light perception and lighting in open-access and free fashion. Users can upload spectral data and the application will calculate relevant quantites, generate a visualisation of the spectrum, and enable the export of calculations in tabular form. Most of quantities reported here are specified by the <a href="https://cie.co.at/">International
+                                      LUOXtech online application is extension based on original platform luox and the purpose is to faciliate the calculation of quantities related to light perception and lighting in open-access and free fashion. Users can upload spectral data and the application will calculate relevant quantites, generate a visualisation of the spectrum, and enable the export of calculations in tabular form. Most of quantities reported here are specified by the <a href="https://cie.co.at/" target="_blank" rel="noopener noreferrer">International
                                       Commission on Illumination (CIE)</a>.
                                     </p>
                                     {/* <p>
@@ -164,7 +164,7 @@ const About = () => {
                                         (2022). luox: Platform for calculating
                                         quantities related to light and lighting
                                         [Software]. Available from{" "}
-                                        <a href="https://luox.app/">
+                                        <a href="https://luox.app/" target="_blank" rel="noopener noreferrer">
                                           <strong>https://luox.app/</strong>
                                         </a>
                                         .
@@ -241,7 +241,7 @@ const About = () => {
                                     <p className="about-us-detail">
                                       For any support-related questions, please
                                       email{" "}
-                                      <a href="mailto:luoxtech@cso-brno.lighting">
+                                      <a href="mailto:luoxtech@cso-brno.lighting" target="_blank" rel="noopener noreferrer">
                                         luoxtech@cso-brno.lighting
                                       </a>
                                       . Please be as specific as possible in
@@ -267,7 +267,7 @@ const About = () => {
                                       To report bugs and suggest new features,
                                       please raise an issue on the
                                       project&apos;s{" "}
-                                      <a href="https://github.com/cenekSvoboda/luoxtech/issues">
+                                      <a href="https://github.com/cenekSvoboda/luoxtech/issues"  target="_blank" rel="noopener noreferrer">
                                         GitHub page
                                       </a>
                                       . When reporting a bug or any other issue,
@@ -312,7 +312,10 @@ const About = () => {
                                       <br/>
                                       <br/>
                                       <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-                                        <img src={csoLogo} alt="logo ČSO" style={{ width: "170px" }} />
+                                        <a href="https://brno.cso.lighting/" target="_blank" rel="noopener noreferrer">
+                                          <img src={csoLogo} alt="logo ČSO" style={{ width: "170px" }} />
+                                        </a>
+
                                       </div>
                                     </p>
                                     {/* <p className="about-us-detail">
@@ -725,7 +728,7 @@ const About = () => {
                                       platform can be shared using an URL that
                                       directly encodes the uploaded
                                       spectrum/spectra using Michael Herf&apos;s{" "}
-                                      <a href="https://github.com/herf/spdurl">
+                                      <a href="https://github.com/herf/spdurl" target="_blank" rel="noopener noreferrer">
                                         spdurl
                                       </a>{" "}
                                       package. The sharing URL will open a
@@ -960,7 +963,7 @@ const About = () => {
                                     <p className="about-us-detail">
                                       All default calculations performed here
                                       follow guidance from the{" "}
-                                      <a href="https://cie.co.at/">
+                                      <a href="https://cie.co.at/" target="_blank" rel="noopener noreferrer">
                                         International Commission on Illumination
                                         (CIE)
                                       </a>
@@ -1046,7 +1049,7 @@ const About = () => {
                                             <tr>
                                               <td>CIE 1931 xy (2°)</td>
                                               <td className="about-us-detail">
-                                                <a href="https://cie.co.at/publications/colorimetry-part-1-cie-standard-colorimetric-observers-0">
+                                                <a href="https://cie.co.at/publications/colorimetry-part-1-cie-standard-colorimetric-observers-0" target="_blank" rel="noopener noreferrer">
                                                   ISO/CIE 11664-1:2019
                                                 </a>
                                                 , Table 1 (p. 10-21)
@@ -1056,7 +1059,7 @@ const About = () => {
                                             <tr>
                                               <td>CIE 1964 xy (10°)</td>
                                               <td className="about-us-detail">
-                                                <a href="https://cie.co.at/publications/colorimetry-part-1-cie-standard-colorimetric-observers-0">
+                                                <a href="https://cie.co.at/publications/colorimetry-part-1-cie-standard-colorimetric-observers-0" target="_blank" rel="noopener noreferrer">
                                                   ISO/CIE 11664-1:2019
                                                 </a>
                                                 , Table 2 (p. 22-32)
@@ -1069,7 +1072,7 @@ const About = () => {
                                                 spectra
                                               </td>
                                               <td className="about-us-detail">
-                                                <a href="https://doi.org/10.25039/S026.2018">
+                                                <a href="https://doi.org/10.25039/S026.2018" target="_blank" rel="noopener noreferrer">
                                                   CIE S 026/E:2018
                                                 </a>
                                                 , Table 2 (p. 12-21)
@@ -1084,11 +1087,11 @@ const About = () => {
                                       Note: The CIE S 026/E:2018 a-opic action
                                       spectra are available in tabulated form
                                       from the{" "}
-                                      <a href="http://files.cie.co.at/S026_Table2_Data.xlsx">
+                                      <a href="http://files.cie.co.at/S026_Table2_Data.xlsx" target="_blank" rel="noopener noreferrer">
                                         CIE website
                                       </a>{" "}
                                       (
-                                      <a href="http://web.archive.org/web/20210129094725/http://files.cie.co.at/S026_Table2_Data.xlsx">
+                                      <a href="http://web.archive.org/web/20210129094725/http://files.cie.co.at/S026_Table2_Data.xlsx" target="_blank" rel="noopener noreferrer">
                                         Internet Wayback Machine
                                       </a>
                                       ).
@@ -1125,7 +1128,7 @@ const About = () => {
                                             <tr>
                                               <td>Standard illuminant A</td>
                                               <td className="about-us-detail">
-                                                <a href="http://cie.co.at/publications/colorimetry-part-2-cie-standard-illuminants-0">
+                                                <a href="http://cie.co.at/publications/colorimetry-part-2-cie-standard-illuminants-0" target="_blank" rel="noopener noreferrer">
                                                   ISO 11664-2:2007/CIE S
                                                   014-2:2006
                                                 </a>
@@ -1136,7 +1139,7 @@ const About = () => {
                                             <tr>
                                               <td>Standard illuminant D65</td>
                                               <td className="about-us-detail">
-                                                <a href="http://cie.co.at/publications/colorimetry-part-2-cie-standard-illuminants-0">
+                                                <a href="http://cie.co.at/publications/colorimetry-part-2-cie-standard-illuminants-0" target="_blank" rel="noopener noreferrer">
                                                   ISO 11664-2:2007/CIE S
                                                   014-2:2006
                                                 </a>
@@ -1147,7 +1150,7 @@ const About = () => {
                                             <tr>
                                               <td>Illuminant C</td>
                                               <td className="about-us-detail">
-                                                <a href="https://doi.org/10.25039/TR.015.2018">
+                                                <a href="https://doi.org/10.25039/TR.015.2018" target="_blank" rel="noopener noreferrer">
                                                   CIE 015:2018
                                                 </a>
                                                 , Table 5 (p. 51-53)
@@ -1157,7 +1160,7 @@ const About = () => {
                                             <tr>
                                               <td>Illuminant D50</td>
                                               <td className="about-us-detail">
-                                                <a href="http://cie.co.at/publications/colorimetry-part-2-cie-standard-illuminants-0">
+                                                <a href="http://cie.co.at/publications/colorimetry-part-2-cie-standard-illuminants-0" target="_blank" rel="noopener noreferrer">
                                                   ISO/CIE 11664-2:2022(E)
                                                 </a>
                                                 , Table A.1 (p. 8-14)
@@ -1167,7 +1170,7 @@ const About = () => {
                                             <tr>
                                               <td>Illuminant D75</td>
                                               <td className="about-us-detail">
-                                                <a href="https://doi.org/10.25039/TR.015.2018">
+                                                <a href="https://doi.org/10.25039/TR.015.2018" target="_blank" rel="noopener noreferrer">
                                                   CIE 015:2018
                                                 </a>
                                                 , Table 5 (p. 51-53)
@@ -1177,7 +1180,7 @@ const About = () => {
                                             <tr>
                                               <td>Illuminants F1-F12</td>
                                               <td className="about-us-detail">
-                                                <a href="https://doi.org/10.25039/TR.015.2018">
+                                                <a href="https://doi.org/10.25039/TR.015.2018" target="_blank" rel="noopener noreferrer">
                                                   CIE 015:2018
                                                 </a>
                                                 , Table 10.1 (p. 59-60)
@@ -1187,7 +1190,7 @@ const About = () => {
                                             <tr>
                                               <td>Illuminants FL3.1-FL3.8</td>
                                               <td className="about-us-detail">
-                                                <a href="https://doi.org/10.25039/TR.015.2018">
+                                                <a href="https://doi.org/10.25039/TR.015.2018" target="_blank" rel="noopener noreferrer">
                                                   CIE 015:2018
                                                 </a>
                                                 , Table 10.2 (p. 61-62)
@@ -1197,7 +1200,7 @@ const About = () => {
                                             <tr>
                                               <td>Illuminants FL3.9-FL3.15</td>
                                               <td className="about-us-detail">
-                                                <a href="https://doi.org/10.25039/TR.015.2018">
+                                                <a href="https://doi.org/10.25039/TR.015.2018" target="_blank" rel="noopener noreferrer">
                                                   CIE 015:2018
                                                 </a>
                                                 , Table 10.3 (p. 63-64)
@@ -1207,7 +1210,7 @@ const About = () => {
                                             <tr>
                                               <td>Illuminants HP1-HP5</td>
                                               <td className="about-us-detail">
-                                                <a href="https://doi.org/10.25039/TR.015.2018">
+                                                <a href="https://doi.org/10.25039/TR.015.2018" target="_blank" rel="noopener noreferrer">
                                                   CIE 015:2018
                                                 </a>
                                                 , Table 11 (p. 65-66)
@@ -1217,7 +1220,7 @@ const About = () => {
                                             <tr>
                                               <td>Illuminants LED-B1-LED-B5</td>
                                               <td className="about-us-detail">
-                                                <a href="https://doi.org/10.25039/TR.015.2018">
+                                                <a href="https://doi.org/10.25039/TR.015.2018" target="_blank" rel="noopener noreferrer">
                                                   CIE 015:2018
                                                 </a>
                                                 , Table 12.1 (p. 67-68)
@@ -1230,7 +1233,7 @@ const About = () => {
                                                 LED-V1, LED-V2
                                               </td>
                                               <td className="about-us-detail">
-                                                <a href="https://doi.org/10.25039/TR.015.2018">
+                                                <a href="https://doi.org/10.25039/TR.015.2018" target="_blank" rel="noopener noreferrer">
                                                   CIE 015:2018
                                                 </a>
                                                 , Table 12.2 (p. 69-70)
@@ -1260,42 +1263,42 @@ const About = () => {
                                     <p className="about-us-detail">
                                       <ul>
                                         <li>
-                                          <a href="http://cie.co.at/publications/cie-2017-colour-fidelity-index-accurate-scientific-use">
+                                          <a href="http://cie.co.at/publications/cie-2017-colour-fidelity-index-accurate-scientific-use" target="_blank" rel="noopener noreferrer">
                                             CIE 224:2017: CIE 2017 Colour
                                             Fidelity Index for accurate
                                             scientific use
                                           </a>
                                         </li>
                                         <li>
-                                          <a href="http://cie.co.at/publications/colorimetry-4th-edition">
+                                          <a href="http://cie.co.at/publications/colorimetry-4th-edition" target="_blank" rel="noopener noreferrer">
                                             CIE 015:2018: Colorimetry, 4th
                                             Edition
                                           </a>
                                           , DOI:{" "}
-                                          <a href="https://doi.org/10.25039/TR.015.2018">
+                                          <a href="https://doi.org/10.25039/TR.015.2018" target="_blank" rel="noopener noreferrer">
                                             10.25039/TR.015.2018
                                           </a>
                                         </li>
                                         <li>
-                                          <a href="http://cie.co.at/publications/colorimetry-part-2-cie-standard-illuminants-0">
+                                          <a href="http://cie.co.at/publications/colorimetry-part-2-cie-standard-illuminants-0" target="_blank" rel="noopener noreferrer">
                                             ISO 11664-2:2007/CIE S 014-2:2006:
                                             Colorimetry — Part 2: CIE Standard
                                             Illuminants
                                           </a>
                                         </li>
                                         <li>
-                                          <a href="http://cie.co.at/publications/cie-system-metrology-optical-radiation-iprgc-influenced-responses-light-0">
+                                          <a href="http://cie.co.at/publications/cie-system-metrology-optical-radiation-iprgc-influenced-responses-light-0" target="_blank" rel="noopener noreferrer">
                                             CIE S 026/E:2018: CIE System for
                                             Metrology of Optical Radiation for
                                             ipRGC-Influenced Responses to Light
                                           </a>
                                           , DOI:{" "}
-                                          <a href="https://doi.org/10.25039/S026.2018">
+                                          <a href="https://doi.org/10.25039/S026.2018" target="_blank" rel="noopener noreferrer">
                                             10.25039/S026.2018
                                           </a>
                                         </li>
                                         <li>
-                                          <a href="https://cie.co.at/publications/method-measuring-and-specifying-colour-rendering-properties-light-sources">
+                                          <a href="https://cie.co.at/publications/method-measuring-and-specifying-colour-rendering-properties-light-sources" target="_blank" rel="noopener noreferrer">
                                             CIE 13.3-1995 : Method of measuring
                                             and specifying colour rendering
                                             properties of light sources
@@ -1365,12 +1368,12 @@ const About = () => {
                                                 683 lm/W acceptable &quot;for
                                                 all practical applications&quot;
                                                 according to{" "}
-                                                <a href="http://cie.co.at/publications/photometry-cie-system-physical-photometry">
+                                                <a href="http://cie.co.at/publications/photometry-cie-system-physical-photometry" target="_blank" rel="noopener noreferrer">
                                                   ISO 23539:2005/CIE S 010:2004
                                                 </a>
                                                 , 683.0015478 lm/W exact value
                                                 used in the{" "}
-                                                <a href="https://doi.org/10.25039/S026.2018.TB">
+                                                <a href="https://doi.org/10.25039/S026.2018.TB" target="_blank" rel="noopener noreferrer">
                                                   CIE S 026 toolbox
                                                 </a>
                                                 ; usually rounded up to 683.002
@@ -1389,7 +1392,7 @@ const About = () => {
                                               </td>
                                               <td className="about-us-detail">
                                                 Following{" "}
-                                                <a href="https://cie.co.at/publications/method-measuring-and-specifying-colour-rendering-properties-light-sources">
+                                                <a href="https://cie.co.at/publications/method-measuring-and-specifying-colour-rendering-properties-light-sources" target="_blank" rel="noopener noreferrer">
                                                   CIE 13.3-1995
                                                 </a>
                                                 , luox rounds to the nearest
@@ -1423,7 +1426,7 @@ const About = () => {
                                   >
                                     <p className="about-us-detail">
                                       The source code is available on GitHub (
-                                      <a href="https://github.com/cenekSvoboda/luox/tree/CzechWay">
+                                      <a href="https://github.com/cenekSvoboda/luox/tree/CzechWay" target="_blank" rel="noopener noreferrer">
                                         https://github.com/cenekSvoboda/luox/tree/CzechWay
                                       </a>
                                       ) under the GNU General Public License
@@ -1431,7 +1434,7 @@ const About = () => {
                                     </p>
                                     <p className="about-us-detail">
                                       The original luox platform source code is available on GitHub (
-                                      <a href="https://github.com/luox-app">
+                                      <a href="https://github.com/luox-app" target="_blank" rel="noopener noreferrer">
                                         https://github.com/luox-app
                                       </a>
                                       ) under the GNU General Public License
