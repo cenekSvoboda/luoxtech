@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-//import tumLogo from "../../images/tum.png";
-//import mpiLogo from "../../images/mpi.png";
+// import tumLogo from "../../images/tum.png";
+// import mpiLogo from "../../images/mpi.png";
 import csoLogo from "../../images/CSO-Brno_Logo_Positive_GRAY_ENG.svg";
 
 
@@ -132,9 +132,9 @@ const About = () => {
                                     data-bs-parent=".accordion-list-sub-1"
                                   >
                                     <p className="about-us-detail">
-                                      This extended online application is maintained and developed by <a href={"https://ceneksvoboda.eu"}>Čeněk Svoboda</a> (code), Zbyněk Svoboda (management), and Radim Václavíček (concept). The original luox platform was developed by <a href="https://groupleaders.mpdl.mpg.de/group-leader/manuel-spitschan/">Prof.
-                                      Dr. Manuel Spitschan </a> (Technical University of Munich and Max Planck Institute for Biological Cybernetics) and <a href="https://gofreerange.com/">Go
-                                      Free Range</a>. For more details, see the documentation of the original <a href={"https://luox.app/"}>luox platform</a>.
+                                      This extended online application is maintained and developed by <a href="https://ceneksvoboda.eu" target="_blank" rel="noopener noreferrer">Čeněk Svoboda</a> (code), Zbyněk Svoboda (management), and Radim Václavíček (concept). The original luox platform was developed by <a href="https://groupleaders.mpdl.mpg.de/group-leader/manuel-spitschan/" target="_blank" rel="noopener noreferrer">Prof.
+                                      Dr. Manuel Spitschan </a> (Technical University of Munich and Max Planck Institute for Biological Cybernetics) and <a href="https://gofreerange.com/" target="_blank" rel="noopener noreferrer">Go
+                                      Free Range</a>. For more details, see the documentation of the original <a href="https://luox.app/" target="_blank" rel="noopener noreferrer">luox platform</a>.
                                     </p>
                                   </div>
                                 </li>
@@ -145,7 +145,7 @@ const About = () => {
                                     data-bs-target="#accordion-list-1-3"
                                     className="collapsed"
                                   >
-                                    {/*Citing*/}
+                                    {/* Citing */}
                                     How to cite
                                   </a>
                                   <div
@@ -153,10 +153,10 @@ const About = () => {
                                     className="collapse show"
                                     data-bs-parent=".accordion-list-sub-1"
                                   >
-                                    {/*<p>
+                                    {/* <p>
                                       If you use luox for calculations, please
                                       cite the following (APA format):
-                                    </p>*/}
+                                    </p> */}
                                     <p>Software:</p>
                                     <p className="about-us-detail">
                                       <strong>
@@ -185,7 +185,7 @@ const About = () => {
                                         doi:10.12688/wellcomeopenres.16595.3
                                       </strong>
                                     </p>
-                                    {/*<p>For citing the source code:</p>
+                                    {/* <p>For citing the source code:</p>
                                     <p className="about-us-detail">
                                       <strong>
                                         Spitschan, M., Nam, S., & Veitch, J. A.
@@ -221,7 +221,7 @@ const About = () => {
                                       When citing other outputs from this
                                       software, we recommend citing the
                                       appropriate documents, listed below.
-                                    </p>*/}
+                                    </p> */}
                                   </div>
                                 </li>
                                 <li>
@@ -1430,7 +1430,7 @@ const About = () => {
                                       v3.0.
                                     </p>
                                     <p className="about-us-detail">
-                                      Original luox platform source code is available on GitHub (
+                                      The original luox platform source code is available on GitHub (
                                       <a href="https://github.com/luox-app">
                                         https://github.com/luox-app
                                       </a>
