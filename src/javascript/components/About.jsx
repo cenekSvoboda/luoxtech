@@ -1373,7 +1373,7 @@ const About = () => {
                                                 </a>
                                                 , 683.0015478 lm/W exact value
                                                 used in the{" "}
-                                                <a href="https://doi.org/10.25039/S026.2018.TB" target="_blank" rel="noopener noreferrer">
+                                                <a href="https://cie.co.at/news/launch-cie-s-026-toolbox-and-user-guide" target="_blank" rel="noopener noreferrer">
                                                   CIE S 026 toolbox
                                                 </a>
                                                 ; usually rounded up to 683.002
