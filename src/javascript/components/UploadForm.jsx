@@ -25,6 +25,7 @@ const UploadForm = ({
   isLoaded,
   setLoaded,
   setModalView,
+  setShowInstructions
 }) => {
   const [powerScale, setPowerScale] = useState("watt");
   const [areaScale, setAreaScale] = useState("metresq");
@@ -43,6 +44,7 @@ const UploadForm = ({
     setRelativePowers({});
     setLoaded(false);
     setRefHAB(null);
+    setShowInstructions(true);
   };
 
   const handleRadianceOrIrradiance = ({ target: { value } }) => {
@@ -135,6 +137,7 @@ const UploadForm = ({
             setErrors(csvErrors);
             reset();
           } else {
+            setShowInstructions(false);
             handleData(data);
             setModalView(true);
             fileInput.current.value = null;
@@ -153,6 +156,7 @@ const UploadForm = ({
               setErrors(csvErrors);
               reset();
             } else {
+              setShowInstructions(false);
               handleData(data);
               setModalView(true);
               fileInput.current.value = null;
@@ -226,6 +230,7 @@ const UploadForm = ({
             },
           ]);
         };
+        setShowInstructions(false);
       } else {
         setErrors([
           {
