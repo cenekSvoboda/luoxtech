@@ -1,12 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import WellcomeLogo from "../../images/wellcome-logo.png";
 import SllLogo from "../../images/society-of-light-and-lighting-logo.png";
 import UooLogo from "../../images/university-of-oxford-logo.svg";
 import CieLogo from "../../images/cie-logo.jpg";
 import IesLogo from "../../images/illuminating-engineering-society-logo.png";
 import NRCLogo from "../../images/nrc-signature-e-kr.jpg";
+import UploadForm from "./UploadForm";
+import { Link } from "react-router-dom";
+import ManageCSV from "./ManageCSV";
+import Results from "./Results";
 
 const Intro = () => {
+  const [radianceOrIrradiance, setRadianceOrIrradiance] = useState(
+    "irradiance"
+  );
+  const [rows, setRows] = useState([]);
+  const [sampleCount, setSampleCount] = useState(0);
+  const [selectedRows, setSelectedRows] = useState([]);
+  const [selectedRowsSampleCount, setSelectedRowsSampleCount] = useState(0);
+  const [measurementLabels, setMeasurementLabels] = useState({});
+  const [csv, setCSV] = useState([]);
+  const [relativePowers, setRelativePowers] = useState({});
+  const [powerMode, setPowerMode] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(false);
+  const [isLoaded, setLoaded] = useState(false);
+  const [refHAB, setRefHAB] = useState(null);
+  const [modalView, setModalView] = useState(false);
+  const fileInput = useRef();
+
   useEffect(() => {
     document.title = "LUOXtech: Home";
   });
@@ -235,6 +256,60 @@ const Intro = () => {
           </div>
         </section>
       </main> */}
+
+      <section className="why-us pt-2 upload-section">
+        <div className="container p-4 text-center upload-div">
+          <div className="row justify-content-center">
+            <UploadForm
+              radianceOrIrradiance={radianceOrIrradiance}
+              measurementLabels={measurementLabels}
+              setRadianceOrIrradiance={setRadianceOrIrradiance}
+              setRows={setRows}
+              setSampleCount={setSampleCount}
+              setMeasurementLabels={setMeasurementLabels}
+              csv={csv}
+              setCSV={setCSV}
+              relativePowers={relativePowers}
+              setRelativePowers={setRelativePowers}
+              setPowerMode={setPowerMode}
+              powerMode={powerMode}
+              fileInput={fileInput}
+              setRefHAB={setRefHAB}
+              isLoaded={isLoaded}
+              setLoaded={setLoaded}
+              setModalView={setModalView}
+              setShowInstructions={setShowInstructions}
+            />
+
+            {modalView ? (
+              <ManageCSV
+                rows={rows}
+                sampleCount={sampleCount}
+                setSelectedRows={setSelectedRows}
+                setSelectedRowsSampleCount={setSelectedRowsSampleCount}
+                measurementLabels={measurementLabels}
+                setMeasurementLabels={setMeasurementLabels}
+                modalView={modalView}
+                setModalView={setModalView}
+              />
+            ) : (
+              <br />
+            )}
+
+            <Results
+              selectedRows={selectedRows}
+              selectedRowsSampleCount={selectedRowsSampleCount}
+              radianceOrIrradiance={radianceOrIrradiance}
+              measurementLabels={measurementLabels}
+              powerMode={powerMode}
+              isLoaded={isLoaded}
+              setLoaded={setLoaded}
+              refHAB={refHAB}
+              setRefHAB={setRefHAB}
+            />
+          </div>
+        </div>
+      </section>
     </>
   );
 };

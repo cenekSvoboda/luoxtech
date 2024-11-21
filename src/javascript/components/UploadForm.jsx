@@ -333,9 +333,9 @@ const UploadForm = ({
 
             <div className="form-group">
               <div className="file-drop-area col-md-6 offset-md-3 col-xs-12">
-                <span className="choose-file-button">Choose files</span>
+                <span className="choose-file-button">Choose file</span>
                 <span className="file-message">
-                  or drag and drop files here
+                  or drag and drop file here
                 </span>
                 <input
                   type="file"
