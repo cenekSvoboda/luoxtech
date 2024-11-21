@@ -15,7 +15,7 @@ const Upload = () => {
   const [measurementLabels, setMeasurementLabels] = useState({});
   const [csv, setCSV] = useState([]);
   const [relativePowers, setRelativePowers] = useState({});
-  const [powerMode, setPowerMode] = useState(true);
+  const [powerMode, setPowerMode] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
   const [refHAB, setRefHAB] = useState(null);
   const [modalView, setModalView] = useState(false);
@@ -58,8 +58,8 @@ const Upload = () => {
         <section className="portfolio">
           <div className="container">
             <div className="section-title">
-              <h2>Choose spectrum data and generate report</h2>
-              {/* <p className="justify-content-center">
+              <h2>Upload spectrum and generate report</h2>
+              <p className="justify-content-center">
                 <label htmlFor="pro_mode_checkbox" className="promode-label">
                   <input
                     type="checkbox"
@@ -70,13 +70,11 @@ const Upload = () => {
                   />{" "}
                   Power user mode (check if your SPD columns &gt; 5)
                 </label>
-              </p> */}
-
-              {/* <MultiStepProgressBar
+              </p>
+              <MultiStepProgressBar
                 page="upload"
                 // onPageNumberClick={nextPageNumber}
-              /> */}
-
+              />
             </div>
           </div>
         </section>

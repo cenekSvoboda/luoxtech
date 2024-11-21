@@ -28,7 +28,7 @@ const UploadForm = ({
 }) => {
   const [powerScale, setPowerScale] = useState("watt");
   const [areaScale, setAreaScale] = useState("metresq");
-  const [fileType, setFileType] = useState("csv");
+  // const [fileType, setFileType] = useState("csv");
   const [errors, setErrors] = useState([]);
   const [absoluteOrRelative, setAbsoluteOrRelative] = useState("absolute");
 
@@ -75,7 +75,7 @@ const UploadForm = ({
     }));
   };
 
-  const handleFileTypeChange = (e) => {
+  /* const handleFileTypeChange = (e) => {
     fileInput.current.value = null; // eslint-disable-line no-param-reassign
     reset();
     if (e.target.checked) {
@@ -91,7 +91,7 @@ const UploadForm = ({
       }
       setFileType("csv");
     }
-  };
+  }; */
 
   const handleData = (data) => {
     const [rawHeader, ...rawBody] = data;
@@ -278,7 +278,7 @@ const UploadForm = ({
       <div className="row">
         <div className="col">
           <h2 className="my-3">
-            Choose your spectral power distribution data.
+            Step 1. Choose your spectral power distribution data.
           </h2>
 
           <form>

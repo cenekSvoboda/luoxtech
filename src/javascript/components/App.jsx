@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Intro from "./Intro";
-import GenerateCSV from "./GenerateCSV";
+// import GenerateCSV from "./GenerateCSV";
 import Upload from "./Upload";
 import Report from "./Report";
 import About from "./About";
@@ -40,9 +40,9 @@ const App = () => {
           <Route path="/upload">
             <Upload />
           </Route>
-          <Route path="/format-info">
+          {/* <Route path="/format-info">
             <GenerateCSV />
-          </Route>
+          </Route> */}
           <Route path="/about">
             <About />
           </Route>

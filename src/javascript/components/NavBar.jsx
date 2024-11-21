@@ -4,7 +4,7 @@ import LUOXtechIcon from "../../images/LUOXtech_Logo_GRAY_alfa1.svg";
 
 const NavBar = ({ location }) => {
   const isHome = location.pathname === "/";
-  const isFormatInfo = location.pathname === "/format-info";
+  // const isFormatInfo = location.pathname === "/format-info";
   const isUpload = location.pathname === "/upload";
   const isAbout = location.pathname === "/about";
   return (
@@ -32,15 +32,15 @@ const NavBar = ({ location }) => {
               Home
             </a>
           </li>
-          <li>
+          {/* <li>
             <a className={isFormatInfo ? "active" : ""} href="/format-info">
               Format instructions
             </a>
-          </li>
+          </li> */}
           <li>
             <a className={isUpload ? "active" : ""} href="/upload">
               {/* Upload spectrum and generate report */}
-              Spectral data upload
+              Choose spectral data (with instructions)
             </a>
           </li>
           <li>
