@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import UploadForm from "./UploadForm";
 import Results from "./Results";
-import MultiStepProgressBar from "./MultiStepProgressBar";
+// import MultiStepProgressBar from "./MultiStepProgressBar";
 import ManageCSV from "./ManageCSV";
 
 const Upload = () => {
@@ -21,7 +21,7 @@ const Upload = () => {
   const [modalView, setModalView] = useState(false);
   const fileInput = useRef();
 
-  const userModeChange = () => {
+  /* const userModeChange = () => {
     setPowerMode((checked) => !checked);
     if (fileInput.current.files.length > 0) {
       setCSV([]);
@@ -32,7 +32,7 @@ const Upload = () => {
 
       fileInput.current.value = null;
     }
-  };
+  }; */
 
   const LoadingIndicator = () => {
     return (
@@ -59,7 +59,7 @@ const Upload = () => {
           <div className="container">
             <div className="section-title">
               <h2>Upload spectrum and generate report</h2>
-              <p className="justify-content-center">
+              {/* <p className="justify-content-center">
                 <label htmlFor="pro_mode_checkbox" className="promode-label">
                   <input
                     type="checkbox"
@@ -74,7 +74,7 @@ const Upload = () => {
               <MultiStepProgressBar
                 page="upload"
                 // onPageNumberClick={nextPageNumber}
-              />
+              /> */}
             </div>
           </div>
         </section>
