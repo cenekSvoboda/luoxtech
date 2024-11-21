@@ -19,7 +19,7 @@ const UploadForm = ({
   setRelativePowers,
   setCSV,
   csv,
-  powerMode,
+  // powerMode,
   fileInput,
   setRefHAB,
   isLoaded,
@@ -109,7 +109,8 @@ const UploadForm = ({
 
     const body = fullBody.map((row) => row.map((value) => parseFloat(value)));
 
-    const validationErrors = validateInput(header, body, powerMode);
+    // const validationErrors = validateInput(header, body, powerMode);
+    const validationErrors = validateInput(header, body, true);
     if (validationErrors.length > 0) {
       setErrors(validationErrors);
       reset();
@@ -404,7 +405,7 @@ UploadForm.propTypes = {
   measurementLabels: PropTypes.objectOf(PropTypes.string).isRequired,
   relativePowers: PropTypes.objectOf(PropTypes.string).isRequired,
   csv: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
-  powerMode: PropTypes.bool.isRequired,
+//  powerMode: PropTypes.bool.isRequired,
   fileInput: PropTypes.objectOf(PropTypes.shape).isRequired,
   isLoaded: PropTypes.bool.isRequired,
 
@@ -417,6 +418,7 @@ UploadForm.propTypes = {
   setRefHAB: PropTypes.func.isRequired,
   setLoaded: PropTypes.func.isRequired,
   setModalView: PropTypes.func.isRequired,
+  setShowInstructions: PropTypes.func.isRequired,
 };
 
 const AbsoluteUnits = ({
