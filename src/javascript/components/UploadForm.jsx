@@ -129,17 +129,7 @@ const UploadForm = ({
       if (file) {
         setLoaded(true);
       }
-      if (fileType === "csv") {
-        if (file.name.toLowerCase().indexOf(".csv") === -1) {
-          setErrors([
-            {
-              row: ALL_ROW_CONST,
-              message: "Invalid File Format. File Needs To Be In .CSV Format",
-            },
-          ]);
-          reset();
-          return;
-        }
+      if (file.name.toLowerCase().indexOf(".csv") !== -1) {
         parseCSV(file).then(({ data, errors: csvErrors }) => {
           if (csvErrors.length > 0) {
             setErrors(csvErrors);
@@ -150,17 +140,7 @@ const UploadForm = ({
             fileInput.current.value = null;
           }
         });
-      } else if (fileType === "xlsx") {
-        if (file.name.toLowerCase().indexOf(".xlsx") === -1) {
-          setErrors([
-            {
-              row: ALL_ROW_CONST,
-              message: "Invalid File Format. File Needs To Be In .XLSX Format",
-            },
-          ]);
-          reset();
-          return;
-        }
+      } else if (file.name.toLowerCase().indexOf(".xlsx") !== -1 || (file.name.toLowerCase().indexOf(".xls") !== -1) && file.name.toLowerCase().indexOf(".xlsx") === -1) {
         const reader = new FileReader();
         reader.onload = (evt) => {
           const bstr = evt.target.result;
@@ -180,17 +160,7 @@ const UploadForm = ({
           });
         };
         reader.readAsBinaryString(file);
-      } else if (fileType === "spdx") {
-        if (file.name.toLowerCase().indexOf(".spdx") === -1) {
-          setErrors([
-            {
-              row: ALL_ROW_CONST,
-              message: "Invalid File Format. File Needs To Be In .SPDX Format",
-            },
-          ]);
-          reset();
-          return;
-        }
+      } else if (file.name.toLowerCase().indexOf(".spdx" !== -1)) {
         const reader = new FileReader();
         reader.readAsText(file, "UTF-8");
         reader.onload = (evt) => {
@@ -256,6 +226,14 @@ const UploadForm = ({
             },
           ]);
         };
+      } else {
+        setErrors([
+          {
+            row: ALL_ROW_CONST,
+            message: "Unrecognized File Format. File Needs To Be In .XLSX, .XLS, .CSV or .SPDX Format",
+          },
+        ]);
+        reset();
       }
     }
   };
