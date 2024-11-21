@@ -278,11 +278,11 @@ const UploadForm = ({
       <div className="row">
         <div className="col">
           <h2 className="my-3">
-            Step 1. Upload your spectral power distribution data.
+            Choose your spectral power distribution data.
           </h2>
 
           <form>
-            <p>Select an import File Type:</p>
+            {/* <p>Select an import File Type:</p>
             <div>
               <label htmlFor="csv">
                 <input
@@ -323,7 +323,7 @@ const UploadForm = ({
                 />{" "}
                 .XLSX
               </label>
-            </div>
+            </div> */}
 
             <div className="form-group">
               <div className="file-drop-area col-md-6 offset-md-3 col-xs-12">
