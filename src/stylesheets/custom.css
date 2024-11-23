@@ -281,22 +281,24 @@
     transition: 0.2s;
     margin-top: 20px !important;
     margin-bottom: 20px !important;
+    font-weight: bold;
 }
 
 .choose-file-button {
     flex-shrink: 0;
     background-color: rgba(255, 255, 255, 0.04);
-    border: 1px solid black;
-    border-radius: 3px;
+    border: 2px solid black;
+    border-radius: 7px;
     padding: 8px 15px;
     margin-right: 10px;
-    font-size: 12px;
+    font-size: 1.4em;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
 .file-message {
     font-size: small;
-    font-weight: 300;
+    font-weight: bold;
     line-height: 1.4;
     white-space: nowrap;
     overflow: hidden;

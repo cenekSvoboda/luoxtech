@@ -107,6 +107,8 @@ const Upload = () => {
               />
 
               {showInstructions ? (
+
+
               <div className="row">
                 <div className="col-12">
                   <h1 className="my-5">Format instructions</h1>
@@ -210,6 +212,7 @@ const Upload = () => {
                   </p> */}
                 </div>
               </div>
+
               ) : (
               <br />
               )}
