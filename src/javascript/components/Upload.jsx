@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import UploadForm from "./UploadForm";
 import Results from "./Results";
 // import MultiStepProgressBar from "./MultiStepProgressBar";
@@ -203,11 +203,11 @@ const Upload = () => {
                     information, please see <a href="/about">the about page</a>.
                   </p>
 
-                  <p className="my-5">
+                  {/* <p className="my-5">
                     <Link to="/upload" className="btn btn-primary">
                       Next
                     </Link>
-                  </p>
+                  </p> */}
                 </div>
               </div>
               ) : (
