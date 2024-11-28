@@ -27,7 +27,7 @@ const UploadForm = ({
   setModalView,
   setShowInstructions
 }) => {
-  const [powerScale, setPowerScale] = useState("watt");
+  const [powerScale, setPowerScale] = useState("milliwatt");
   const [areaScale, setAreaScale] = useState("metresq");
   // const [fileType, setFileType] = useState("csv");
   const [errors, setErrors] = useState([]);
@@ -105,7 +105,7 @@ const UploadForm = ({
 
     let realMeasurementNumber = 0;
     // eslint-disable-next-line no-plusplus
-    for (let i = 1; i < data.length; ++i) {
+    for (let i = 0; i < data.length; ++i) {
       // Check if the first value of the row starts with a number between 100 and 400
       const firstValue = String(data[i][0]);
       const startingNumber = Number(firstValue.slice(0,3));
