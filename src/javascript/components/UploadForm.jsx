@@ -96,9 +96,59 @@ const UploadForm = ({
   }; */
 
   const handleData = (data) => {
-    const [rawHeader, ...rawBody] = data;
+    // const [rawHeader, ...rawBody] = data;
+
+    // assuming "data" is your 2D array
+    let rawHeader = data[0];
+    let startAdding = false;
+    const rawBody = [];
+
+    let realMeasurementNumber = 0;
+    // eslint-disable-next-line no-plusplus
+    for (let i = 1; i < data.length; ++i) {
+      // Check if the first value of the row starts with a number between 100 and 400
+      const firstValue = String(data[i][0]);
+      const startingNumber = Number(firstValue.slice(0,3));
+
+      if (!startAdding && startingNumber >= 100 && startingNumber <= 400) {
+        startAdding = true;
+      }
+
+      if (startAdding) {
+        // Create a copy of the array
+        const array = [...data[i]];
+
+        // Remove nulls from the end of the array
+        while (array[array.length - 1] == null) {
+          array.pop();
+        }
+
+        realMeasurementNumber = array.length;
+
+        // Add processed array to rawBody
+        rawBody.push(array);
+      }
+    }
+
+    // Replace all null values in rawHeader with 'header'
+    for(let i = 0; i < rawHeader.length; i++) {
+      if(rawHeader[i] === null){
+        rawHeader[i] = 'header';
+      }
+    }
+
+    // If the length of the rawHeader array is less than realMeasurementNumber, add 'header' till it's full
+    // If the length of the rawHeader array exceeds realMeasurementNumber, trim it back to realMeasurementNumber
+    if (rawHeader.length < realMeasurementNumber) {
+      while(rawHeader.length < realMeasurementNumber) {
+        rawHeader.push('header');
+      }
+    } else {
+      rawHeader = rawHeader.slice(0, realMeasurementNumber);
+    }
 
     let header = rawHeader;
+
     let fullBody = rawBody;
     if (rawHeader.every((value) => typeof value === "number")) {
       fullBody = [rawHeader].concat(rawBody);
@@ -107,7 +157,7 @@ const UploadForm = ({
       );
     }
 
-    const body = fullBody.map((row) => row.map((value) => parseFloat(value)));
+    const body = fullBody.map((row) => row.map((value) => parseFloat(String(value).replace(/,/g, '.'))));
 
     // const validationErrors = validateInput(header, body, powerMode);
     const validationErrors = validateInput(header, body, true);
