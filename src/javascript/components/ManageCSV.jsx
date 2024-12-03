@@ -15,6 +15,12 @@ const ManageCSV = ({
   setModalView,
 }) => {
   const [error, setError] = useState(false);
+  const [mode, setMode] = useState("allData");
+
+  const handleChange = (event) => {
+    setMode(event.target.value);
+  };
+
   let selectedRowsArray = [];
   const selectedRowsColumnsArray = [];
   const selectedColumnsArray = [];
@@ -39,7 +45,7 @@ const ManageCSV = ({
     }
   };
 
-  const useSelectedRowsAllColumns = () => {
+/*  const xuseSelectedRowsAllColumns = () => {
     if (selectedRowsArray.length > 0) {
       setError(false);
       setSelectedRows(selectedRowsArray);
@@ -48,8 +54,9 @@ const ManageCSV = ({
     } else {
       setError(true);
     }
-  };
-  const useSelectedRowsSelectedColumns = () => {
+  }; */
+
+  const xuseSelectedRowsSelectedColumns = () => {
     if (selectedRowsArray.length > 0 && selectedColumnsArray.length > 0) {
       if (measurementLabels.length === selectedColumnsArray.length) {
         setError(false);
@@ -79,12 +86,12 @@ const ManageCSV = ({
       setError(true);
     }
   };
-  const useAllRowsColumns = () => {
+  const xuseAllRowsColumns = () => {
     setSelectedRows(rows);
     setSelectedRowsSampleCount(sampleCount);
     setModalView(false);
   };
-  const useAllRowsSelectedColumns = () => {
+  const xuseAllRowsSelectedColumns = () => {
     if (selectedColumnsArray.length > 0) {
       if (measurementLabels.length === selectedColumnsArray.length) {
         setSelectedRows(rows);
@@ -134,6 +141,17 @@ const ManageCSV = ({
     selectedColumnsKeysArray.sort();
   };
 
+  const proceed = () => {
+    if (mode === "allData") {
+      xuseAllRowsColumns();
+    } else if (mode === "columnsSelectedAllRows") {
+      xuseAllRowsSelectedColumns();
+    } else if (mode === "selectionOnly") {
+      xuseSelectedRowsSelectedColumns();
+    }
+    // xuseSelectedRowsAllColumns();
+  }
+
   return (
     <>
       <Modal size="lg" show={modalView}>
@@ -150,38 +168,77 @@ const ManageCSV = ({
               ) : (
                 ""
               )}
-              <Button
+              <div style={{ paddingTop: '10px' }}>
+                <h3>Choose mode:</h3>
+                <form style={{fontSize: "1.6em"}}>
+                  <div>
+                    <label htmlFor="allData">All data&nbsp;
+                      <input id="allData" name="allData" type="radio"
+                             value="allData"
+                             checked={mode === "allData"}
+                             onChange={handleChange}
+                      />
+                    </label>
+                    <br />
+                    <label htmlFor="columnsSelectedAllRows">Columns selected (all rows)&nbsp;
+                      <input id="columnsSelectedAllRows" name="columnsSelectedAllRows" type="radio"
+                             value="columnsSelectedAllRows"
+                             checked={mode === "columnsSelectedAllRows"}
+                             onChange={handleChange}
+                      />
+                    </label>
+                    <br />
+                    <label htmlFor="selectionOnly">Selection only&nbsp;
+                      <input id="selectionOnly" name="selectionOnly" type="radio"
+                             value="selectionOnly"
+                             checked={mode === "selectionOnly"}
+                             onChange={handleChange}
+                      />
+                    </label>
+                    <br />
+                    <Button
+                      variant="success"
+                      onClick={proceed}
+                      className="mx-2 my-1"
+                    >
+                      Proceed
+                    </Button>
+                  </div>
+                </form>
+              </div>
+
+              {/* <Button
                 variant="success"
-                onClick={useAllRowsColumns}
+                onClick={xuseAllRowsColumns}
                 className="mx-2 my-1"
               >
-                Use all Rows and Columns
+              Use all Rows and Columns
               </Button>
               <Button
                 variant="primary"
-                onClick={useAllRowsSelectedColumns}
+                onClick={xuseAllRowsSelectedColumns}
                 className="mx-2 my-1"
               >
                 Use all Rows and Selected Columns
-              </Button>
+              </Button> */}
             </div>
           </div>
           <div className="row mt-3">
             <div className="col-md-12 text-end">
-              <Button
+              {/* <Button
                 variant="success"
-                onClick={useSelectedRowsAllColumns}
+                onClick={xuseSelectedRowsAllColumns}
                 className="mx-2 my-1"
               >
                 Use Selected Rows and all Columns
               </Button>
               <Button
                 variant="primary"
-                onClick={useSelectedRowsSelectedColumns}
+                onClick={xuseSelectedRowsSelectedColumns}
                 className="my-1"
               >
                 Use Selected Rows and Selected Columns
-              </Button>
+              </Button> */}
             </div>
           </div>
           <div className="row mt-3 row-div table-row">
