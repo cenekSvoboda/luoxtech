@@ -61,7 +61,7 @@ const Upload = () => {
         <section className="portfolio">
           <div className="container">
             <div className="section-title">
-              <h2>Upload spectrum and generate report</h2>
+              <h2>Open spectrum and generate report</h2>
               {/* <p className="justify-content-center">
                 <label htmlFor="pro_mode_checkbox" className="promode-label">
                   <input
@@ -123,8 +123,8 @@ const Upload = () => {
                   <p className="mb-3">
                     The first column contains the wavelength in nanometers. The subsequent
                     columns contain the spectral (ir)radiance for each of the measurements
-                    taken during the experiment. Your data can contain up to 5
-                    measurements:
+                    taken during the experiment. {/* Your data can contain up to 5
+                    measurements: */}
                   </p>
 
                   <table className="table mb-5">

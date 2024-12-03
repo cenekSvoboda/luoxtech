@@ -334,7 +334,7 @@ const UploadForm = ({
       <div className="row">
         <div className="col">
           <h2 className="my-3">
-            Step 1. Choose your spectral power distribution data.
+            Step 1. Open your spectral power distribution data.
           </h2>
 
           <form>
