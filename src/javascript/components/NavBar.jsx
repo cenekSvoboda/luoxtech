@@ -40,7 +40,8 @@ const NavBar = ({ location }) => {
           <li>
             <a className={isUpload ? "active" : ""} href="/upload">
               {/* Upload spectrum and generate report */}
-              Choose spectral data (with instructions)
+              {/* Choose spectral data (with instructions) */}
+              Instructions
             </a>
           </li>
           <li>
