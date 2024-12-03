@@ -71,9 +71,9 @@ const CalculationTableCSV = ({
         : "Illuminance (lx)",
       ...luminanceTotals,
     ],
-    /* ["CIE XYZ tristimulus values, normalised to 1 [X]", ...chromaticity31.map(({ Xnor }) => Xnor)],
+    ["CIE XYZ tristimulus values, normalised to 1 [X]", ...chromaticity31.map(({ Xnor }) => Xnor)],
     ["CIE XYZ tristimulus values, normalised to 1 [Y]", ...chromaticity31.map(({ Ynor }) => Ynor)],
-    ["CIE XYZ tristimulus values, normalised to 1 [Z]", ...chromaticity31.map(({ Znor }) => Znor)], */
+    ["CIE XYZ tristimulus values, normalised to 1 [Z]", ...chromaticity31.map(({ Znor }) => Znor)],
     ["CIE 1931 xy chromaticity [x]", ...chromaticity31.map(({ x }) => x)],
     ["CIE 1931 xy chromaticity [y]", ...chromaticity31.map(({ y }) => y)],
     ["CIE 1964 x₁₀y₁₀ chromaticity [x₁₀]", ...chromaticity64.map(({ x }) => x)],
