@@ -127,6 +127,13 @@ const CalculationTable = ({
       rh: [0],
       mel: [0],
     },
+    DEROpic: {
+      sc: [0],
+      mc: [0],
+      lc: [0],
+      rh: [0],
+      mel: [0],
+    },
     alphaOpicEfficiency: {
       sc: [0],
       mc: [0],
@@ -164,6 +171,9 @@ const CalculationTable = ({
 
   const equivalentDaylightUnit =
     radianceOrIrradiance === "radiance" ? "EDL (cd/m²)" : "EDI (lx)";
+
+  const DERUnit =
+    radianceOrIrradiance === "radiance" ? "DER" : "DER";
 
   useEffect(() => {
     const getIntermediateVals = (indexVals, keySet) => {
@@ -398,6 +408,31 @@ const CalculationTable = ({
             <CalculationTableRow
               heading={`Melanopic ${equivalentDaylightUnit}`}
               samples={calculation.equivalentDaylightAlphaOpic.mel}
+              exponentialNotation={exponentialNotation}
+            />
+            <CalculationTableRow
+              heading={`S-cone-opic ${DERUnit}`}
+              samples={calculation.DEROpic.sc}
+              exponentialNotation={exponentialNotation}
+            />
+            <CalculationTableRow
+              heading={`M-cone-opic ${DERUnit}`}
+              samples={calculation.DEROpic.mc}
+              exponentialNotation={exponentialNotation}
+            />
+            <CalculationTableRow
+              heading={`L-cone-opic ${DERUnit}`}
+              samples={calculation.DEROpic.lc}
+              exponentialNotation={exponentialNotation}
+            />
+            <CalculationTableRow
+              heading={`Rhodopic ${DERUnit}`}
+              samples={calculation.DEROpic.rh}
+              exponentialNotation={exponentialNotation}
+            />
+            <CalculationTableRow
+              heading={`Melanopic ${DERUnit}`}
+              samples={calculation.DEROpic.mel}
               exponentialNotation={exponentialNotation}
             />
             {advanced && (

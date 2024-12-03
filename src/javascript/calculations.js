@@ -66,6 +66,23 @@ export const calculateEquivalentDaylightAlphaOpic = (
   };
 };
 
+export const calculateDEROpic = (
+  sConeTotals,
+  mConeTotals,
+  lConeTotals,
+  rodTotals,
+  melTotals,
+  luminanceTotals
+) => {
+  return {
+    lc: lConeTotals.map((s, idx) => s / 1.62890776589039 / luminanceTotals[idx]),
+    mc: mConeTotals.map((s, idx) => s / 1.45582633881653 / luminanceTotals[idx]),
+    mel: melTotals.map((s, idx) => s / 1.32621318911359 / luminanceTotals[idx]),
+    rh: rodTotals.map((s, idx) => s / 1.4497035760559 / luminanceTotals[idx]),
+    sc: sConeTotals.map((s, idx) => s / 0.817289644883213 / luminanceTotals[idx]),
+  };
+}
+
 export const calculateAlphaOpicEfficiency = (
   sConeTotals,
   mConeTotals,
@@ -201,6 +218,14 @@ export const calculate = (selectedRows, selectedRowsSampleCount) => {
       lConeTotals,
       rodTotals,
       melTotals
+    ),
+    DEROpic: calculateDEROpic(
+      sConeTotals,
+      mConeTotals,
+      lConeTotals,
+      rodTotals,
+      melTotals,
+      luminanceTotals
     ),
     lConeTotals,
     luminanceTotals,

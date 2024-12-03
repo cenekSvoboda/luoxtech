@@ -12,6 +12,7 @@ const CalculationTableCSV = ({
   melTotals,
   rodTotals,
   equivalentDaylightAlphaOpic,
+  DEROpic,
   alphaOpicEfficiency,
   colourFidelityIndex,
   tm30ColourFidelityIndex,
@@ -23,6 +24,9 @@ const CalculationTableCSV = ({
     radianceOrIrradiance === "radiance" ? "mW ⋅ m⁻² ⋅ sr" : "mW ⋅ m⁻²";
   const equivalentDaylightUnit =
     radianceOrIrradiance === "radiance" ? "EDL (cd/m²)" : "EDI (lx)";
+  const DERUnit =
+    radianceOrIrradiance === "radiance" ? "DER" : "DER";
+
 
   const getIntermediateVals = (indexVals, keySet) => {
     let heading = "";
@@ -93,6 +97,20 @@ const CalculationTableCSV = ({
     ],
     [`Rhodopic ${equivalentDaylightUnit}`, ...equivalentDaylightAlphaOpic.rh],
     [`Melanopic ${equivalentDaylightUnit}`, ...equivalentDaylightAlphaOpic.mel],
+    [
+      `S-cone-opic ${DERUnit}`,
+      ...DEROpic.sc,
+    ],
+    [
+      `M-cone-opic ${DERUnit}`,
+      ...DEROpic.mc,
+    ],
+    [
+      `L-cone-opic ${DERUnit}`,
+      ...DEROpic.lc,
+    ],
+    [`Rhodopic ${DERUnit}`, ...DEROpic.rh],
+    [`Melanopic ${DERUnit}`, ...DEROpic.mel],
     [`S-cone-opic ELR`, ...alphaOpicEfficiency.sc],
     [`M-cone-opic ELR`, ...alphaOpicEfficiency.mc],
     [`L-cone-opic ELR`, ...alphaOpicEfficiency.lc],
