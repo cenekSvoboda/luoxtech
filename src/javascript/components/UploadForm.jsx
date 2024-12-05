@@ -382,7 +382,7 @@ const UploadForm = ({
             </div> */}
 
             <div className="form-group">
-              <div className=" col-md-6 offset-md-3 col-xs-12">
+             <div className=" col-md-6 offset-md-3 col-xs-12">
 
                 <div className="choose-file-button file-drop-area">
                   <span className="file-message" style={{ fontSize: "2em" }}>
@@ -405,7 +405,7 @@ const UploadForm = ({
                   ref={fileInput}
                   disabled={isLoaded}
                   onChange={handleFileInput}
-                  className="form-control-file ml-100 mt-2 file-input"
+                  className="form-control-file ml-3 mt-2 file-input"
                   id="file-input"
                 />
 

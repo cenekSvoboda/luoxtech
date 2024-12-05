@@ -34,11 +34,11 @@ const Intro = () => {
 
   return (
     <>
-      { showInstructions && (
       <section
         id="hero"
         className="d-flex justify-cntent-center align-items-center"
       >
+        { showInstructions && (
         <div
           id="heroCarousel"
           className="container carousel carousel-fade"
@@ -107,11 +107,12 @@ const Intro = () => {
             </div>
           </div>
         </div>
+        )}
       </section>
-      )}
-      { !showInstructions && (
-        <div style={{position:"absolute", width: "100vw", height: "80px", backgroundColor:"black"}}>asdf</div>
-      )}
+
+      {/* { !showInstructions && (
+        <div style={{position:"absolute", width: "100%", height: "80px", backgroundColor:"black"}}></div>
+      )} */}
       {/* <main>
         <section className="portfolio">
           <div className="container">
