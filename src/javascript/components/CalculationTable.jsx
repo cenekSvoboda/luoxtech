@@ -32,17 +32,22 @@ CalculationTableHeader.propTypes = {
  * */
 const checkNA = (sample, index, exponentialNotation) => {
   if (sample === "N/A" && typeof sample === "string") {
-    return <td key={index}> {sample} </td>;
+    return <td style={{ textAlign: "right"}} key={index}><span
+      style={{ paddingRight: "20px" }}> {sample}</span></td>
+  ;
   }
   return (
-    <td key={index}>
+    <td key={index} style={{ textAlign: "right", paddingRight: "10px" }}>
+      <span
+        style={{ paddingRight: "20px" }}>
       {exponentialNotation ? asExponential(sample) : asDecimal(sample)}
+      </span>
     </td>
-  );
+);
 };
 
 /**
- * Copyright (C) 2022 Her Majesty the Queen in Right of Canada.
+* Copyright (C) 2022 Her Majesty the Queen in Right of Canada.
  * National Research Council of Canada. Ottawa, Canada.
  * */
 const CalculationTableRow = ({ heading, samples, exponentialNotation }) => {
@@ -52,7 +57,7 @@ const CalculationTableRow = ({ heading, samples, exponentialNotation }) => {
   }
   return (
     <tr>
-      <th>{heading}</th>
+      <th style={{textAlign:"right"}}><span style={{paddingRight:"10px"}}>{heading}</span></th>
       {samples.map((sample, index) =>
         checkNA(sample, index, exponentialNotation)
       )}
