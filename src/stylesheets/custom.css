@@ -287,13 +287,13 @@
 .choose-file-button {
     flex-shrink: 0;
     background-color: rgba(255, 255, 255, 0.04);
-    border: 2px solid black;
+    border: 3px dashed rgb(255, 147, 0);
     border-radius: 7px;
-    padding: 8px 15px;
+    padding: 22px 30px;
     margin-right: 10px;
-    font-size: 1.4em;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: 1.2em;
+    /*font-weight: bold;
+    text-transform: uppercase;*/
 }
 
 .file-message {
@@ -402,7 +402,7 @@
     }
 
     .choose-file-button {
-        font-size: 10px !important;
+        /*font-size: 10px !important;*/
     }
 
     .file-message {

@@ -382,16 +382,24 @@ const UploadForm = ({
             </div> */}
 
             <div className="form-group">
-              <div className="file-drop-area col-md-6 offset-md-3 col-xs-12">
-                <span className="file-message" style={{ fontSize: "2em" }}>
-                  Drag&amp;Drop file here
-                </span>
-                <br />
-                <br />
-                <span style={{color:"gray"}}>or</span>
-                <br />
-                <br />
-                <span className="choose-file-button">Choose file</span>
+              <div className=" col-md-6 offset-md-3 col-xs-12">
+
+                <div className="choose-file-button file-drop-area">
+                  <span className="file-message" style={{ fontSize: "2em" }}>
+                    Drag&amp;Drop file here
+                  </span>
+                  <br />
+                  <br />
+                  <span style={{ color: "gray" }}>or</span>
+                  <br />
+                  <br />
+                  <span className="file-message" style={{ fontSize: "2em" }}>
+                    Open file (click)
+                  </span>
+                  <br />
+                  <br />
+                  measurements accepted in .XLSX, .XLS, .CSV or .SPDX filetypes
+                </div>
                 <input
                   type="file"
                   ref={fileInput}
@@ -400,9 +408,7 @@ const UploadForm = ({
                   className="form-control-file ml-100 mt-2 file-input"
                   id="file-input"
                 />
-                <br />
-                <br />
-                measurements accepted in .XLSX, .XLS, .CSV or .SPDX filetypes
+
               </div>
             </div>
           </form>
