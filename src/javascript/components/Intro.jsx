@@ -22,7 +22,7 @@ const Intro = () => {
   const [csv, setCSV] = useState([]);
   const [relativePowers, setRelativePowers] = useState({});
   const [powerMode, setPowerMode] = useState(false);
-  const [showInstructions, setShowInstructions] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(true);
   const [isLoaded, setLoaded] = useState(false);
   const [refHAB, setRefHAB] = useState(null);
   const [modalView, setModalView] = useState(false);
@@ -34,6 +34,7 @@ const Intro = () => {
 
   return (
     <>
+      { showInstructions && (
       <section
         id="hero"
         className="d-flex justify-cntent-center align-items-center"
@@ -107,6 +108,10 @@ const Intro = () => {
           </div>
         </div>
       </section>
+      )}
+      { !showInstructions && (
+        <div style={{position:"absolute", width: "100vw", height: "80px", backgroundColor:"black"}}>asdf</div>
+      )}
       {/* <main>
         <section className="portfolio">
           <div className="container">
@@ -259,7 +264,7 @@ const Intro = () => {
 
       <section className="why-us pt-2 upload-section">
         <div className="container p-4 text-center upload-div">
-          <div className="row justify-content-center">
+          <div className="row justify-content-center" style={{paddingTop:50}}>
             <UploadForm
               radianceOrIrradiance={radianceOrIrradiance}
               measurementLabels={measurementLabels}
