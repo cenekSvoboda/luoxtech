@@ -52,20 +52,20 @@ const Intro = () => {
               </h2>
               <p className="animate__animated animate__fadeInUp">
                 {/* <div style={{backgroundColor: "#2481a6", color:"#b7c726", boxShadow: "0px 0px 20px red", padding: "10px" }}> */}
-                <div style={{backgroundColor: "transparent", color:"#ff9300", padding: "10px" }}>
+                <p style={{backgroundColor: "transparent", color:"#ff9300", padding: "10px" }}>
                   <b>LUOXtech.app is a modified clone of luox.app</b>
                   <br/>
                   <b>it is an extension for light designers</b>
                   <br/>
                   <br/>
-                </div>
-                <div style={{backgroundColor: "transparent", color:"#96dffc", padding: "10px" }}>
+                </p>
+                <p style={{backgroundColor: "transparent", color:"#96dffc", padding: "10px" }}>
                   The formula for U500 is added to the system.
                   <br/>
                   It is a percentage expression of the relative power of <br/>shortwave radiation (&quot;blue content&quot;) in visible light.
                   <br/>
                   For more details see related document: <a style={{color:"white", textDecoration: "underline"}} href="https://brno.cso.lighting/wp-content/uploads/2024/09/CSO-B_WhitePaperU500_9.2024_Fin1ENG.pdf">U500 whitepaper</a>
-                </div>
+                </p>
                 <br />
                 <br />
                 <br />

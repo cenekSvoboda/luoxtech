@@ -21,6 +21,9 @@ const ManageCSV = ({
 
   useEffect(() => {
     buttonRef.current.focus();
+    if (rows && rows[0].length === 2) {
+      buttonRef.current.click();
+    }
   }, []);
 
   const handleChange = (event) => {
