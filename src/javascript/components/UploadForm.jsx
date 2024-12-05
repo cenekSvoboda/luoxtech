@@ -384,32 +384,37 @@ const UploadForm = ({
             <div className="form-group">
              <div className=" col-md-6 offset-md-3 col-xs-12">
 
-                <div className="choose-file-button file-drop-area">
-                  <span className="file-message" style={{ fontSize: "2em" }}>
-                    Drag&amp;Drop file here
-                  </span>
-                  <br />
-                  <br />
-                  <span style={{ color: "gray" }}>or</span>
-                  <br />
-                  <br />
-                  <span className="file-message" style={{ fontSize: "2em" }}>
-                    Open file (click)
-                  </span>
-                  <br />
-                  <br />
-                  measurements accepted in .XLSX, .XLS, .CSV or .SPDX filetypes
-                </div>
-                <input
-                  type="file"
-                  ref={fileInput}
-                  disabled={isLoaded}
-                  onChange={handleFileInput}
-                  className="form-control-file ml-3 mt-2 file-input"
-                  id="file-input"
-                />
+               <div className="choose-file-button file-drop-area">
+                 <div className="file-message" style={{ fontSize: "2em" }}>
+                   Drag&amp;Drop file here
+                 </div>
+                 <div style={{ color: "gray", padding: "10px" }}>
+                   or
+                 </div>
+                 <div className="file-message"
+                      style={{
+                        fontSize: "1.6em",
+                        border: "3px solid black",
+                        padding: "15px",
+                        borderRadius: "10px",
+                        marginBottom: "20px"
+                      }}>
+                   Open file
+                 </div>
+                 <div style={{ fontSize: "1.2em" }}>
+                   measurements accepted in .XLS/.XLSX, .CSV <br />or .SPDX filetypes
+                 </div>
+                 <input
+                   type="file"
+                   ref={fileInput}
+                   disabled={isLoaded}
+                   onChange={handleFileInput}
+                   className="form-control-file ml-3 mt-2 file-input"
+                   id="file-input"
+                 />
+               </div>
 
-              </div>
+             </div>
             </div>
           </form>
           <ErrorTable errors={errors} />
