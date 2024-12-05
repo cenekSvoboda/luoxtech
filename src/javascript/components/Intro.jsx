@@ -52,31 +52,25 @@ const Intro = () => {
               </h2>
               <p className="animate__animated animate__fadeInUp">
                 {/* <div style={{backgroundColor: "#2481a6", color:"#b7c726", boxShadow: "0px 0px 20px red", padding: "10px" }}> */}
-                <p style={{backgroundColor: "transparent", color:"#ff9300", padding: "10px" }}>
+                <p style={{backgroundColor: "transparent", color:"#ff9300", padding: "3px" }}>
                   <b>LUOXtech.app is a modified clone of luox.app</b>
                   <br/>
-                  <b>it is an extension for light designers</b>
-                  <br/>
+                  <b>it is an extension for lighting engineers and designers</b>
                   <br/>
                 </p>
-                <p style={{backgroundColor: "transparent", color:"#96dffc", padding: "10px" }}>
+                <p style={{backgroundColor: "transparent", color:"#96dffc", padding: "3px" }}>
                   The formula for U500 is added to the system.
                   <br/>
                   It is a percentage expression of the relative power of <br/>shortwave radiation (&quot;blue content&quot;) in visible light.
                   <br/>
                   For more details see related document: <a style={{color:"white", textDecoration: "underline"}} href="https://brno.cso.lighting/wp-content/uploads/2024/09/CSO-B_WhitePaperU500_9.2024_Fin1ENG.pdf">U500 whitepaper</a>
                 </p>
-                <br />
-                <br />
-                <br />
                 LUOXtech is a free-to-use and open-source tool for calculating
                 lighting-related quantities directly in the browser. The tool was inspired by
                 the development in chronobiology and circadian environment.
                 <br/>
-                <br/>
                 You will need a CSV (comma-separated) or SPDX (following ANSI/IES
                 TM-27-20) file containing the spectral data in range 380 - 780 nm.
-                <br/>
                 <br/>
                 <span style={{color: "gray"}}>LUOXtech is operated by the Czech Lighting Society, group Brno.</span>
               </p>
@@ -265,7 +259,7 @@ const Intro = () => {
 
       <section className="why-us pt-2 upload-section">
         <div className="container p-4 text-center upload-div">
-          <div className="row justify-content-center" style={{paddingTop:50}}>
+          <div className="row justify-content-center" style={{paddingTop:"1px"}}>
             <UploadForm
               radianceOrIrradiance={radianceOrIrradiance}
               measurementLabels={measurementLabels}

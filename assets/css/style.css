@@ -382,7 +382,7 @@ h6,
 
 #hero h2 {
   color: #fff;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-size: 48px;
   font-weight: 700;
 }
@@ -390,7 +390,7 @@ h6,
 #hero p {
   width: 80%;
   animation-delay: 0.4s;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 10px auto;
   color: #fff;
 }
 
