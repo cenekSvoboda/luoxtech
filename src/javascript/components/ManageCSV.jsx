@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { Button, Modal } from "react-bootstrap";
 
 // export const t0 = performance.now();
 
 const ManageCSV = ({
-  rows,
-  sampleCount,
-  setSelectedRows,
-  setSelectedRowsSampleCount,
-  measurementLabels,
-  setMeasurementLabels,
-  modalView,
-  setModalView,
-}) => {
+                     rows,
+                     sampleCount,
+                     setSelectedRows,
+                     setSelectedRowsSampleCount,
+                     measurementLabels,
+                     setMeasurementLabels,
+                     modalView,
+                     setModalView
+                   }) => {
   const [error, setError] = useState(false);
   const [mode, setMode] = useState("allData");
+
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    buttonRef.current.focus();
+  }, []);
 
   const handleChange = (event) => {
     setMode(event.target.value);
@@ -45,16 +51,16 @@ const ManageCSV = ({
     }
   };
 
-/*  const xuseSelectedRowsAllColumns = () => {
-    if (selectedRowsArray.length > 0) {
-      setError(false);
-      setSelectedRows(selectedRowsArray);
-      setSelectedRowsSampleCount(sampleCount);
-      setModalView(false);
-    } else {
-      setError(true);
-    }
-  }; */
+  /*  const xuseSelectedRowsAllColumns = () => {
+      if (selectedRowsArray.length > 0) {
+        setError(false);
+        setSelectedRows(selectedRowsArray);
+        setSelectedRowsSampleCount(sampleCount);
+        setModalView(false);
+      } else {
+        setError(true);
+      }
+    }; */
 
   const xuseSelectedRowsSelectedColumns = () => {
     if (selectedRowsArray.length > 0 && selectedColumnsArray.length > 0) {
@@ -150,7 +156,9 @@ const ManageCSV = ({
       xuseSelectedRowsSelectedColumns();
     }
     // xuseSelectedRowsAllColumns();
-  }
+  };
+
+
 
   return (
     <>
@@ -160,54 +168,52 @@ const ManageCSV = ({
         </Modal.Header>
         <Modal.Body>
           <div className="row">
-            <div className="col-md-12 text-end">
-              {error ? (
-                <p className="colorRed">
-                  Please select atleast one row or one column.
-                </p>
-              ) : (
-                ""
-              )}
-              <div style={{ paddingTop: '10px' }}>
-                <h3>Choose mode:</h3>
-                <form style={{fontSize: "1.6em"}}>
+            <form style={{ fontSize: "1.6em" }}>
+              <div className="col-md-12 text-start">
+                {error ? (
+                  <p className="colorRed">
+                    Please select atleast one row or one column.
+                  </p>
+                ) : (
+                  ""
+                )}
+                <div style={{ paddingTop: "10px" }}>
+                  <h3>Choose mode:</h3>
+
                   <div>
-                    <label htmlFor="allData">All data&nbsp;
+                    <label htmlFor="allData">
                       <input id="allData" name="allData" type="radio"
                              value="allData"
                              checked={mode === "allData"}
                              onChange={handleChange}
                       />
+                      &nbsp;All data&nbsp;
                     </label>
                     <br />
-                    <label htmlFor="columnsSelectedAllRows">Columns selected (all rows)&nbsp;
+                    <label htmlFor="columnsSelectedAllRows">
                       <input id="columnsSelectedAllRows" name="columnsSelectedAllRows" type="radio"
                              value="columnsSelectedAllRows"
                              checked={mode === "columnsSelectedAllRows"}
                              onChange={handleChange}
                       />
+                      &nbsp;Columns selected (all rows)&nbsp;
                     </label>
                     <br />
-                    <label htmlFor="selectionOnly">Selection only&nbsp;
+                    <label htmlFor="selectionOnly">
                       <input id="selectionOnly" name="selectionOnly" type="radio"
                              value="selectionOnly"
                              checked={mode === "selectionOnly"}
                              onChange={handleChange}
                       />
+                      &nbsp;Selection only&nbsp;
                     </label>
                     <br />
-                    <Button
-                      variant="success"
-                      onClick={proceed}
-                      className="mx-2 my-1"
-                    >
-                      Proceed
-                    </Button>
-                  </div>
-                </form>
-              </div>
 
-              {/* <Button
+                  </div>
+
+                </div>
+
+                {/* <Button
                 variant="success"
                 onClick={xuseAllRowsColumns}
                 className="mx-2 my-1"
@@ -221,7 +227,18 @@ const ManageCSV = ({
               >
                 Use all Rows and Selected Columns
               </Button> */}
-            </div>
+              </div>
+              <div className="col-md-12 text-end">
+                <Button
+                  variant="success"
+                  onClick={proceed}
+                  className="mx-2 my-1"
+                  ref={buttonRef}
+                >
+                  Proceed
+                </Button>
+              </div>
+            </form>
           </div>
           <div className="row mt-3">
             <div className="col-md-12 text-end">
@@ -245,57 +262,57 @@ const ManageCSV = ({
             <div className="col-md-12">
               <table className="table table-striped table-bordered table-hover generate-csv-table mb-1">
                 <thead>
-                  <tr>
-                    <th> </th>
-                    <th>Wavelength</th>
-                    {Object.entries(measurementLabels).map(([key, value]) => (
-                      <th key={key}>
-                        <input
-                          type="checkbox"
-                          name="columnCheckbox"
-                          onChange={(event) =>
-                            changeColumnCheckbox(
-                              key,
-                              value,
-                              event.target.checked
-                            )
-                          }
-                        />{" "}
-                        {value}
-                      </th>
-                    ))}
-                  </tr>
+                <tr>
+                  <th></th>
+                  <th>Wavelength</th>
+                  {Object.entries(measurementLabels).map(([key, value]) => (
+                    <th key={key}>
+                      <input
+                        type="checkbox"
+                        name="columnCheckbox"
+                        onChange={(event) =>
+                          changeColumnCheckbox(
+                            key,
+                            value,
+                            event.target.checked
+                          )
+                        }
+                      />{" "}
+                      {value}
+                    </th>
+                  ))}
+                </tr>
                 </thead>
                 <tbody>
-                  {rows && rows.length > 0 ? (
-                    rows.map((row) => (
-                      <tr key={row[0]}>
-                        <td>
-                          <input
-                            type="checkbox"
-                            name="rowCheckbox"
-                            className="selectedRowCheckbox"
-                            onChange={(event) =>
-                              addSelectedRow(row, event.target.checked)
-                            }
-                          />
-                        </td>
-                        {Object.entries(row).map(([key, value]) => (
-                          <td key={key}>{value}</td>
-                        ))}
-                      </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan="4" className="text-center">
-                        <div className="px-2 text-center">
-                          <div className="my-auto text-center text-bold">
-                            No Record found
-                          </div>
-                        </div>
+                {rows && rows.length > 0 ? (
+                  rows.map((row) => (
+                    <tr key={row[0]}>
+                      <td>
+                        <input
+                          type="checkbox"
+                          name="rowCheckbox"
+                          className="selectedRowCheckbox"
+                          onChange={(event) =>
+                            addSelectedRow(row, event.target.checked)
+                          }
+                        />
                       </td>
+                      {Object.entries(row).map(([key, value]) => (
+                        <td key={key}>{value}</td>
+                      ))}
                     </tr>
-                  )}
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="4" className="text-center">
+                      <div className="px-2 text-center">
+                        <div className="my-auto text-center text-bold">
+                          No Record found
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                )}
                 </tbody>
               </table>
             </div>
@@ -316,6 +333,6 @@ ManageCSV.propTypes = {
   measurementLabels: PropTypes.objectOf(PropTypes.string).isRequired,
   setMeasurementLabels: PropTypes.func.isRequired,
   modalView: PropTypes.bool.isRequired,
-  setModalView: PropTypes.func.isRequired,
+  setModalView: PropTypes.func.isRequired
 };
 export default ManageCSV;
