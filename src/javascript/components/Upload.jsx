@@ -279,10 +279,17 @@ const Upload = () => {
                   <div className="col text-right">
                     <a
                       download="LUOXtech_DataSample_04.xlsx"
-                      className="btn btn-primary"
+                      className="btn btn-primary m-2"
                       href="/examples/LUOXtech_DataSample_04.xlsx"
                     >
                       Download Sample XLSX
+                    </a>&nbsp;
+                    <a
+                      download="LUOXtech_DataSample_04.csv"
+                      className="btn btn-primary m-2"
+                      href="/examples/LUOXtech_DataSample_04.csv"
+                    >
+                      Download Sample CSV
                     </a>
                   </div>
 
