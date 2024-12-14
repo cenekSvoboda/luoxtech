@@ -148,10 +148,9 @@ const UploadForm = ({
     }
 
     let header = rawHeader;
-
-    let fullBody = rawBody;
+    const fullBody = rawBody;
     if (rawHeader.every((value) => typeof value === "number")) {
-      fullBody = [rawHeader].concat(rawBody);
+      // fullBody = [rawHeader].concat(rawBody);
       header = rawHeader.map((_, index) =>
         index === 0 ? "lambda" : `Observation ${index}`
       );
