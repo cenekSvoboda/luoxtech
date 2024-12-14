@@ -20,9 +20,13 @@ const ManageCSV = ({
   const buttonRef = useRef(null);
 
   useEffect(() => {
-    buttonRef.current.focus();
-    if (rows && rows[0].length === 2) {
-      buttonRef.current.click();
+    if (buttonRef.current) {
+      buttonRef.current.focus();
+    }
+    if (rows && rows[0] && rows[0].length === 2) {
+      if (buttonRef.current) {
+        buttonRef.current.click();
+      }
     }
   }, []);
 

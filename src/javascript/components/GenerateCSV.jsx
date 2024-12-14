@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import MultiStepProgressBar from "./MultiStepProgressBar";
+// import { Link } from "react-router-dom";
+// import MultiStepProgressBar from "./MultiStepProgressBar";
 
 const GenerateCSV = () => {
   useEffect(() => {
-    document.title = "LUOXtech: Format instructions";
+    // document.title = "LUOXtech: Format instructions";
   });
 
   return (
     <>
-      <main id="main">
+      {/* <main id="main">
         <section className="portfolio">
           <div className="container">
             <div className="section-title">
@@ -31,7 +31,7 @@ const GenerateCSV = () => {
             Next
           </Link>
         </p>
-      </main>
+      </main> */}
     </>
 
   );
