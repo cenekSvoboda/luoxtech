@@ -4,10 +4,10 @@ import UploadForm from "./UploadForm";
 import Results from "./Results";
 // import MultiStepProgressBar from "./MultiStepProgressBar";
 import ManageCSV from "./ManageCSV";
-import sample1 from "../../images/LUOXtech_dataFormat_sample1.png";
-import sample2 from "../../images/LUOXtech_dataFormat_sample2.png";
-import sample3 from "../../images/LUOXtech_dataFormat_sample3.png";
-
+import sample1 from "../../images/LUOXtech_dataFormat_sample1a.png";
+import sample2 from "../../images/LUOXtech_dataFormat_sample2a.png";
+import sample3 from "../../images/LUOXtech_dataFormat_sample3a.png";
+import sample4 from "../../images/LUOXtech_dataFormat_sample4a.png";
 
 const Upload = () => {
   const [radianceOrIrradiance, setRadianceOrIrradiance] = useState(
@@ -197,6 +197,26 @@ const Upload = () => {
                     />
                   </p>
 
+                  <div className="col text-right">
+                    <a
+                      download="LUOXtech_DataSample_01.xlsx"
+                      className="btn btn-primary m-2"
+                      href="/examples/LUOXtech_DataSample_01.xlsx"
+                    >
+                      Download Sample XLSX
+                    </a>&nbsp;
+                    <a
+                      download="LUOXtech_DataSample_01.csv"
+                      className="btn btn-primary m-2"
+                      href="/examples/LUOXtech_DataSample_01.csv"
+                    >
+                      Download Sample CSV
+                    </a>
+                  </div>
+
+                  <br />
+                  <br />
+
                   <h2 className="mb-3">Format example 2</h2>
 
                   <p className="lead my-5">
@@ -208,6 +228,19 @@ const Upload = () => {
                     />
                   </p>
 
+                  <div className="col text-right">
+                    <a
+                      download="LUOXtech_DataSample_02.xlsx"
+                      className="btn btn-primary"
+                      href="/examples/LUOXtech_DataSample_02.xlsx"
+                    >
+                      Download Sample XLSX
+                    </a>
+                  </div>
+
+                  <br />
+                  <br />
+
                   <h2 className="mb-3">Format example 3</h2>
 
                   <p className="lead my-5">
@@ -218,6 +251,40 @@ const Upload = () => {
                       alt="sample data 3"
                     />
                   </p>
+
+                  <div className="col text-right">
+                    <a
+                      download="LUOXtech_DataSample_03.xlsx"
+                      className="btn btn-primary"
+                      href="/examples/LUOXtech_DataSample_03.xlsx"
+                    >
+                      Download Sample XLSX
+                    </a>
+                  </div>
+
+                  <br />
+                  <br />
+
+                  <h2 className="mb-3">Format example 4</h2>
+
+                  <p className="lead my-5">
+                    <img
+                      src={sample4}
+                      width="600"
+                      className="d-inline-block align-top me-2"
+                      alt="sample data 4"
+                    />
+                  </p>
+
+                  <div className="col text-right">
+                    <a
+                      download="LUOXtech_DataSample_04.xlsx"
+                      className="btn btn-primary"
+                      href="/examples/LUOXtech_DataSample_04.xlsx"
+                    >
+                      Download Sample XLSX
+                    </a>
+                  </div>
 
 
                 </div>
