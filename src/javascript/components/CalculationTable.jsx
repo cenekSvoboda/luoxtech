@@ -502,12 +502,12 @@ const CalculationTable = ({
             />
             <CalculationTableRow
               heading="Colour Rendering Index [Ra] (CIE 1995)"
-              samples={calculation.colourRenderingIndex.map(({ Ra }) => Ra)}
+              samples={calculation.colourRenderingIndex.map(({ Ra }) => (Ra<=100)?Ra:100)}
               exponentialNotation={exponentialNotation}
             />
             <CalculationTableRow
               heading="Colour Fidelity Index [Rf] (CIE 2017)"
-              samples={calculation.colourFidelityIndex.map(({ Rf }) => Rf)}
+              samples={calculation.colourFidelityIndex.map(({ Rf }) => (Rf<=100)?Rf:100)}
               exponentialNotation={exponentialNotation}
             />
             {!advanced && (

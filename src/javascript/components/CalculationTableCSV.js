@@ -121,10 +121,10 @@ const CalculationTableCSV = ({
       `CCT (K) - Robertson, 1968`,
       ...colourRenderingIndex.map(({ CCT }) => CCT),
     ],
-    [`Colour Fidelity Index [Rf]`, ...colourFidelityIndex.map(({ Rf }) => Rf)],
+    [`Colour Fidelity Index [Rf]`, ...colourFidelityIndex.map(({ Rf }) => (Rf<=100)?Rf:100)],
     [
       `Colour Rendering Index [Ra]`,
-      ...colourRenderingIndex.map(({ Ra }) => Ra),
+      ...colourRenderingIndex.map(({ Ra }) => (Ra<=100)?Ra:100),
     ],
     [
       `U500 [%]`,
