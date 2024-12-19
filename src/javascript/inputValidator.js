@@ -97,7 +97,7 @@ const validateWavelengthColumnContainsIntegerWavelengths = (body) => {
 
   const isIntegerAndVisible = (array) => {
     return array.every(function visibleIntegerWavelengthsIncludes(element) {
-      return range(380, 780, 1).includes(element);
+      return range(100, 1000, 1).includes(element);
     });
   };
 

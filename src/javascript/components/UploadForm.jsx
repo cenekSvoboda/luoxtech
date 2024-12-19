@@ -126,11 +126,14 @@ const UploadForm = ({
         realMeasurementNumber = array.length;
 
         // Add processed array to rawBody
-        rawBody.push(array);
+        if (startingNumber >= 380 && startingNumber <= 780) {
+          rawBody.push(array);
+        }
       }
     }
 
     // Replace all null values in rawHeader with 'header'
+    // eslint-disable-next-line no-plusplus
     for(let i = 0; i < rawHeader.length; i++) {
       if(rawHeader[i] === null){
         rawHeader[i] = 'header';
