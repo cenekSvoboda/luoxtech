@@ -76,11 +76,12 @@ const Intro = () => {
                 TM-27-20) file containing the spectral data in range 380 - 780 nm.
                 <br />
                 <a style={{ color: "white", textDecoration: "underline" }}
-                  download="LUOXtech.eu - what can we count.pdf"
+                  target="_blank" rel="noopener noreferrer"
+                  download="LUOXtech.eu - example calculations.pdf"
                   className=""
-                  href="/examples/LUOXtech.eu - what can we count.pdf"
+                  href="/examples/LUOXtech.eu - example calculations.pdf"
                 >
-                  What can we count (pdf)?
+                  Example calculations (pdf)
                 </a>
                 <br />
                 <span style={{ color: "gray" }}>LUOXtech is operated by the Czech Lighting Society, group Brno.</span>
