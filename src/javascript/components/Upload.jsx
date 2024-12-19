@@ -146,6 +146,348 @@ const Upload = () => {
                     prepared sample files into the calculator - see examples in the “Format instructions” paragraph.
                   </p>
 
+                  Download Illuminants' CSVs:
+                  <br/>
+                  <div className="col text-right">
+                    <a
+                      download="CIE Standard Illuminant A.csv"
+                      className=""
+                      href="/examples/CIE Standard Illuminant A.csv"
+                    >
+                      CIE Standard Illuminant A
+                    </a>,&nbsp;
+                    <a
+                      download="CIE Standard Illuminant D65.csv"
+                      className=""
+                      href="/examples/CIE Standard Illuminant D65.csv"
+                    >
+                      CIE Standard Illuminant D65
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant E.csv"
+                      className=""
+                      href="/examples/Illuminant E.csv"
+                    >
+                      E
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant C.csv"
+                      className=""
+                      href="/examples/Illuminant C.csv"
+                    >
+                      C
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant D50.csv"
+                      className=""
+                      href="/examples/Illuminant D50.csv"
+                    >
+                      D50
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant D55.csv"
+                      className=""
+                      href="/examples/Illuminant D55.csv"
+                    >
+                      D55
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant D75.csv"
+                      className=""
+                      href="/examples/Illuminant D75.csv"
+                    >
+                      D75
+                    </a>,&nbsp;<br/>
+                    <a
+                      download="Illuminant FL1.csv"
+                      className=""
+                      href="/examples/Illuminant FL1.csv"
+                    >
+                      FL1
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL2.csv"
+                      className=""
+                      href="/examples/Illuminant FL2.csv"
+                    >
+                      FL2
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.csv"
+                    >
+                      FL3
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL4.csv"
+                      className=""
+                      href="/examples/Illuminant FL4.csv"
+                    >
+                      FL4
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL5.csv"
+                      className=""
+                      href="/examples/Illuminant FL5.csv"
+                    >
+                      FL5
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL6.csv"
+                      className=""
+                      href="/examples/Illuminant FL6.csv"
+                    >
+                      FL6
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL7.csv"
+                      className=""
+                      href="/examples/Illuminant FL7.csv"
+                    >
+                      FL7
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL8.csv"
+                      className=""
+                      href="/examples/Illuminant FL8.csv"
+                    >
+                      FL8
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL9.csv"
+                      className=""
+                      href="/examples/Illuminant FL9.csv"
+                    >
+                      FL9
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL10.csv"
+                      className=""
+                      href="/examples/Illuminant FL10.csv"
+                    >
+                      FL10
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL11.csv"
+                      className=""
+                      href="/examples/Illuminant FL11.csv"
+                    >
+                      FL11
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL12.csv"
+                      className=""
+                      href="/examples/Illuminant FL12.csv"
+                    >
+                      FL12
+                    </a>,&nbsp;<br/>
+                    <a
+                      download="Illuminant FL3.1.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.1.csv"
+                    >
+                      FL3.1
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.2.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.2.csv"
+                    >
+                      FL3.2
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.3.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.3.csv"
+                    >
+                      FL3.3
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.4.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.4.csv"
+                    >
+                      FL3.4
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.5.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.5.csv"
+                    >
+                      FL3.5
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.6.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.6.csv"
+                    >
+                      FL3.6
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.7.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.7.csv"
+                    >
+                      FL3.7
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.8.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.8.csv"
+                    >
+                      FL3.8
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.9.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.9.csv"
+                    >
+                      FL3.9
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.10.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.10.csv"
+                    >
+                      FL3.10
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.11.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.11.csv"
+                    >
+                      FL3.11
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.12.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.12.csv"
+                    >
+                      FL3.12
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.13.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.13.csv"
+                    >
+                      FL3.13
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.14.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.14.csv"
+                    >
+                      FL3.14
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant FL3.15.csv"
+                      className=""
+                      href="/examples/Illuminant FL3.15.csv"
+                    >
+                      FL3.15
+                    </a>,&nbsp;<br/>
+                    <a
+                      download="Illuminant LED-B1.csv"
+                      className=""
+                      href="/examples/Illuminant LED-B1.csv"
+                    >
+                      LED-B1
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant LED-B2.csv"
+                      className=""
+                      href="/examples/Illuminant LED-B2.csv"
+                    >
+                      LED-B2
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant LED-B3.csv"
+                      className=""
+                      href="/examples/Illuminant LED-B3.csv"
+                    >
+                      LED-B3
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant LED-B4.csv"
+                      className=""
+                      href="/examples/Illuminant LED-B4.csv"
+                    >
+                      LED-B4
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant LED-B5.csv"
+                      className=""
+                      href="/examples/Illuminant LED-B5.csv"
+                    >
+                      LED-B5
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant LED-BH1.csv"
+                      className=""
+                      href="/examples/Illuminant LED-BH1.csv"
+                    >
+                      LED-BH1
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant LED-RGB1.csv"
+                      className=""
+                      href="/examples/Illuminant LED-RGB1.csv"
+                    >
+                      LED-RGB1
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant LED-V1.csv"
+                      className=""
+                      href="/examples/Illuminant LED-V1.csv"
+                    >
+                      LED-V1
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant LED-V2.csv"
+                      className=""
+                      href="/examples/Illuminant LED-V2.csv"
+                    >
+                      LED-V2
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant HP1.csv"
+                      className=""
+                      href="/examples/Illuminant HP1.csv"
+                    >
+                      HP1
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant HP2.csv"
+                      className=""
+                      href="/examples/Illuminant HP2.csv"
+                    >
+                      HP2
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant HP3.csv"
+                      className=""
+                      href="/examples/Illuminant HP3.csv"
+                    >
+                      HP3
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant HP4.csv"
+                      className=""
+                      href="/examples/Illuminant HP4.csv"
+                    >
+                      HP4
+                    </a>,&nbsp;
+                    <a
+                      download="Illuminant HP5.csv"
+                      className=""
+                      href="/examples/Illuminant HP5.csv"
+                    >
+                      HP5
+                    </a>
+
+                  </div>
+                  <br />
 
                   <h2 className="mb-3">Format instructions</h2>
 
