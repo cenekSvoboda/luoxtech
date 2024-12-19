@@ -146,7 +146,7 @@ const Upload = () => {
                     prepared sample files into the calculator - see examples in the “Format instructions” paragraph.
                   </p>
 
-                  Download Illuminants' CSVs:
+                  Download Illuminants&#39; CSVs:
                   <br/>
                   <div className="col text-right">
                     <a
