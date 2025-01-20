@@ -5,7 +5,8 @@ import LUOXtechIcon from "../../images/LUOXtech_Logo_GRAY_alfa1.svg";
 const NavBar = ({ location }) => {
   const isHome = location.pathname === "/";
   // const isFormatInfo = location.pathname === "/format-info";
-  const isUpload = location.pathname === "/upload";
+  const isInstructions = location.pathname === "/instructions";
+  // const isUpload = location.pathname === "/upload";
   const isAbout = location.pathname === "/about";
   return (
     <div className="container d-flex justify-content-between align-items-center">
@@ -38,7 +39,8 @@ const NavBar = ({ location }) => {
             </a>
           </li> */}
           <li>
-            <a className={isUpload ? "active" : ""} href="/upload">
+            <a className={isInstructions ? "active" : ""} href="/instructions">
+            {/* <a className={isUpload ? "active" : ""} href="/upload"> */}
               {/* Upload spectrum and generate report */}
               {/* Choose spectral data (with instructions) */}
               Instructions

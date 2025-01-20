@@ -9,6 +9,7 @@ import Upload from "./Upload";
 import Report from "./Report";
 import About from "./About";
 import ScrollToTop from "./ScrollToTop";
+import Instructions from "./Instructions";
 
 const NavBarWithRouter = withRouter(NavBar);
 
@@ -39,6 +40,9 @@ const App = () => {
           </Route>
           <Route path="/upload">
             <Upload />
+          </Route>
+          <Route path="/instructions">
+            <Instructions/>
           </Route>
           {/* <Route path="/format-info">
             <GenerateCSV />
