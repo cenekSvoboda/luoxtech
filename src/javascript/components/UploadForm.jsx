@@ -26,7 +26,8 @@ const UploadForm = ({
   setLoaded,
   setModalView,
   setShowInstructions,
-  setFileName
+  setFileName,
+  fileName
 }) => {
   const [powerScale, setPowerScale] = useState("milliwatt");
   const [areaScale, setAreaScale] = useState("metresq");
@@ -337,135 +338,170 @@ const UploadForm = ({
     <>
       <div className="row">
         <div className="col">
-          <h2 className="my-3">
-            Step 1. Open your spectral power distribution data.
-          </h2>
 
-          <form>
-            {/* <p>Select an import File Type:</p>
-            <div>
-              <label htmlFor="csv">
-                <input
-                  type="radio"
-                  id="csv"
-                  name="file_type"
-                  value="csv"
-                  checked={fileType === "csv"}
-                  onChange={(e) => handleFileTypeChange(e)}
-                />{" "}
-                .CSV
-              </label>
+          <div id="accordion">
+            <div className="card">
+              <div className="card-header" id="headingOne">
+                <h5 className="mb-0">
+                  <button type="button" className="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                          aria-expanded="true"
+                          aria-controls="collapseOne" style={{ color: "black", fontSize: "1.5em" }}>
+                    Step 1. Open your spectral power distribution data.
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseOne" className="show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div className="card-body">
+                  <form>
+                    <div className="form-group">
+                      <div className=" col-md-6 offset-md-3 col-xs-12">
+
+                        <div className="choose-file-button file-drop-area">
+                          <div className="file-message" style={{ fontSize: "2em" }}>
+                            Drag&amp;Drop file here
+                          </div>
+                          <div style={{ color: "gray", padding: "10px" }}>
+                            or
+                          </div>
+                          <div className="file-message"
+                               style={{
+                                 fontSize: "1.6em",
+                                 border: "3px solid black",
+                                 padding: "15px",
+                                 borderRadius: "10px",
+                                 marginBottom: "20px"
+                               }}>
+                            Open file
+                          </div>
+                          <div style={{ fontSize: "1.2em" }}>
+                            measurements accepted in .XLS/.XLSX, .CSV <br />or .SPDX filetypes
+                          </div>
+                          <input
+                            type="file"
+                            ref={fileInput}
+                            disabled={isLoaded}
+                            onChange={handleFileInput}
+                            className="form-control-file ml-3 mt-2 file-input"
+                            id="file-input"
+                          />
+                        </div>
+
+                      </div>
+                    </div>
+                  </form>
+                  <ErrorTable errors={errors} />
+                  <p className="lead" style={{ lineHeight: "2.5rem" }}>
+                    {(fileName !== "") ? `Processing file ${fileName}` : ""}
+                  </p>
+                </div>
+              </div>
             </div>
-
-            <div>
-              <label htmlFor="spdx">
-                <input
-                  type="radio"
-                  id="spdx"
-                  name="file_type"
-                  value="spdx"
-                  checked={fileType === "spdx"}
-                  onChange={(e) => handleFileTypeChange(e)}
-                />{" "}
-                .SPDX
-              </label>
-            </div>
-
-            <div>
-              <label htmlFor="xlsx">
-                <input
-                  type="radio"
-                  id="xlsx"
-                  name="file_type"
-                  value="xlsx"
-                  checked={fileType === "xlsx"}
-                  onChange={(e) => handleFileTypeChange(e)}
-                />{" "}
-                .XLSX
-              </label>
-            </div> */}
-
-            <div className="form-group">
-             <div className=" col-md-6 offset-md-3 col-xs-12">
-
-               <div className="choose-file-button file-drop-area">
-                 <div className="file-message" style={{ fontSize: "2em" }}>
-                   Drag&amp;Drop file here
-                 </div>
-                 <div style={{ color: "gray", padding: "10px" }}>
-                   or
-                 </div>
-                 <div className="file-message"
-                      style={{
-                        fontSize: "1.6em",
-                        border: "3px solid black",
-                        padding: "15px",
-                        borderRadius: "10px",
-                        marginBottom: "20px"
-                      }}>
-                   Open file
-                 </div>
-                 <div style={{ fontSize: "1.2em" }}>
-                   measurements accepted in .XLS/.XLSX, .CSV <br />or .SPDX filetypes
-                 </div>
-                 <input
-                   type="file"
-                   ref={fileInput}
-                   disabled={isLoaded}
-                   onChange={handleFileInput}
-                   className="form-control-file ml-3 mt-2 file-input"
-                   id="file-input"
-                 />
-               </div>
-
-             </div>
-            </div>
-          </form>
-          <ErrorTable errors={errors} />
+          </div>
         </div>
       </div>
 
       {csv.length > 0 && (
         <div className="row">
           <div className="col">
-            <h2 className="my-3">Step 2. Tell us more about your data.</h2>
-            <form className="form-inline text-start">
-              <p className="lead" style={{ lineHeight: "2.5rem" }}>
-                {"My data contains "}
-                <select
-                  value={absoluteOrRelative}
-                  onChange={handleAbsoluteOrRelative}
-                  className="form-control form-control-sm"
-                >
-                  <option value="absolute">absolute</option>
-                  <option value="relative">relative</option>
-                </select>
-                {" spectra with wavelength in nm. "}
-                <MeasurementLabels
-                  measurementLabels={measurementLabels}
-                  onChange={handleMeasurementLabel}
-                />
-                {absoluteOrRelative === "absolute" && (
-                  <AbsoluteUnits
-                    radianceOrIrradiance={radianceOrIrradiance}
-                    handleRadianceOrIrradiance={handleRadianceOrIrradiance}
-                    powerScale={powerScale}
-                    handlePowerScale={handlePowerScale}
-                    areaScale={areaScale}
-                    handleAreaScale={handleAreaScale}
-                  />
-                )}
-                {absoluteOrRelative === "relative" && (
-                  <RelativeUnits
-                    radianceOrIrradiance={radianceOrIrradiance}
-                    setRadianceOrIrradiance={setRadianceOrIrradiance}
+
+            <div id="accordion2">
+              <div className="card">
+                <div className="card-header" id="headingTwo">
+                  <h5 className="mb-0">
+                    <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="collapseTwo" style={{ color: "black", fontSize: "1.5em" }}>
+                      Step 2. Tell us more about your data.
+                    </button>
+                  </h5>
+                </div>
+
+                <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion2">
+                  <div className="card-body">
+                    <form className="form-inline text-start">
+                      <p className="lead" style={{ lineHeight: "2.5rem" }}>
+                        {"My data contains "}
+                        <select
+                          value={absoluteOrRelative}
+                          onChange={handleAbsoluteOrRelative}
+                          className="form-control form-control-sm"
+                        >
+                          <option value="absolute">absolute</option>
+                          <option value="relative">relative</option>
+                        </select>
+                        {" spectra with wavelength in nm. "}
+                        <MeasurementLabels
+                          measurementLabels={measurementLabels}
+                          onChange={handleMeasurementLabel}
+                        />
+                        {absoluteOrRelative === "absolute" && (
+                          <AbsoluteUnits
+                            radianceOrIrradiance={radianceOrIrradiance}
+                            handleRadianceOrIrradiance={handleRadianceOrIrradiance}
+                            powerScale={powerScale}
+                            handlePowerScale={handlePowerScale}
+                            areaScale={areaScale}
+                            handleAreaScale={handleAreaScale}
+                          />
+                        )}
+                        {absoluteOrRelative === "relative" && (
+                          <RelativeUnits
+                            radianceOrIrradiance={radianceOrIrradiance}
+                            setRadianceOrIrradiance={setRadianceOrIrradiance}
+                            measurementLabels={measurementLabels}
+                            handleRelativePowers={handleRelativePowers}
+                            relativePowers={relativePowers}
+                          />
+                        )}
+                      </p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              {/* <h2 className="my-3">Step 2. Tell us more about your data.</h2>
+              <form className="form-inline text-start">
+                <p className="lead" style={{ lineHeight: "2.5rem" }}>
+                  {"My data contains "}
+                  <select
+                    value={absoluteOrRelative}
+                    onChange={handleAbsoluteOrRelative}
+                    className="form-control form-control-sm"
+                  >
+                    <option value="absolute">absolute</option>
+                    <option value="relative">relative</option>
+                  </select>
+                  {" spectra with wavelength in nm. "}
+                  <MeasurementLabels
                     measurementLabels={measurementLabels}
-                    handleRelativePowers={handleRelativePowers}
-                    relativePowers={relativePowers}
+                    onChange={handleMeasurementLabel}
                   />
-                )}
-              </p>
-            </form>
+                  {absoluteOrRelative === "absolute" && (
+                    <AbsoluteUnits
+                      radianceOrIrradiance={radianceOrIrradiance}
+                      handleRadianceOrIrradiance={handleRadianceOrIrradiance}
+                      powerScale={powerScale}
+                      handlePowerScale={handlePowerScale}
+                      areaScale={areaScale}
+                      handleAreaScale={handleAreaScale}
+                    />
+                  )}
+                  {absoluteOrRelative === "relative" && (
+                    <RelativeUnits
+                      radianceOrIrradiance={radianceOrIrradiance}
+                      setRadianceOrIrradiance={setRadianceOrIrradiance}
+                      measurementLabels={measurementLabels}
+                      handleRelativePowers={handleRelativePowers}
+                      relativePowers={relativePowers}
+                    />
+                  )}
+                </p>
+              </form> */}
+
+            </div>
+
+
           </div>
         </div>
       )}
@@ -493,16 +529,17 @@ UploadForm.propTypes = {
   setModalView: PropTypes.func.isRequired,
   setShowInstructions: PropTypes.func.isRequired,
   setFileName: PropTypes.func.isRequired,
+  fileName: PropTypes.func.isRequired
 };
 
 const AbsoluteUnits = ({
-  radianceOrIrradiance,
-  handleRadianceOrIrradiance,
-  powerScale,
-  handlePowerScale,
-  areaScale,
-  handleAreaScale,
-}) => {
+                         radianceOrIrradiance,
+                         handleRadianceOrIrradiance,
+                         powerScale,
+                         handlePowerScale,
+                         areaScale,
+                         handleAreaScale
+                       }) => {
   return (
     <>
       <br />
