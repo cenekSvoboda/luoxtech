@@ -9,7 +9,7 @@ const InstructionsContent = () => {
     <div className="row">
       <div className="col-12">
 
-        <h1 className="my-5">Instructions</h1>
+        {/* <h1 className="my-5">Instructions</h1> */}
 
         <h2 className="mb-3">General instructions</h2>
 
