@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import WellcomeLogo from "../../images/wellcome-logo.png";
+/* import WellcomeLogo from "../../images/wellcome-logo.png";
 import SllLogo from "../../images/society-of-light-and-lighting-logo.png";
 import UooLogo from "../../images/university-of-oxford-logo.svg";
 import CieLogo from "../../images/cie-logo.jpg";
 import IesLogo from "../../images/illuminating-engineering-society-logo.png";
 import NRCLogo from "../../images/nrc-signature-e-kr.jpg";
+import { Link } from "react-router-dom"; */
 import UploadForm from "./UploadForm";
-import { Link } from "react-router-dom";
+
 import ManageCSV from "./ManageCSV";
 import Results from "./Results";
 
@@ -26,6 +27,7 @@ const Intro = () => {
   const [isLoaded, setLoaded] = useState(false);
   const [refHAB, setRefHAB] = useState(null);
   const [modalView, setModalView] = useState(false);
+  const [fileName, setFileName] = useState("");
   const fileInput = useRef();
 
   useEffect(() => {
@@ -291,7 +293,12 @@ const Intro = () => {
               setLoaded={setLoaded}
               setModalView={setModalView}
               setShowInstructions={setShowInstructions}
+              setFileName={setFileName}
             />
+
+            <p className="lead" style={{ lineHeight: "2.5rem" }}>
+              {(fileName !== "") ? `Processing file ${fileName}` : ""}
+            </p>
 
             {modalView ? (
               <ManageCSV

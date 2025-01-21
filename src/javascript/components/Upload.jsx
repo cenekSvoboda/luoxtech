@@ -20,6 +20,7 @@ const Upload = () => {
   const [isLoaded, setLoaded] = useState(false);
   const [refHAB, setRefHAB] = useState(null);
   const [modalView, setModalView] = useState(false);
+  const [fileName, setFileName] = useState("");
   const fileInput = useRef();
 
   /* const userModeChange = () => {
@@ -97,10 +98,15 @@ const Upload = () => {
               setLoaded={setLoaded}
               setModalView={setModalView}
               setShowInstructions={setShowInstructions}
+              setFileName={setFileName}
             />
 
+            <p className="lead" style={{ lineHeight: "2.5rem" }}>
+              {(fileName !== "") ? `Processing file ${fileName}` : ""}
+            </p>
+
             {showInstructions ? (
-              <InstructionsContent/>
+              <InstructionsContent />
             ) : (<br />)}
 
             {modalView ? (<ManageCSV

@@ -25,7 +25,8 @@ const UploadForm = ({
   isLoaded,
   setLoaded,
   setModalView,
-  setShowInstructions
+  setShowInstructions,
+  setFileName
 }) => {
   const [powerScale, setPowerScale] = useState("milliwatt");
   const [areaScale, setAreaScale] = useState("metresq");
@@ -184,6 +185,7 @@ const UploadForm = ({
       if (file) {
         setLoaded(true);
       }
+      setFileName(file.name);
       if (file.name.toLowerCase().indexOf(".csv") !== -1) {
         parseCSV(file).then(({ data, errors: csvErrors }) => {
           if (csvErrors.length > 0) {
@@ -490,6 +492,7 @@ UploadForm.propTypes = {
   setLoaded: PropTypes.func.isRequired,
   setModalView: PropTypes.func.isRequired,
   setShowInstructions: PropTypes.func.isRequired,
+  setFileName: PropTypes.func.isRequired,
 };
 
 const AbsoluteUnits = ({
