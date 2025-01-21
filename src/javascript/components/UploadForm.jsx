@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import PropTypes from "prop-types";
 import * as XLSX from "xlsx";
 import ErrorTable from "./ErrorTable";
@@ -529,7 +528,7 @@ UploadForm.propTypes = {
   setModalView: PropTypes.func.isRequired,
   setShowInstructions: PropTypes.func.isRequired,
   setFileName: PropTypes.func.isRequired,
-  fileName: PropTypes.func.isRequired
+  fileName: PropTypes.string.isRequired
 };
 
 const AbsoluteUnits = ({

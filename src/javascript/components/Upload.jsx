@@ -99,11 +99,8 @@ const Upload = () => {
               setModalView={setModalView}
               setShowInstructions={setShowInstructions}
               setFileName={setFileName}
+              fileName={fileName}
             />
-
-            <p className="lead" style={{ lineHeight: "2.5rem" }}>
-              {(fileName !== "") ? `Processing file ${fileName}` : ""}
-            </p>
 
             {showInstructions ? (
               <InstructionsContent />
