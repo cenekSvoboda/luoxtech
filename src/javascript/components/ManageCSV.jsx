@@ -39,9 +39,7 @@ const ManageCSV = ({
   const selectedColumnsArray = [];
   const selectedColumnsKeysArray = [];
 
-  if (rows.length === 0) {
-    return null;
-  }
+
 
   const addSelectedRow = (row, isChecked) => {
     if (isChecked) {
@@ -165,7 +163,25 @@ const ManageCSV = ({
     // xuseSelectedRowsAllColumns();
   };
 
+  useEffect(() => {
+    const handleGlobalKeyDown = (event) => {
+      if (event.key === "Enter") {
+        document.getElementById("proceedButton").click();
+      }
+    };
 
+    // Add event listener
+    window.addEventListener("keydown", handleGlobalKeyDown);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("keydown", handleGlobalKeyDown);
+    };
+  }, []);
+
+  if (rows.length === 0) {
+    return null;
+  }
 
   return (
     <>
@@ -237,6 +253,7 @@ const ManageCSV = ({
               </div>
               <div className="col-md-12 text-end">
                 <Button
+                  id="proceedButton"
                   variant="success"
                   onClick={proceed}
                   className="mx-2 my-1"
