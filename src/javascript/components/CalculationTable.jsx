@@ -189,7 +189,7 @@ const CalculationTable = ({
         // below is the actual snippet to add rows
         displayArray.push(
           <tr key={ki}>
-            <th style={{textAlign:"right"}}>{heading}</th>
+            <th style={{textAlign:"right"}}><span style={{paddingRight: "10px"}}>{heading}</span></th>
             {indexVals.map((sample, index) =>
               checkNA(sample[ki], index, exponentialNotation)
             )}
