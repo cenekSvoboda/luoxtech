@@ -344,7 +344,7 @@ const UploadForm = ({
                 <h5 className="mb-0">
                   <button type="button" className="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
                           aria-expanded="true"
-                          aria-controls="collapseOne" style={{ color: "black", fontSize: "1.5em" }}>
+                          aria-controls="collapseOne" style={{ color: "black", fontSize: "1.2em" }}>
                     Step 1. Open your spectral power distribution data.
                   </button>
                 </h5>
@@ -410,7 +410,7 @@ const UploadForm = ({
                   <h5 className="mb-0">
                     <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
                             aria-expanded="false"
-                            aria-controls="collapseTwo" style={{ color: "black", fontSize: "1.5em" }}>
+                            aria-controls="collapseTwo" style={{ color: "black", fontSize: "1.2em" }}>
                       Step 2. Tell us more about your data.
                     </button>
                   </h5>

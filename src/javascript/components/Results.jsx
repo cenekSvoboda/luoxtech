@@ -60,7 +60,7 @@ const Results = ({
               <h5 className="mb-0">
                 <button type="button" className="btn btn-link" data-toggle="collapse" data-target="#collapseThree"
                         aria-expanded="true"
-                        aria-controls="collapseThree" style={{ color: "black", fontSize: "1.5em" }}>
+                        aria-controls="collapseThree" style={{ color: "black", fontSize: "1.2em" }}>
                   Step 3. Check we have understood your input correctly.
                 </button>
               </h5>
@@ -93,7 +93,7 @@ const Results = ({
               <h5 className="mb-0">
                 <button type="button" className="btn btn-link" data-toggle="collapse" data-target="#collapseFour"
                         aria-expanded="true"
-                        aria-controls="collapseFour" style={{ color: "black", fontSize: "1.5em" }}>
+                        aria-controls="collapseFour" style={{ color: "black", fontSize: "1.2em" }}>
                   Step 4. Download the stimulus specification tables and include them in
                   your report.
                 </button>
@@ -129,7 +129,7 @@ const Results = ({
                 <button type="button" className="btn btn-link collapsed" data-toggle="collapse"
                         data-target="#collapseFive"
                         aria-expanded="false"
-                        aria-controls="collapseFive" style={{ color: "black", fontSize: "1.5em" }}>
+                        aria-controls="collapseFive" style={{ color: "black", fontSize: "1.2em" }}>
                   Step 5. Include the full spectral power distribution in your
                   supplementary material.
                 </button>
@@ -165,7 +165,7 @@ const Results = ({
                 <button type="button" className="btn btn-link collapsed" data-toggle="collapse"
                         data-target="#collapseSix"
                         aria-expanded="false"
-                        aria-controls="collapseSix" style={{ color: "black", fontSize: "1.5em" }}>
+                        aria-controls="collapseSix" style={{ color: "black", fontSize: "1.2em" }}>
                   Step 6. Share an online version of this report.
                 </button>
               </h5>
