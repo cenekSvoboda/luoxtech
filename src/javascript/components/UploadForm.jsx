@@ -354,10 +354,10 @@ const UploadForm = ({
                 <div className="card-body">
                   <form>
                     <div className="form-group">
-                      <div className=" col-md-6 offset-md-3 col-xs-12">
+                      <div className="col-md-8 offset-md-2 col-xs-12 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
 
                         <div className="choose-file-button file-drop-area">
-                          <div className="file-message" style={{ fontSize: "2em" }}>
+                          <div className="file-message" style={{ fontSize: "1.2em" }}>
                             Drag&amp;Drop file here
                           </div>
                           <div style={{ color: "gray", padding: "10px" }}>
@@ -365,7 +365,7 @@ const UploadForm = ({
                           </div>
                           <div className="file-message"
                                style={{
-                                 fontSize: "1.6em",
+                                 fontSize: "1.2em",
                                  border: "3px solid black",
                                  padding: "15px",
                                  borderRadius: "10px",
@@ -373,7 +373,7 @@ const UploadForm = ({
                                }}>
                             Open file
                           </div>
-                          <div style={{ fontSize: "1.2em" }}>
+                          <div style={{ fontSize: "1.0em" }}>
                             measurements accepted in .XLS/.XLSX, .CSV <br />or .SPDX filetypes
                           </div>
                           <input
