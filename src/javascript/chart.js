@@ -1,6 +1,6 @@
 import Chart from "chart.js";
 import { mapSamples } from "./rows";
-import { radianceOrIrradianceSIUnit } from "./helpers";
+import { radianceOrIrradianceSIUnit, mWradianceOrIrradianceSIUnit } from "./helpers";
 import { referenceSpectrum } from "./referenceSpectra";
 
 const generateHues = (selectedRowsSampleCount) => {
@@ -23,8 +23,18 @@ const createChart = (
 ) => {
   const datasets = [];
   const hues = generateHues(selectedRowsSampleCount);
-  let data = selectedRows;
-  let yAxisLabel = `Spectral ${radianceOrIrradiance} [${radianceOrIrradianceSIUnit(
+
+  /**
+   * We use .map() to iterate over each sub-array.
+   * The first element arr[0] remains unchanged.
+   * .slice(1).map(value => value * 1000) takes all elements except the first and multiplies them by 1000.
+   * We use spread syntax (...) to merge the transformed values back into a new array.
+   */
+  let data = selectedRows.map(arr =>
+    [arr[0], ...arr.slice(1).map(value => value * 1000)]
+  );
+
+  let yAxisLabel = `Spectral ${radianceOrIrradiance} [${mWradianceOrIrradianceSIUnit(
     radianceOrIrradiance
   )}]`;
 
@@ -92,7 +102,7 @@ const createChart = (
             ticks: {
               min: 380,
               max: 780,
-              stepSize: 5,
+              stepSize: 10,
             },
           },
         ],

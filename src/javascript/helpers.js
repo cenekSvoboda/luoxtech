@@ -18,3 +18,13 @@ export const radianceOrIrradianceSIUnit = (radianceOrIrradiance) => {
   }
   return units;
 };
+
+export const mWradianceOrIrradianceSIUnit = (radianceOrIrradiance) => {
+  let units = "";
+  if (radianceOrIrradiance === "radiance") {
+    units = "mW ⋅ m⁻² ⋅ sr⁻¹ ⋅ nm⁻¹";
+  } else if (radianceOrIrradiance === "irradiance") {
+    units = "mW ⋅ m⁻² ⋅ nm⁻¹";
+  }
+  return units;
+};
