@@ -1,10 +1,42 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import sample1 from "../../images/LUOXtech_dataFormat_sample1a.png";
 import sample2 from "../../images/LUOXtech_dataFormat_sample2a.png";
 import sample3 from "../../images/LUOXtech_dataFormat_sample3a.png";
 import sample4 from "../../images/LUOXtech_dataFormat_sample4a.png";
 
+
+const SearchableSelect = ({ onSelect, children }) => {
+  const [selectedValue, setSelectedValue] = useState("");
+
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+    onSelect(event.target.value);
+  };
+
+  return (
+    <select value={selectedValue} className="form-select m-2" onChange={handleChange}>
+      <option value="" disabled>Select an illuminant...</option>
+      {children}
+    </select>
+  );
+};
+
 const InstructionsContent = () => {
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [file, setFile] = useState("CIE Standard Illuminant A.csv");
+  const [url, setUrl] = useState("/u/spd1,380,1,wi,-8,MrMzM8NFNONXNgNpNyN7OEOOOXOgOpOyO8PFPOPYPhPrP0P-QHQRQaQkQuQ3RBRLRUReRoRyR7SFSPSZSjStS3TATKTUTeToTyT8UGUQUbUlUvU5VDVNVXVhVsV2WAWKWUWfWpWzW9XHXSXcXmXxX7YFYPYaYkYuY5ZDZNZYZiZsZ2aBaLaVagaqa0a_bJbTbebobyb9cHcRcbcmcwc6dFdPdZdjdud4eCeMeXehere1e_fKfUfefofyf8gHgRgbglgvg5hDhNhXhhhrh1h_iJiTidinixi7jFjPjZjijsj2kAkKkTkdknkxk6lElOlXlhlrl0l-mHmRmamkmum3nAnKnTndnmnvn5oCoLoVoeonowo6pDpMpVpepnpwp5qCqLqUqdqmqvq4rBrKrTrbrkrtr2r-sHsQsYshspsys7tDtMtUtdtlttt2t-uGuPuXufunuwu4vAvIvQvYvgvovwv4wAwIwQwYwgwowvw3w_xHxOxWxexlxtx0x8yDyLySyayhypywy3y_zGzNzUzbzjzqzxz4z_0G0N0U0b0i0p0w03091E1L1S1Z1f1m1t1z162A2H2N2U2a2h2n2t20263A3H3N3T3Z3g3m3s3y343-4E4K4Q4W4c4i4o4t4z454_5E5K5Q5V5b5h5m5s5x53586C6H6N6S6X6d6i6n6s6y63687B7G7L7Q7V7a7f7k7p7u7z74798C8G8L8Q8V8Z8e8j8n8s8x81868-9D9H9L9Q9U9Z9d9h9m9q9u9y92979_-D-H-L-P-T-X-b-f-j-n-r-v-z-2-6,nObservation%201");
+  const handleSelect = (value) => {
+    const jsonVal = JSON.parse(value);
+    setFile(jsonVal.file);
+    setUrl(jsonVal.url);
+    setIsDisabled(false);
+  };
+
+  const getFile = () => {
+    return `/examples/${file}`;
+  }
+
   return (<>
     <div className="row">
       <div className="col-12">
@@ -42,6 +74,237 @@ const InstructionsContent = () => {
 
         Download Illuminants&#39; CSVs:
         <br />
+        <br />
+        {/* {file}
+        <br />
+        {url} */}
+        <div className="row">
+          <div className="col-md-6">
+            <SearchableSelect onSelect={handleSelect}>
+              <option
+                value='{"file":"CIE Standard Illuminant A.csv","url":"/u/spd1,380,1,wi,-8,MrMzM8NFNONXNgNpNyN7OEOOOXOgOpOyO8PFPOPYPhPrP0P-QHQRQaQkQuQ3RBRLRUReRoRyR7SFSPSZSjStS3TATKTUTeToTyT8UGUQUbUlUvU5VDVNVXVhVsV2WAWKWUWfWpWzW9XHXSXcXmXxX7YFYPYaYkYuY5ZDZNZYZiZsZ2aBaLaVagaqa0a_bJbTbebobyb9cHcRcbcmcwc6dFdPdZdjdud4eCeMeXehere1e_fKfUfefofyf8gHgRgbglgvg5hDhNhXhhhrh1h_iJiTidinixi7jFjPjZjijsj2kAkKkTkdknkxk6lElOlXlhlrl0l-mHmRmamkmum3nAnKnTndnmnvn5oCoLoVoeonowo6pDpMpVpepnpwp5qCqLqUqdqmqvq4rBrKrTrbrkrtr2r-sHsQsYshspsys7tDtMtUtdtlttt2t-uGuPuXufunuwu4vAvIvQvYvgvovwv4wAwIwQwYwgwowvw3w_xHxOxWxexlxtx0x8yDyLySyayhypywy3y_zGzNzUzbzjzqzxz4z_0G0N0U0b0i0p0w03091E1L1S1Z1f1m1t1z162A2H2N2U2a2h2n2t20263A3H3N3T3Z3g3m3s3y343-4E4K4Q4W4c4i4o4t4z454_5E5K5Q5V5b5h5m5s5x53586C6H6N6S6X6d6i6n6s6y63687B7G7L7Q7V7a7f7k7p7u7z74798C8G8L8Q8V8Z8e8j8n8s8x81868-9D9H9L9Q9U9Z9d9h9m9q9u9y92979_-D-H-L-P-T-X-b-f-j-n-r-v-z-2-6,nObservation%201"}'>
+                CIE Standard Illuminant A
+              </option>
+              <option
+                value='{"file":"CIE Standard Illuminant D65.csv","url":"/u/spd1,380,1,wi,-12,odopo1pBpNpZplpxp8qIqUrYsbtdudvcwZxWyRzL0E0V0n041K1b1s192O2f2v2z23262-3C3G3J3N3R3U3I272u2h2U2H161t1f1S122Z283e4A4i5E5l6G6n687S7n798S8n889R9l9697999-9_-B-C-D-F-G-I-D9-95909v9q9l9f9a9V9X9Z9b9d9e9g9i9k9m9o9b9P9D838r8e8S8G757t7u7v7v7w7x7y7z7071727z7x7u7r7p7m7j7g7e7b7W7Q7L7G7A67626w6r6l6r6w61666_7E7J7P7U7Z7T7N7H7C68626w6q6k6e6e6d6d6c6b6b6a6Z6Z6Y6R6J6C57505s5l5d5W5P5I5B46404t4m4f4Z4S4L4K4J4I4H4G4F4E4D4C4B3z3m3Z3L2-2w2i2V2H15181-2B2E2G2J2L2O2Q2T2S2R2Q2Q2P2O2N2N2M2L2H2E2A1815111x1t1q1m1d1V1M1D070y0p0g0X0P0P0Q0R0S0T0U0U0V0W0X0Q0I0Bz5zyzqzjzczUzNzNzNzOzOzOzPzPzQzQzQzVzZzdzhzlzqzuzyz2z6zyzqzizazSzKzBy5yxypyXyFxzxhxPw9wqwYwFvyv2v7v_wDwHwLwPwTwXwbwhwnwtwzw5w_xFxLxQxWw7wgwEvovMuvuTt2tYs7tOtht0uHuausu_vRvkv2wBwNwYwjwuw6xFxQxbxmxNw1wcwDvqvRu3uduDtptBsZrwrHqcpypGoantm_n2orpfqSrEr1sltVuEuyuquiubuTuLuDt8t0tstk,nObservation%201"}'>
+                CIE Standard Illuminant D65
+              </option>
+              <option
+                value='{"file":"Illuminant E.csv","url":"/u/spd1,380,1,wi,-39,7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y7Y,nObservation%201"}'>
+                E
+              </option>
+              <option
+                value='{"file":"Illuminant C.csv","url":"/u/spd1,380,5,wi,-12,g4kKnaqhtiwgzY2K4s638r-G_F_m_v_o_g_j_r_w_t_d-4948m7M55454V4T4q5O516W6t616u6Z555R4m363Q2q2N18101w1u1t1s1p1o1s1w1w1q1d1L030dz5zQyox_xWwtwBvTumt7tXs4sasCrxrorlrqrxsA,nObservation%201"}'>
+                C
+              </option>
+              <option
+                value='{"file":"Illuminant D50.csv","url":"/u/spd1,380,1,wi,-13,e5fOfjf5gOgig3hLhfhziHjNkRlTmTnRoOpKqEq9r1sJsdsytGtZttuBuUunu7vEvNvXvgvpvyv7wFwOwXwRwLwGwAv6v0vvvpvjvdwJw1xgyLy1ze0H0w1Y1_2c243U3w4M4n5C5d546T6a6h6o6v636-7F7M7T7a7c7d7f7g7i7k7l7n7o7q7y768B8J8R8Z8g8o8w838x8q8k8d8X8Q8K8D79727-8G8O8W8d8l8t80889E9G9H9J9L9N9P9R9S9U9W9X9Y9Z9a9b9c9d9e9f9g9q919_-J-S-c-m-w-6_E_B-_-8-5-3-0-x-v-s-p-s-v-z-2-5-8-__C_F_I_E-_-6-2-x-t-o-j-f-a-W-R-N-I-D9_96929x9t9v9x9092959799-A-C-F969v9k9Z9O9D848s8h8W8f8n8w859B9K9S9b9j9s9v9y9194989_-C-F-I-M-L-L-K-K-J-J-I-I-H-H-A969z9s9m9f9Y9R9L9E9K9R9X9d9k9q9w9399-D99929w9q9j9d9W9Q9J9D9I9N9S9X9c9h9n9s9x92-A-J-T-c-m-w-5_D_M_W_O_G-_-3-v-o-g-Y-R-J9x9Z9B8p8R757g7I6v6W6f6o6x667D7L7U7d7m7v7x707376787_8C8E8H8K7o7H6l6C5g494Z323S2u3D3Z3v4E4a4v5E5Z5u6D6Q6d6q637E7Q7d7q738D7l7H6p6K5r5M4t4N3t3N2e1v0_0Ozdyrx4xEwPvawbxcybzY0V1R2L3F39414r4h4W4M4C333t3j3Y3O,nObservation%201"}'>
+                D50
+              </option>
+              <option
+                value='{"file":"Illuminant D55.csv","url":"/u/spd1,380,5,wi,-13,jolGmhr7wuyOzr0P0z0Izc2r5w7z9y-L-j-e-Y-1_R-i90-O-o-o-o-h-a_E_t_Z_E_M_V-4-a9-9i9o9t8t7r8K8p8x848u8l7-7X7q7-7a617E7U768f727M5e3t4Q4z5J5f290T1-3l4k5i3R06xStWyE2Y1p05,nObservation%201"}'>
+                D55
+              </option>
+              <option
+                value='{"file":"Illuminant D75.csv","url":"/u/spd1,380,5,wi,-11,q3rYr5wq0_2R3h3o3v2i1S3l5y7L8i8d8Y7z7O7K7G6C49404r4U393V2t273K2o2H171w1I0fz6zUzIy8x9w9w_xBw3wtwWv_vSukuhuet8tZtUtQtatls_sarMp8qJqVq0rTpanboxqEq3rpp9oMlWiRl2pHomoF,nObservation%201"}'>
+                D75
+              </option>
+              <option
+                value='{"file":"Illuminant FL1.csv","url":"/u/spd1,380,5,wi,-18,NKOyQgR7V5qfX1YDZfa3cK_nnnfhgbhMh2iYiti6jBi7i4igiEhohHgpgPgAf-gMgsysnwjbkclTl7pKqkl4lLkNjAhngGefczbKZgX-WaU8TnSXROQJPIONNYMoMcLhK8KgKAJcJCIqIdIVIOH8IAHtH8IAHhG8GU,nObservation%201"}'>
+                FL1
+              </option>
+              <option
+                value='{"file":"Illuminant FL2.csv","url":"/u/spd1,380,5,wi,-19,LaMxOPPZTeplUmUTVfWkXn-FkEaSbCbocJcjc1c-dCc-c-cpcUcEb4b2cFcsdxfShN0Xq0oGqMr_tTwpyHuGtWsMqso8m_k6ivgnebcZaXYdWtVDTgSEQxPiObNcM_L1LBKcJ2JKIqINH3HuHgHNHNG4HIHNGpGCFd,nObservation%201"}'>
+                FL2
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.csv","url":"/u/spd1,380,5,wi,-19,JgKmLyMmQ1nyRQQbRWSLTB7PgTVDVpWHWfWzXAXJXKXHXMW7WsWkWkW1XdYkaPccfGzOqLoGqztIu4yd0Kwkv7u3tXrkphnVlCivgYeMb_Z6X_WJUdS3RaQBO0NsNEL1K9KSJkI2IRHuHWHIG4GkGkGNGeGkGCFjE0,nObservation%201"}'>
+                FL3
+              </option>
+              <option
+                value='{"file":"Illuminant FL4.csv","url":"/u/spd1,380,5,wi,-20,IpJlKrLVQPqcP_OcPMP6Qm-_gcSSS0TOTiTzT9UGUIUIUSUBT1TxT3USVJWnYybme-2asfqpuQxe0A4a6q3O21130WydwNtyreokl2jUgveTcCZ4X6V_UQSmRIP0O7NgMcLnKvJ2JKIaIBHxHbG-G-GlGxG4GYF2E_,nObservation%201"}'>
+                FL4
+              </option>
+              <option
+                value='{"file":"Illuminant FL5.csv","url":"/u/spd1,380,5,wi,-18,NKOwQdR4Vvp3XlXzZMagbw9dmle7fzgghHhlh5iFiJiEh_hohMgzgZgEf3f4gKgthgyvoiknlimOmopcqglxk1jqiSgvfHdcbuaDYYW2VUT3SkRWQMPMOQNYMmL3LtKzKPJ3JcI4IgILH8H4HxHhHlHZHlHtHJGmGG,nObservation%201"}'>
+                FL5
+              </option>
+              <option
+                value='{"file":"Illuminant FL6.csv","url":"/u/spd1,380,5,wi,-19,KwMBNaOeShoYTcTEUJVLWJ78iZYkZPZyaPalaza7a8a4a4amaTaJaHaWa-cAdlfniA0tr3pgrktMuRxNyWuPtOr0qGoKmEj4hnfadNbJZFXKVaTySPQ1PkOXNSMSL7KwKBJdI2INHuHRG-G4GpGZGeGNGkGuGCFXE0,nObservation%201"}'>
+                FL6
+              </option>
+              <option
+                value='{"file":"Illuminant FL7.csv","url":"/u/spd1,380,5,wi,-18,PaRKS3UfX4qXaIZkaub6dH_8oSgbhWiJi0jTjpj3j9j7jyjjjRjCi0iniaiLh9hzht0Tnwh9iJiViel2nZieiRh9hnhMgygbgGf2flfEenegeeenePcUZ9YbXPWZVnUlTiSsR6Q5P6PIOcN0NRMvMQL8LmLEKaJlIq,nObservation%201"}'>
+                FL7
+              </option>
+              <option
+                value='{"file":"Illuminant FL8.csv","url":"/u/spd1,380,5,wi,-19,LjM3OIPUSsl9UjTgUoWEXs9Tk_dGeygShmikjVj7kVknkyk2k5lBlMlYlglclQlAks4fqpkDkAkBkHoIqIk4lKlclvmBmVmunGnYnjngndnwn-n6nRlPizhKf4e0d0cibMaDY6XjWLVDUFTPSdRuRGQoQKPZObNUME,nObservation%201"}'>
+                FL8
+              </option>
+              <option
+                value='{"file":"Illuminant FL9.csv","url":"/u/spd1,380,5,wi,-19,J9LHMPNSQ5ljSVQzRwTEUh79icZXa6cRdbeVfDfmgCgUgigqgwg_hQhoh_iOieiwjG3QqXkylemJmyqustoCoLoMoIn-n0n1n7oIoRoCn1oFofpVpSmJiIfzeJc4b1adZHYDXAVvUdTcSjRwRDQXPyPXO7ONNUMVLH,nObservation%201"}'>
+                FL9
+              </option>
+              <option
+                value='{"file":"Illuminant FL10.csv","url":"/u/spd1,380,5,wi,-15,H0GpF2FnJCZ4K0MMOXQ1TSrhcnX8YWYQXmWmVYUCU4eSeXX_SGNkLYKLJXJAJ9Rvvh_trCVTNpLrK3QXZHcjZ4WPS9VZxTroZ0Z4YFPoKXK_NQMXLPKgJKIoJAJ7JzHgH7NhPuKoFMDpDaDaDpDpDaDEDaDfDEClCO,nObservation%201"}'>
+                FL10
+              </option>
+              <option
+                value='{"file":"Illuminant FL11.csv","url":"/u/spd1,380,5,wi,-15,HFF5FCEhIbabJXJ7LpNjPurPZ2TkT6TzTPSYRWQQRqcEctWPQILVJAHyHAGxIEQbut_WqYUXMfKZJmPoY7chafXKUGXJ3Lwba8a7Z_QyKrLXODM4LsK3JNIkI-KWKgIIIoPCRiLxFnD3DkDaDpDpDUDpENDyC-ClCO,nObservation%201"}'>
+                FL11
+              </option>
+              <option
+                value='{"file":"Illuminant FL12.csv","url":"/u/spd1,380,5,wi,-15,HRF8EsERIGaOH3HNHuIsJ6oAU3MFMOMFLuLVKwKQM4YbZlTeNwJEHIGQFwF5HyP2ri8BoTT3NCLrLMQwZrdDcCZkWnaD9c2DcbcJceS3L5MUPLNxMcLjJgIqJEK3LXI2JbQqTnNQGQEEDyDkD7D7DaDEDaDPC4CWBq,nObservation%201"}'>
+                FL12
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.1.csv","url":"/u/spd1,380,5,wi,-9,G1HjIoJFJ2pAPELwMXM8Nk93OmO5POPhPzQAQJQQQRQQQjQJQGQEQPQqRhS3U1XWaY13hMklneqNsbw-yOvVvBuTtErspxnqlbjLg3ekcZaTYTWaUoTAReQDOvNiM_LeKiJvJJITHsHJGqGJFwFaFJEwJyETFaEKDp,nObservation%201"}'>
+                FL3.1
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.2.csv","url":"/u/spd1,380,5,wi,-8,JwKtL8MuNynWSdQdRUSQS_9oUkVRV1WZW3XSXiX2X9YBYOX_X_X6X2X9YVY7ZzbEchyQf7hmjPkplvpLqcmzmXlyk7j9izhlgPfDdscdbUaFZDX0W0VzU7T7TESSRsQlPvPDOYNqNAMSMELFKfKAJaI3L8IHIMHWGz,nObservation%201"}'>
+                FL3.2
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.3.csv","url":"/u/spd1,380,5,wi,-7,LGMbN7PEQcoCVBUPVcWjXk8JZaaMa4beb-cYcocxczcucucacOb2bebIa8a5bGbgcLyLd_e7fxgeg6kUkmghfye5dvcfbHZsYOWzVXUASqRcQUPPOONVMhLuLBKaKWJUI2IbIOHtHaHHG4GoGYGKGBFyJ7FfGHFQE_,nObservation%201"}'>
+                FL3.3
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.4.csv","url":"/u/spd1,380,5,wi,-9,INIrJRJYJvlPNCKOKdKvLM9RMTMxNaOFOwPeQJQ1RhSQTiUQVmXQZPbUdMeffSfwgC5Gg0hTh_izjqohpsmbnRoKo4pjqIqqrcsds7sNrqrYtfuSv1rQnhlCjliOhCffeBczbgaJY3XrWZVPUXTASmQ8P4QTOQNuMi,nObservation%201"}'>
+                FL3.4
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.5.csv","url":"/u/spd1,380,5,wi,-10,KdLnM5N8PMk7THStUBVWWz_2ZxbMcod9fMgQhKh5ici1jXjTjYjVjPjIjEjAjCjFjQ-Xj5kSkxlWl9rcsXn5oepIpmqCqbqsrFrgrmrCqjqGq1q6rVofmEkTi_hugvfSd5ctbjaMY9X1WqViUrTTTBRbQdQ9OyOaNF,nObservation%201"}'>
+                FL3.5
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.6.csv","url":"/u/spd1,380,5,wi,-9,KYLXMiNkO1imSoScTzVMWq8MZtbNcpeDfTgahTiCiki8jZjSjRjGi4iliUiChzhmhd6ahZhdhnh1iFnLnyjFjZjzkEkVkjksk-lXlck4kakCk2lBlki1gke9dzcvb7aqZdYgXeWWVUUVTYSaR1QpQiPAOOO1M4MrLs,nObservation%201"}'>
+                FL3.6
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.7.csv","url":"/u/spd1,380,5,wi,-4,FlElD9DaDhYkHxGNGnHcIWmlJzJ5J_J4JkJlI-IkJ9UwVTQHLdHbGIFfE-FIGVMfmJ1Ve7QKLlLDKwPjWbaZXDXFU3Qv7JolV6YSa4M0KXKSOLLbKiKeITHVHrJAJsIiFANcSuK3D7DoDaC8DLDzCeCEFzB8C2B4AA,nObservation%201"}'>
+                FL3.7
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.8.csv","url":"/u/spd1,380,5,wi,-5,GYFWEuEZE4aPJ-JxLWNKO9rLRlSBSKR5RRQmPjOgPGZ7aRUTO3KZIpHsHCG5H0OEsp9pkWSWMYLFKYPoXJcaX0WvUGPs4rnoW-ZaaYMYJ-KNOELvKsKtIwH4IZJVJxIaFBM4SHK0EDD1DlDJDXD8CyCjG2CcDfCyCY,nObservation%201"}'>
+                FL3.8
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.9.csv","url":"/u/spd1,380,5,wi,-5,GEFEEfERE_abK1LgN0QUSktbV2WeWnWOVYUVTBRnRpbhb0VnP_LUJQIFHPG7HsN4t3_WlPSZL_KWJfPIWvcPXIVlS5Ol0wk6WzZBY-LmJZJyNdLbKWKPIlHxIUJIJPH6EsMGQ7J-DuDdDRC3DFDoChBIGaA_ClBQAA,nObservation%201"}'>
+                FL3.9
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.10.csv","url":"/u/spd1,380,5,wi,-13,DIAAAAAAFMcxJOIhK_N9Qjp6ZkV4WxXEXGWnV4VGVUdTf7a5VCQUOwNyM9MHL3Ozmx-aluUTKyI8IePaZ8dIbAT5Q0OMu_r3a5XiXXPSKOLEPnPAQOOLK3H0IMHwIKGjDTL7RJJjBZBQBQBFBFA4A4AoAoAAAAAAAA,nObservation%201"}'>
+                FL3.10
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.11.csv","url":"/u/spd1,380,5,wi,-5,GIFVFAFBF8a8L9M9PmSTU1vIYfZOZbZCYIW_VfUATwc3dCW0RWNBLEJ7JGIsJJOcuT_wluS5MrLEKRPtWycDW2UtR8ODvsh7WbYbXLLPJVJwM6LQKGKCIqH3IdI9IyHdEqLAPXJODrDdDRC3DCDdClCQGsCGDMCGAA,nObservation%201"}'>
+                FL3.11
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.12.csv","url":"/u/spd1,380,5,wi,-9,FnGVHRHyIdmHNKJpJmJmJ02GK4LyNUPJRETAU7W1Y1cPd4d8dsc_ceb1bJaiaNa3iJ7yh6ejeygChZm6pXnnoppIqNrXtStmt-toserEpuoMmbkkiqgzexc6bHZVYCWKUjTYSZQ8P1O1N8NKMULtLFKZOEJXJrIhIA,nObservation%201"}'>
+                FL3.12
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.13.csv","url":"/u/spd1,380,5,wi,-9,GmHjIuJaKUm1OzMPMtNON-_GQXSIUlXVaFclexgiiCkXk7j9ixhTgCewdichb1cFh-74h6fMffglhtm2o4mhnKnOn1olpWpxqMpooXnDlwkSilg4fJdbbnZ6YSWqVkTySaRQQSPFOLNUMgLyLFKhJ-JaNSIiI4H0HU,nObservation%201"}'>
+                FL3.13
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.14.csv","url":"/u/spd1,380,5,wi,-9,HeIfJvKpL0lgQVOuPkQdRj-kUkWpZTcMe-hcjqlcnCpmqQpHnll7ksjOhvgTfGeulm-ejleadUdgd8jLlYjLjWjPkFlGnTnqoWoHm4lkkfjQhxgMekc_bRZrYJWnVlT5SbRdQuPbOaNjMwMHLdK4KYJ4NlI6JSIIH3,nObservation%201"}'>
+                FL3.14
+              </option>
+              <option
+                value='{"file":"Illuminant FL3.15.csv","url":"/u/spd1,380,5,wi,3,bCaZZjYYbNlnXaTbTPUWaz6vmcc5eqgXhyi9j9kqlKlUlak9kij0jIiQhggqf6fXgUxvlneBd8eDeTiijwfSfXfrf6gLgSgbgegZgPf-fmfLeneBdRcmbya8Z-ZKYRXTWLVVUKTPSMRcQlP1PDOTNhMrL4LJKlJ_Jf,nObservation%201"}'>
+                FL3.15
+              </option>
+              <option
+                value='{"file":"Illuminant LED-B1.csv","url":"/u/spd1,380,5,wi,-22,AABXBXB7CuDmFRHNJ6NEQ5VnbxiamPldiCe7cdaraMa0cGdzfqhfjPk4mdoBpirGsquOv5xnzW1E2y4c5-7X8i9d-F-Y-V989O8N695d3w13z0xqvdtMq8ormdkRiLgIeGcGaQYiW5VZT9SnRYQOPOOSNaMoL3LOKo,nObservation%201"}'>
+                LED-B1
+              </option>
+              <option
+                value='{"file":"Illuminant LED-B2.csv","url":"/u/spd1,380,5,wi,-22,AAAAAABXB7DDEhGrJoNWRzW3djmMsPrkmXiCfIcbbObzdKfEhPjSlImxoPptrLsouJvpxLyr0M1m274I5Q6Q7E7t8I8Q8F7o65564s3P1nz0x3vztrrkpZnOlFi-g7e9dCbMZbXvWKUsTTSAQyPpOmNnMtL3LJKdJ0,nObservation%201"}'>
+                LED-B2
+              </option>
+              <option
+                value='{"file":"Illuminant LED-B3.csv","url":"/u/spd1,380,5,wi,-22,AAAABXB7DDEhG0KMO6U9cCkdvY5R7Iz-q1lWhZexe9g2jbmNotqqsJtRuLvBv4wwxqyjza0K031d1-2Z2w3F3T3Y3T2_2d1q0pzbx-wXulssquormmkiifgeegcna0ZEXYVyUSS3RfQSPGOBM_MBLOKXJoI7ISHtHN,nObservation%201"}'>
+                LED-B3
+              </option>
+              <option
+                value='{"file":"Illuminant LED-B4.csv","url":"/u/spd1,380,5,wi,-21,AAAAAABQCKDiFuJLOSUtcBj_tp4r_i9T0LrEkpfbbmZvZjbEd_hqlVoprctovNwYxNxxyKycylynyfyPx5xdw7wPvcuetbsQq9pooOmylQjuiNgsfHdicDamZIXwWcVJT3SsRnQkPjOnNvM6MLLgK0KOJwJQI1IYIG,nObservation%201"}'>
+                LED-B4
+              </option>
+              <option
+                value='{"file":"Illuminant LED-B5.csv","url":"/u/spd1,380,5,wi,-19,AABDBDB0CyENGNJRNkTEZlhEqM0p7s6ny2qgkffocMauavb4d4gRioksmZnroopTpvqAqHqKqHp9pspVo3oVntm-mKlPkOjIh-gvffeMc4blaPY9XqWZVKT8S1RwQvPyO2N5NCMPLgKwKIJgI6IZH3HWG-GkGNF2Fd,nObservation%201"}'>
+                LED-B5
+              </option>
+              <option
+                value='{"file":"Illuminant LED-BH1.csv","url":"/u/spd1,380,5,wi,-18,AAA-BXB7CuD-GKJSNEQ0T8W9ZlbEayYxVzS5QgOuNlNWOQQUTVW3aWdRfqhgi0jlkCkQkYkXkQkDjyjfjLi-i9jUkamrqfwM4B9c5bsugFZ9WvUvTNR9Q3P6O-OHNTMjLyLGKdJ3JSIxISHxHRG4GiGKF3FnFRFGE0,nObservation%201"}'>
+                LED-BH1
+              </option>
+              <option
+                value='{"file":"Illuminant LED-RGB1.csv","url":"/u/spd1,380,5,wi,-15,AAAAAAAvBDBqCeDpFQHNJZLkNpP6R8RgO2NKMbMKM7O0RdUyYkcYfghZhqgieicWaXYuXZWaVxVZVRVTViV8WlXeYvafdFgul2s01D6x1kntdOW-S_QhO3NoMnLxK9KSJmI6ITHwHKGuGQFzFaE_EsEZEED3DpDaDE,nObservation%201"}'>
+                LED-RGB1
+              </option>
+              <option
+                value='{"file":"Illuminant LED-V1.csv","url":"/u/spd1,380,5,wi,-21,BQCKErJwUNkPyu00p5ebWtSuR9S5UcWKX0Zhbcddflhqjfk4l4mjm-nTnmn_oepEpuqbrGrysdtIt5uzv3xFyh0D1s3I4j567D798h8y8u8U7n6k5P3s1-0DyAv2torUpBmukeiWgReOcQaXYmW6VaT5SkRNQCO_Ny,nObservation%201"}'>
+                LED-V1
+              </option>
+              <option
+                value='{"file":"Illuminant LED-V2.csv","url":"/u/spd1,380,5,wi,-22,BXDVG8OmcyvH8t9PzpougudXeAguj8mvo9qqsJtlu5wIxDxhxpxexLw2wlwewgwpw6xKxYxkxvx3yDyRyozEzs0a1L112g3I3l374A343f221-02zfx7wRucsgqkoimgkdiXgXeecna0ZEXYV3UYTARwQgPhOSNWMe,nObservation%201"}'>
+                LED-V2
+              </option>
+              <option
+                value='{"file":"Illuminant HP1.csv","url":"/u/spd1,380,5,wi,-6,EsFDFYFmF_HEGpG-HdHwIRJQJkIHMOIzHEPhMRIzECELGGOhZhFzE8MdE8E0FDFKFfHsLfNZPhZZ2PZgj_6voo-Ru1k8ebjYXTVBTZSIRJQUPXPJOWN8O6ObMmKwJvJYJAI3IrInIZIVIMIMIMIMInIVIDTPR-IRIz,nObservation%201"}'>
+                HP1
+              </option>
+              <option
+                value='{"file":"Illuminant HP2.csv","url":"/u/spd1,380,5,wi,-10,H0IBI6JPKBLSLvM6OdPbRATvTSSzW4VkSuYMZfTQPhQCRpW5h8T-T6ZIViWVXRYYaOfmvu183164-Cv1akFNDAGMWRp_2D9Q858i7q6b5E352X1v0SzY0Tzpw0tzr8q5qOpppKotoTn_ninTnMm2nAmvmir3ssmfmy,nObservation%201"}'>
+                HP2
+              </option>
+              <option
+                value='{"file":"Illuminant HP3.csv","url":"/u/spd1,380,5,wi,-10,IjNLP3RERVWNYracflaLXLclYrXuXCYoaDYNZiXmWfVzXHZAayarZEaKcKaWe5_V5Omzb_cLbyi-pfhVhwvLse_s7r0xv3ttoSnWkijDh_hZfeiQhfe7fueocicdX6X7WUVQUsUKUDT5TcTTTmTHUOVxTmUUTTSiSZ,nObservation%201"}'>
+                HP3
+              </option>
+              <option
+                value='{"file":"Illuminant HP4.csv","url":"/u/spd1,380,5,wi,-9,N0QGTuWbV7eegkjQo0iWbVpcdlaWYeZpcMZpaOZLX8WlYKZSZlcUZVZBZ6YOcT8XscxJcxaAY5gohdlCkzfA7w4MuJljlFhodUfRcMbLavbUYraOd0aap2afZMbqVSWNTwSfRzRNRLROQrPsQ9QCSiVWRqV1UuRuP3,nObservation%201"}'>
+                HP4
+              </option>
+              <option
+                value='{"file":"Illuminant HP5.csv","url":"/u/spd1,380,5,wi,-11,DEOARyUUUTcVgZlsphnJiAlHiEgzhajUlfkzkwjpjfg-i-jpk8okkikgkoi6mu7mvUrFkjloksrcvMqoodrJ7d8R07uEquuFo1qZn7nWmrnZjglangl2wMkKkKpQe1gqdNaeZHX9YFX8WsV_XOVRZmfOYRe3c2XTUv,nObservation%201"}'>
+                HP5
+              </option>
+            </SearchableSelect>
+          </div>
+          <div className="col-md-6" style={{ textAlign: "left" }}>
+            <button
+              type="button"
+              disabled={isDisabled}
+              className="btn btn-primary m-2"
+              onClick={()=>{
+                const link = document.createElement('a');
+                link.href = getFile();
+                link.download = file;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
+              Download Sample CSV
+            </button>
+            <button
+              type="button"
+              disabled={isDisabled}
+              className="btn btn-info m-2"
+              onClick={()=>{
+                window.location.href = url;
+              }}
+            >
+              Use Sample
+            </button>
+          </div>
+        </div>
+        <br />
+        {/*
         <p style={{ width: "100%" }}>
                     <span>
                     <a
@@ -392,7 +655,7 @@ const InstructionsContent = () => {
 
         </p>
         <br />
-
+        */}
         <h2 className="mb-3">Format instructions</h2>
 
         <p className="lead my-5">
@@ -571,4 +834,362 @@ const InstructionsContent = () => {
   </>);
 };
 
+SearchableSelect.propTypes = {
+  onSelect: PropTypes.func.isRequired,
+  children: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
 export default InstructionsContent;
+
+/*
+<p style={{ width: "100%" }}>
+                    <span>
+                    <a
+                      download="CIE Standard Illuminant A.csv"
+                      className=""
+                      href="/examples/CIE Standard Illuminant A.csv"
+                    >
+                      CIE Standard Illuminant A
+                    </a>, </span>
+  <span>
+                    <a
+                      download="CIE Standard Illuminant D65.csv"
+                      className=""
+                      href="/examples/CIE Standard Illuminant D65.csv"
+                    >
+                      CIE Standard Illuminant D65
+                    </a>, </span>
+  <span>
+                    <a
+                      download="Illuminant E.csv"
+                      className=""
+                      href="/examples/Illuminant E.csv"
+                    >
+                      E
+                    </a>, </span>
+  <span>
+                    <a
+                      download="Illuminant C.csv"
+                      className=""
+                      href="/examples/Illuminant C.csv"
+                    >
+                      C
+                    </a>, </span>
+  <span>
+                      <a
+                        download="Illuminant D50.csv"
+                        className=""
+                        href="/examples/Illuminant D50.csv"
+                      >
+                      D50
+                    </a>, </span>
+
+  <span>
+                        <a
+                          download="Illuminant D55.csv"
+                          className=""
+                          href="/examples/Illuminant D55.csv"
+                        >
+                      D55
+                    </a>, </span>
+
+  <span><a
+    download="Illuminant D75.csv"
+    className=""
+    href="/examples/Illuminant D75.csv"
+  >
+                      D75
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL1.csv"
+    className=""
+    href="/examples/Illuminant FL1.csv"
+  >
+                      FL1
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL2.csv"
+    className=""
+    href="/examples/Illuminant FL2.csv"
+  >
+                      FL2
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.csv"
+    className=""
+    href="/examples/Illuminant FL3.csv"
+  >
+                        FL3
+                      </a>, </span>
+
+  <span><a
+    download="Illuminant FL4.csv"
+    className=""
+    href="/examples/Illuminant FL4.csv"
+  >
+                      FL4
+                    </a>, </span>
+
+  <span><a
+    download="Illuminant FL5.csv"
+    className=""
+    href="/examples/Illuminant FL5.csv"
+  >
+                      FL5
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL6.csv"
+    className=""
+    href="/examples/Illuminant FL6.csv"
+  >
+                      FL6
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL7.csv"
+    className=""
+    href="/examples/Illuminant FL7.csv"
+  >
+                      FL7
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL8.csv"
+    className=""
+    href="/examples/Illuminant FL8.csv"
+  >
+                      FL8
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL9.csv"
+    className=""
+    href="/examples/Illuminant FL9.csv"
+  >
+                      FL9
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL10.csv"
+    className=""
+    href="/examples/Illuminant FL10.csv"
+  >
+                      FL10
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL11.csv"
+    className=""
+    href="/examples/Illuminant FL11.csv"
+  >
+                      FL11
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL12.csv"
+    className=""
+    href="/examples/Illuminant FL12.csv"
+  >
+                      FL12
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.1.csv"
+    className=""
+    href="/examples/Illuminant FL3.1.csv"
+  >
+                      FL3.1
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.2.csv"
+    className=""
+    href="/examples/Illuminant FL3.2.csv"
+  >
+                      FL3.2
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.3.csv"
+    className=""
+    href="/examples/Illuminant FL3.3.csv"
+  >
+                      FL3.3
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.4.csv"
+    className=""
+    href="/examples/Illuminant FL3.4.csv"
+  >
+                      FL3.4
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.5.csv"
+    className=""
+    href="/examples/Illuminant FL3.5.csv"
+  >
+                      FL3.5
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.6.csv"
+    className=""
+    href="/examples/Illuminant FL3.6.csv"
+  >
+                      FL3.6
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.7.csv"
+    className=""
+    href="/examples/Illuminant FL3.7.csv"
+  >
+                      FL3.7
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.8.csv"
+    className=""
+    href="/examples/Illuminant FL3.8.csv"
+  >
+                      FL3.8
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.9.csv"
+    className=""
+    href="/examples/Illuminant FL3.9.csv"
+  >
+                      FL3.9
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.10.csv"
+    className=""
+    href="/examples/Illuminant FL3.10.csv"
+  >
+                      FL3.10
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.11.csv"
+    className=""
+    href="/examples/Illuminant FL3.11.csv"
+  >
+                      FL3.11
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.12.csv"
+    className=""
+    href="/examples/Illuminant FL3.12.csv"
+  >
+                      FL3.12
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.13.csv"
+    className=""
+    href="/examples/Illuminant FL3.13.csv"
+  >
+                      FL3.13
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.14.csv"
+    className=""
+    href="/examples/Illuminant FL3.14.csv"
+  >
+                      FL3.14
+                    </a>, </span>
+  <span><a
+    download="Illuminant FL3.15.csv"
+    className=""
+    href="/examples/Illuminant FL3.15.csv"
+  >
+                      FL3.15
+                    </a>, </span>
+  <span><a
+    download="Illuminant LED-B1.csv"
+    className=""
+    href="/examples/Illuminant LED-B1.csv"
+  >
+                      LED-B1
+                    </a>, </span>
+  <span><a
+    download="Illuminant LED-B2.csv"
+    className=""
+    href="/examples/Illuminant LED-B2.csv"
+  >
+                      LED-B2
+                    </a>, </span>
+  <span><a
+    download="Illuminant LED-B3.csv"
+    className=""
+    href="/examples/Illuminant LED-B3.csv"
+  >
+                      LED-B3
+                    </a>, </span>
+  <span><a
+    download="Illuminant LED-B4.csv"
+    className=""
+    href="/examples/Illuminant LED-B4.csv"
+  >
+                      LED-B4
+                    </a>, </span>
+  <span><a
+    download="Illuminant LED-B5.csv"
+    className=""
+    href="/examples/Illuminant LED-B5.csv"
+  >
+                      LED-B5
+                    </a>, </span>
+  <span><a
+    download="Illuminant LED-BH1.csv"
+    className=""
+    href="/examples/Illuminant LED-BH1.csv"
+  >
+                      LED-BH1
+                    </a>, </span>
+  <span><a
+    download="Illuminant LED-RGB1.csv"
+    className=""
+    href="/examples/Illuminant LED-RGB1.csv"
+  >
+                      LED-RGB1
+                    </a>, </span>
+  <span><a
+    download="Illuminant LED-V1.csv"
+    className=""
+    href="/examples/Illuminant LED-V1.csv"
+  >
+                      LED-V1
+                    </a>, </span>
+  <span><a
+    download="Illuminant LED-V2.csv"
+    className=""
+    href="/examples/Illuminant LED-V2.csv"
+  >
+                      LED-V2
+                    </a>, </span>
+  <span><a
+    download="Illuminant HP1.csv"
+    className=""
+    href="/examples/Illuminant HP1.csv"
+  >
+                      HP1
+                    </a>, </span>
+  <span><a
+    download="Illuminant HP2.csv"
+    className=""
+    href="/examples/Illuminant HP2.csv"
+  >
+                      HP2
+                    </a>, </span>
+  <span><a
+    download="Illuminant HP3.csv"
+    className=""
+    href="/examples/Illuminant HP3.csv"
+  >
+                      HP3
+                    </a>, </span>
+  <span><a
+    download="Illuminant HP4.csv"
+    className=""
+    href="/examples/Illuminant HP4.csv"
+  >
+                      HP4
+                    </a>, </span>
+  <span><a
+    download="Illuminant HP5.csv"
+    className=""
+    href="/examples/Illuminant HP5.csv"
+  >
+                      HP5
+                    </a></span>
+
+</p>
+<br />
+*/
