@@ -1,13 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-/* import WellcomeLogo from "../../images/wellcome-logo.png";
-import SllLogo from "../../images/society-of-light-and-lighting-logo.png";
-import UooLogo from "../../images/university-of-oxford-logo.svg";
-import CieLogo from "../../images/cie-logo.jpg";
-import IesLogo from "../../images/illuminating-engineering-society-logo.png";
-import NRCLogo from "../../images/nrc-signature-e-kr.jpg";
-import { Link } from "react-router-dom"; */
+import PropTypes from "prop-types";
 import UploadForm from "./UploadForm";
-
 import ManageCSV from "./ManageCSV";
 import Results from "./Results";
 
@@ -28,7 +21,41 @@ const Intro = () => {
   const [refHAB, setRefHAB] = useState(null);
   const [modalView, setModalView] = useState(false);
   const [fileName, setFileName] = useState("");
+  const [absoluteOrRelative, setAbsoluteOrRelative] = useState("absolute");
   const fileInput = useRef();
+
+  const [powerScale, setPowerScale] = useState("milliwatt");
+  const [areaScale, setAreaScale] = useState("metresq");
+
+  const handleRadianceOrIrradiance = ({ target: { value } }) => {
+    setRadianceOrIrradiance(value);
+  };
+
+  const handleAbsoluteOrRelative = ({ target: { value } }) => {
+    setAbsoluteOrRelative(value);
+  };
+
+  const handlePowerScale = ({ target: { value } }) => {
+    setPowerScale(value);
+  };
+
+  const handleAreaScale = ({ target: { value } }) => {
+    setAreaScale(value);
+  };
+
+  const handleRelativePowers = (index) => ({ target: { value } }) => {
+    setRelativePowers((powers) => ({
+      ...powers,
+      [index]: value,
+    }));
+  };
+
+  const handleMeasurementLabel = (index) => ({ target: { value } }) => {
+    setMeasurementLabels((labels) => ({
+      ...labels,
+      [index]: value,
+    }));
+  };
 
   useEffect(() => {
     document.title = "LUOXtech: Home";
@@ -88,192 +115,104 @@ const Intro = () => {
                 <br />
                 <span style={{ color: "gray" }}>LUOXtech is operated by the Czech Lighting Society, group Brno.</span>
               </p>
-              {/* <p className="animate__animated animate__fadeInUp">
-                For further information about purpose, calculated quantities,
-                and key references, please see{" "}
-                <a href="/about" title="About page">
-                  the About page
-                </a>
-                .
-              </p>
-
-              <p className="animate__animated animate__fadeInUp">
-                You will need a CSV (comma-separated) or SPDX (following
-                ANSI/IES TM-27-20) file containing the spectral radiance or
-                irradiance distribution. luox is operated by the joint research
-                group Chronobiology & Health at the Technical University of
-                Munich and Translational Sensory and Circadian Neuroscience at
-                the Max Planck Institute for Biological Cybernetics (Prof. Dr.
-                Manuel Spitschan).
-              </p>
-              <a
-                href="/format-info"
-                className="btn-get-started animate__animated animate__fadeInUp"
-              >
-                Start Now
-              </a> */}
             </div>
           </div>
         </div>
         )}
       </section>
 
-      {/* { !showInstructions && (
-        <div style={{position:"absolute", width: "100%", height: "80px", backgroundColor:"black"}}></div>
-      )} */}
-      {/* <main>
-        <section className="portfolio">
-          <div className="container">
-            <div className="section-title">
-              <h2>Funding & Support</h2>
-            </div>
-
-            <div
-              className="row portfolio-container  justify-content-center"
-              data-aos="fade-up"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="200"
-            >
-              <div className="col-md-3 col-sm-6 col-xs-12 portfolio-wrap filter-card">
-                <div className="portfolio-item">
-                  <a href="http://www.wellcome.ac.uk/">
-                    <img
-                      src={WellcomeLogo}
-                      width="30%"
-                      className="mx-auto d-block"
-                      alt="Wellcome Trust logo"
-                    />
-                  </a>
-                  <p style={{ fontSize: "75%" }} className="text-center">
-                    Wellcome Trust (204686/Z/16/Z, 204686/Z/16/C)
-                  </p>
-                </div>
-              </div>
-              <div className="col-md-3 col-sm-6 col-xs-12 portfolio-wrap filter-card">
-                <div className="portfolio-item">
-                  <a href="https://www.cibse.org/society-of-light-and-lighting">
-                    <img
-                      src={SllLogo}
-                      width="30%"
-                      className="mx-auto d-block"
-                      alt="Society of Light & Lighting logo"
-                    />
-                  </a>
-                  <p style={{ fontSize: "75%" }} className="text-center">
-                    Society of Light & Lighting (2020 Jean Heap Bursary)
-                  </p>
-                </div>
-              </div>
-              <div className="col-md-3 col-sm-6 col-xs-12 portfolio-wrap filter-card">
-                <div className="portfolio-item">
-                  <a href="https://www.ox.ac.uk/">
-                    <img
-                      src={UooLogo}
-                      width="30%"
-                      style={{ backgroundColor: "#002147" }}
-                      className="mx-auto d-block"
-                      alt="University of Oxford logo"
-                    />
-                  </a>
-                  <p style={{ fontSize: "75%" }} className="text-center">
-                    University of Oxford van Houten Fund (VH-148)
-                  </p>
-                </div>
-              </div>
-              <div className="col-md-3 col-sm-6 col-xs-12 portfolio-wrap filter-card">
-                <div className="portfolio-item">
-                  <a href="https://www.ies.org/">
-                    <img
-                      src={IesLogo}
-                      width="100%"
-                      className="mx-auto d-block"
-                      alt="Illuminating Engineering Society logo"
-                    />
-                  </a>
-                  <p style={{ fontSize: "75%" }} className="text-center">
-                    Illuminating Engineering Society
-                  </p>
-                </div>
-              </div>
-              <div className="col-md-6 offset-md-3 col-xs-12 offset-xs-0 portfolio-wrap filter-card">
-                <div className="portfolio-item">
-                  <a href="https://nrc.canada.ca/en">
-                    <img
-                      src={NRCLogo}
-                      width="100%"
-                      className="img-fluid nrclogo"
-                      alt="National Research Council of Canada logo"
-                    />
-                  </a>
-                  <p style={{ fontSize: "75%" }} className="text-center">
-                    National Research Council of Canada
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="features">
-          <div className="container">
-            <div className="section-title">
-              <h2>Validation</h2>
-            </div>
-
-            <div
-              className="row"
-              data-aos="fade-up"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="200"
-            >
-              <div className="col-md-2">
-                <a href="http://cie.co.at/">
-                  <img src={CieLogo} width="100%" alt="CIE logo" />
-                </a>
-              </div>
-              <div className="col-md-10 pt-4">
-                <p className="fst-italic">
-                  This software incorporates methods, formulae, spectral
-                  function calculations and spectra from the International
-                  Commission on Illumination (CIE). The CIE endorses this
-                  software having made a black-box evaluation of the software as
-                  of Feb. 11, 2021, finding that the software performs
-                  satisfactorily to calculate quantities and indices derived
-                  from CIE publications. This software is not a replacement for
-                  the CIE publications and works from which it is derived. The
-                  user is advised to consult the original publications and works
-                  for proper understanding of and calculation of the result of
-                  this software.
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="row"
-              data-aos="fade-up"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="200"
-            >
-              <div className="col-md-3 order-1 order-md-2">
-                <a href="http://www.ies.org/">
-                  <img src={IesLogo} width="100%" alt="IES logo" />
-                </a>
-              </div>
-              <div className="col-md-9 pt-4 order-2 order-md-1">
-                <p className="fst-italic">
-                  This software has been validated to load SPDX files according
-                  to TM-27-20. This software offers optional calculation of
-                  indices from IES TM-30-20. These optional calculations have
-                  not been validated.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main> */}
-
       <section className="why-us pt-2 upload-section">
         <div className="container p-4 text-center upload-div">
           <div className="row justify-content-center" style={{paddingTop:"1px"}}>
+
+            {csv.length > 0 && (
+              <div className="row">
+                <div className="col">
+
+                  <div id="accordion2">
+                    <div className="card">
+                      <div className="card-header" id="headingTwo">
+                        <h5 className="mb-0">
+                          <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                  aria-expanded="false"
+                                  aria-controls="collapseTwo" style={{ color: "black", fontSize: "1.2em" }}>
+                            {/* Step 2. */}Tell us more about your data.
+                          </button>
+                        </h5>
+                      </div>
+
+                      <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion2">
+                        <div className="card-body">
+                          <form className="form-inline text-start">
+                            <p className="lead" style={{ lineHeight: "2.5rem" }}>
+                              {"My data contains "}
+                              <select
+                                value={absoluteOrRelative}
+                                onChange={handleAbsoluteOrRelative}
+                                className="form-control form-control-sm"
+                              >
+                                <option value="absolute">absolute</option>
+                                <option value="relative">relative</option>
+                              </select>
+                              {" spectra with wavelength in nm. "}
+                              <MeasurementLabels
+                                measurementLabels={measurementLabels}
+                                onChange={handleMeasurementLabel}
+                              />
+                              {absoluteOrRelative === "absolute" && (
+                                <AbsoluteUnits
+                                  radianceOrIrradiance={radianceOrIrradiance}
+                                  handleRadianceOrIrradiance={handleRadianceOrIrradiance}
+                                  powerScale={powerScale}
+                                  handlePowerScale={handlePowerScale}
+                                  areaScale={areaScale}
+                                  handleAreaScale={handleAreaScale}
+                                />
+                              )}
+                              {absoluteOrRelative === "relative" && (
+                                <RelativeUnits
+                                  radianceOrIrradiance={radianceOrIrradiance}
+                                  setRadianceOrIrradiance={setRadianceOrIrradiance}
+                                  measurementLabels={measurementLabels}
+                                  handleRelativePowers={handleRelativePowers}
+                                  relativePowers={relativePowers}
+                                />
+                              )}
+                            </p>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <Results
+              selectedRows={selectedRows}
+              selectedRowsSampleCount={selectedRowsSampleCount}
+              radianceOrIrradiance={radianceOrIrradiance}
+              measurementLabels={measurementLabels}
+              powerMode={powerMode}
+              isLoaded={isLoaded}
+              setLoaded={setLoaded}
+              refHAB={refHAB}
+              setRefHAB={setRefHAB}
+            />
+            {modalView ? (
+              <ManageCSV
+                rows={rows}
+                sampleCount={sampleCount}
+                setSelectedRows={setSelectedRows}
+                setSelectedRowsSampleCount={setSelectedRowsSampleCount}
+                measurementLabels={measurementLabels}
+                setMeasurementLabels={setMeasurementLabels}
+                modalView={modalView}
+                setModalView={setModalView}
+              />
+            ) : (
+              <br />
+            )}
             <UploadForm
               radianceOrIrradiance={radianceOrIrradiance}
               measurementLabels={measurementLabels}
@@ -295,39 +234,201 @@ const Intro = () => {
               setShowInstructions={setShowInstructions}
               setFileName={setFileName}
               fileName={fileName}
-            />
-
-            {modalView ? (
-              <ManageCSV
-                rows={rows}
-                sampleCount={sampleCount}
-                setSelectedRows={setSelectedRows}
-                setSelectedRowsSampleCount={setSelectedRowsSampleCount}
-                measurementLabels={measurementLabels}
-                setMeasurementLabels={setMeasurementLabels}
-                modalView={modalView}
-                setModalView={setModalView}
-              />
-            ) : (
-              <br />
-            )}
-
-            <Results
-              selectedRows={selectedRows}
-              selectedRowsSampleCount={selectedRowsSampleCount}
-              radianceOrIrradiance={radianceOrIrradiance}
-              measurementLabels={measurementLabels}
-              powerMode={powerMode}
-              isLoaded={isLoaded}
-              setLoaded={setLoaded}
-              refHAB={refHAB}
-              setRefHAB={setRefHAB}
+              powerScale={powerScale}
+              areaScale={areaScale}
+              absoluteOrRelative={absoluteOrRelative}
+              setAbsoluteOrRelative={setAbsoluteOrRelative}
             />
           </div>
         </div>
       </section>
     </>
   );
+};
+
+const AbsoluteUnits = ({
+                         radianceOrIrradiance,
+                         handleRadianceOrIrradiance,
+                         powerScale,
+                         handlePowerScale,
+                         areaScale,
+                         handleAreaScale
+                       }) => {
+  return (
+    <>
+      <br />
+      {"Each measurement column contains "}
+      <select
+        value={radianceOrIrradiance}
+        onChange={handleRadianceOrIrradiance}
+        className="form-control form-control-sm"
+      >
+        <option value="irradiance">irradiances</option>
+        <option value="radiance">radiances</option>
+      </select>
+      {" in "}
+      <select
+        value={powerScale}
+        onChange={handlePowerScale}
+        className="form-control form-control-sm"
+      >
+        <option value="microwatt">µW</option>
+        <option value="milliwatt">mW</option>
+        <option value="watt">W</option>
+      </select>
+      {" per "}
+      <select
+        value={areaScale}
+        onChange={handleAreaScale}
+        className="form-control form-control-sm"
+      >
+        <option value="millimetresq">mm²</option>
+        <option value="centimetresq">cm²</option>
+        <option value="metresq">m²</option>
+      </select>
+      {radianceOrIrradiance === "radiance" && " per sr"}.
+    </>
+  );
+};
+
+AbsoluteUnits.propTypes = {
+  radianceOrIrradiance: PropTypes.oneOf(["radiance", "irradiance"]).isRequired,
+  handleRadianceOrIrradiance: PropTypes.func.isRequired,
+  powerScale: PropTypes.string.isRequired,
+  handlePowerScale: PropTypes.func.isRequired,
+  areaScale: PropTypes.string.isRequired,
+  handleAreaScale: PropTypes.func.isRequired,
+};
+
+const RelativeUnits = ({
+                         radianceOrIrradiance,
+                         setRadianceOrIrradiance,
+                         measurementLabels,
+                         handleRelativePowers,
+                         relativePowers,
+                       }) => {
+  const luminanceOrIlluminance =
+    radianceOrIrradiance === "radiance" ? "luminance" : "illuminance";
+
+  const handleLuminanceOrIlluminance = ({ target: { value } }) => {
+    setRadianceOrIrradiance(value === "luminance" ? "radiance" : "irradiance");
+  };
+
+  const units = radianceOrIrradiance === "radiance" ? "(cd/m²)" : "(lx)";
+
+  return (
+    <>
+      {"I have separately measured "}
+      <select
+        value={luminanceOrIlluminance}
+        onChange={handleLuminanceOrIlluminance}
+        className="form-control form-control-sm"
+      >
+        <option value="luminance">luminance</option>
+        <option value="illuminance">illuminance</option>
+      </select>
+      {Object.entries(measurementLabels).map(([key, title], index) => (
+        <React.Fragment key={key}>
+          <RelativePower
+            title={title}
+            onChange={handleRelativePowers(index)}
+            value={relativePowers[index]}
+            units={units}
+          />
+          <Separator
+            index={index}
+            length={Object.keys(measurementLabels).length}
+          />
+        </React.Fragment>
+      ))}
+      .
+    </>
+  );
+};
+
+RelativeUnits.propTypes = {
+  radianceOrIrradiance: PropTypes.oneOf(["radiance", "irradiance"]).isRequired,
+  setRadianceOrIrradiance: PropTypes.func.isRequired,
+  measurementLabels: PropTypes.objectOf(PropTypes.string).isRequired,
+  handleRelativePowers: PropTypes.func.isRequired,
+  relativePowers: PropTypes.objectOf(PropTypes.string).isRequired,
+};
+
+const RelativePower = ({ title, onChange, value, units }) => {
+  const handleInput = ({ target }) => {
+    target.reportValidity();
+  };
+
+  return (
+    <>
+      {" "}
+      for <span className="font-italic">{title}</span> at{" "}
+      <input
+        type="number"
+        className="form-control form-control-sm"
+        onChange={onChange}
+        onInput={handleInput}
+        value={value}
+        min="0.00001"
+        step="any"
+        required
+      />{" "}
+      {units}
+    </>
+  );
+};
+
+RelativePower.propTypes = {
+  title: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  units: PropTypes.string.isRequired,
+};
+
+const MeasurementLabels = ({ measurementLabels, onChange }) => {
+  return (
+    <>
+      {"Label my measurements as "}
+      {Object.entries(measurementLabels).map(([key, label], index) => (
+        <React.Fragment key={key}>
+          <input
+            className="form-control form-control-sm"
+            value={label}
+            onChange={onChange(key)}
+          />
+          <Separator
+            index={index}
+            length={Object.keys(measurementLabels).length}
+          />
+        </React.Fragment>
+      ))}
+      {". "}
+    </>
+  );
+};
+
+MeasurementLabels.propTypes = {
+  measurementLabels: PropTypes.objectOf(PropTypes.string).isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+const Separator = ({ index, length }) => {
+  const penultimateIndex = length - 2;
+
+  if (index < penultimateIndex) {
+    return <>, </>;
+  }
+
+  if (index === penultimateIndex) {
+    return <> and </>;
+  }
+
+  return null;
+};
+
+Separator.propTypes = {
+  index: PropTypes.number.isRequired,
+  length: PropTypes.number.isRequired,
 };
 
 export default Intro;

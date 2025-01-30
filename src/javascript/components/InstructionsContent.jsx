@@ -273,7 +273,7 @@ const InstructionsContent = () => {
             </SearchableSelect>
           </div>
           <div className="col-md-6" style={{ textAlign: "left" }}>
-            <button
+            {/* <button
               type="button"
               disabled={isDisabled}
               className="btn btn-primary m-2"
@@ -287,7 +287,7 @@ const InstructionsContent = () => {
               }}
             >
               Download Sample CSV
-            </button>
+            </button> */}
             <button
               type="button"
               disabled={isDisabled}

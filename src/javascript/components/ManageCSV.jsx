@@ -170,6 +170,10 @@ const ManageCSV = ({
       }
     };
 
+    if (rows && rows[0] && rows[0].length === 2) {
+      setTimeout(()=>{document.getElementById("proceedButton").click();},1);
+    }
+
     // Add event listener
     window.addEventListener("keydown", handleGlobalKeyDown);
 

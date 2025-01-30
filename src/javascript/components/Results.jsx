@@ -61,7 +61,7 @@ const Results = ({
                 <button type="button" className="btn btn-link" data-toggle="collapse" data-target="#collapseThree"
                         aria-expanded="true"
                         aria-controls="collapseThree" style={{ color: "black", fontSize: "1.2em" }}>
-                  Step 3. Check we have understood your input correctly.
+                  {/* Step 3. */}Check we have understood your input correctly.
                 </button>
               </h5>
             </div>
@@ -94,7 +94,7 @@ const Results = ({
                 <button type="button" className="btn btn-link" data-toggle="collapse" data-target="#collapseFour"
                         aria-expanded="true"
                         aria-controls="collapseFour" style={{ color: "black", fontSize: "1.2em" }}>
-                  Step 4. Download the stimulus specification tables and include them in
+                  {/* Step 4. */} Download the stimulus specification tables and include them in
                   your report.
                 </button>
               </h5>
@@ -130,7 +130,7 @@ const Results = ({
                         data-target="#collapseFive"
                         aria-expanded="false"
                         aria-controls="collapseFive" style={{ color: "black", fontSize: "1.2em" }}>
-                  Step 5. Include the full spectral power distribution in your
+                  {/* Step 5. */} Include the full spectral power distribution in your
                   supplementary material.
                 </button>
               </h5>
@@ -166,7 +166,7 @@ const Results = ({
                         data-target="#collapseSix"
                         aria-expanded="false"
                         aria-controls="collapseSix" style={{ color: "black", fontSize: "1.2em" }}>
-                  Step 6. Share an online version of this report.
+                  {/* Step 6. */}Share an online version of this report.
                 </button>
               </h5>
             </div>

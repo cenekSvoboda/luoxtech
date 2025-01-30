@@ -8,8 +8,8 @@ import { scaleSamples } from "../rows";
 import validateInput from "../inputValidator";
 
 const UploadForm = ({
-  measurementLabels,
-  radianceOrIrradiance,
+  /* measurementLabels,
+  radianceOrIrradiance, */
   setRadianceOrIrradiance,
   setRows,
   setSampleCount,
@@ -26,13 +26,16 @@ const UploadForm = ({
   setModalView,
   setShowInstructions,
   setFileName,
-  fileName
+  fileName,
+  powerScale,
+  areaScale,
+  absoluteOrRelative,
+  setAbsoluteOrRelative
 }) => {
-  const [powerScale, setPowerScale] = useState("milliwatt");
-  const [areaScale, setAreaScale] = useState("metresq");
+
   // const [fileType, setFileType] = useState("csv");
   const [errors, setErrors] = useState([]);
-  const [absoluteOrRelative, setAbsoluteOrRelative] = useState("absolute");
+
 
   const SPDX_INVALID =
     "Error Parsing SPDX File. Please Verify That The File Is In The Proper Format.";
@@ -48,35 +51,9 @@ const UploadForm = ({
     setShowInstructions(true);
   };
 
-  const handleRadianceOrIrradiance = ({ target: { value } }) => {
-    setRadianceOrIrradiance(value);
-  };
 
-  const handleAbsoluteOrRelative = ({ target: { value } }) => {
-    setAbsoluteOrRelative(value);
-  };
 
-  const handlePowerScale = ({ target: { value } }) => {
-    setPowerScale(value);
-  };
 
-  const handleAreaScale = ({ target: { value } }) => {
-    setAreaScale(value);
-  };
-
-  const handleRelativePowers = (index) => ({ target: { value } }) => {
-    setRelativePowers((powers) => ({
-      ...powers,
-      [index]: value,
-    }));
-  };
-
-  const handleMeasurementLabel = (index) => ({ target: { value } }) => {
-    setMeasurementLabels((labels) => ({
-      ...labels,
-      [index]: value,
-    }));
-  };
 
   /* const handleFileTypeChange = (e) => {
     fileInput.current.value = null; // eslint-disable-line no-param-reassign
@@ -345,7 +322,7 @@ const UploadForm = ({
                   <button type="button" className="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
                           aria-expanded="true"
                           aria-controls="collapseOne" style={{ color: "black", fontSize: "1.2em" }}>
-                    Step 1. Open your spectral power distribution data.
+                    {/* Step 1. */}Open your spectral power distribution data.
                   </button>
                 </h5>
               </div>
@@ -400,117 +377,14 @@ const UploadForm = ({
         </div>
       </div>
 
-      {csv.length > 0 && (
-        <div className="row">
-          <div className="col">
 
-            <div id="accordion2">
-              <div className="card">
-                <div className="card-header" id="headingTwo">
-                  <h5 className="mb-0">
-                    <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                            aria-expanded="false"
-                            aria-controls="collapseTwo" style={{ color: "black", fontSize: "1.2em" }}>
-                      Step 2. Tell us more about your data.
-                    </button>
-                  </h5>
-                </div>
-
-                <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion2">
-                  <div className="card-body">
-                    <form className="form-inline text-start">
-                      <p className="lead" style={{ lineHeight: "2.5rem" }}>
-                        {"My data contains "}
-                        <select
-                          value={absoluteOrRelative}
-                          onChange={handleAbsoluteOrRelative}
-                          className="form-control form-control-sm"
-                        >
-                          <option value="absolute">absolute</option>
-                          <option value="relative">relative</option>
-                        </select>
-                        {" spectra with wavelength in nm. "}
-                        <MeasurementLabels
-                          measurementLabels={measurementLabels}
-                          onChange={handleMeasurementLabel}
-                        />
-                        {absoluteOrRelative === "absolute" && (
-                          <AbsoluteUnits
-                            radianceOrIrradiance={radianceOrIrradiance}
-                            handleRadianceOrIrradiance={handleRadianceOrIrradiance}
-                            powerScale={powerScale}
-                            handlePowerScale={handlePowerScale}
-                            areaScale={areaScale}
-                            handleAreaScale={handleAreaScale}
-                          />
-                        )}
-                        {absoluteOrRelative === "relative" && (
-                          <RelativeUnits
-                            radianceOrIrradiance={radianceOrIrradiance}
-                            setRadianceOrIrradiance={setRadianceOrIrradiance}
-                            measurementLabels={measurementLabels}
-                            handleRelativePowers={handleRelativePowers}
-                            relativePowers={relativePowers}
-                          />
-                        )}
-                      </p>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              {/* <h2 className="my-3">Step 2. Tell us more about your data.</h2>
-              <form className="form-inline text-start">
-                <p className="lead" style={{ lineHeight: "2.5rem" }}>
-                  {"My data contains "}
-                  <select
-                    value={absoluteOrRelative}
-                    onChange={handleAbsoluteOrRelative}
-                    className="form-control form-control-sm"
-                  >
-                    <option value="absolute">absolute</option>
-                    <option value="relative">relative</option>
-                  </select>
-                  {" spectra with wavelength in nm. "}
-                  <MeasurementLabels
-                    measurementLabels={measurementLabels}
-                    onChange={handleMeasurementLabel}
-                  />
-                  {absoluteOrRelative === "absolute" && (
-                    <AbsoluteUnits
-                      radianceOrIrradiance={radianceOrIrradiance}
-                      handleRadianceOrIrradiance={handleRadianceOrIrradiance}
-                      powerScale={powerScale}
-                      handlePowerScale={handlePowerScale}
-                      areaScale={areaScale}
-                      handleAreaScale={handleAreaScale}
-                    />
-                  )}
-                  {absoluteOrRelative === "relative" && (
-                    <RelativeUnits
-                      radianceOrIrradiance={radianceOrIrradiance}
-                      setRadianceOrIrradiance={setRadianceOrIrradiance}
-                      measurementLabels={measurementLabels}
-                      handleRelativePowers={handleRelativePowers}
-                      relativePowers={relativePowers}
-                    />
-                  )}
-                </p>
-              </form> */}
-
-            </div>
-
-
-          </div>
-        </div>
-      )}
     </>
   );
 };
 
 UploadForm.propTypes = {
-  radianceOrIrradiance: PropTypes.string.isRequired,
-  measurementLabels: PropTypes.objectOf(PropTypes.string).isRequired,
+  /* radianceOrIrradiance: PropTypes.string.isRequired,
+  measurementLabels: PropTypes.objectOf(PropTypes.string).isRequired, */
   relativePowers: PropTypes.objectOf(PropTypes.string).isRequired,
   csv: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
 //  powerMode: PropTypes.bool.isRequired,
@@ -528,192 +402,15 @@ UploadForm.propTypes = {
   setModalView: PropTypes.func.isRequired,
   setShowInstructions: PropTypes.func.isRequired,
   setFileName: PropTypes.func.isRequired,
-  fileName: PropTypes.string.isRequired
-};
-
-const AbsoluteUnits = ({
-                         radianceOrIrradiance,
-                         handleRadianceOrIrradiance,
-                         powerScale,
-                         handlePowerScale,
-                         areaScale,
-                         handleAreaScale
-                       }) => {
-  return (
-    <>
-      <br />
-      {"Each measurement column contains "}
-      <select
-        value={radianceOrIrradiance}
-        onChange={handleRadianceOrIrradiance}
-        className="form-control form-control-sm"
-      >
-        <option value="irradiance">irradiances</option>
-        <option value="radiance">radiances</option>
-      </select>
-      {" in "}
-      <select
-        value={powerScale}
-        onChange={handlePowerScale}
-        className="form-control form-control-sm"
-      >
-        <option value="microwatt">µW</option>
-        <option value="milliwatt">mW</option>
-        <option value="watt">W</option>
-      </select>
-      {" per "}
-      <select
-        value={areaScale}
-        onChange={handleAreaScale}
-        className="form-control form-control-sm"
-      >
-        <option value="millimetresq">mm²</option>
-        <option value="centimetresq">cm²</option>
-        <option value="metresq">m²</option>
-      </select>
-      {radianceOrIrradiance === "radiance" && " per sr"}.
-    </>
-  );
-};
-
-AbsoluteUnits.propTypes = {
-  radianceOrIrradiance: PropTypes.oneOf(["radiance", "irradiance"]).isRequired,
-  handleRadianceOrIrradiance: PropTypes.func.isRequired,
+  fileName: PropTypes.string.isRequired,
   powerScale: PropTypes.string.isRequired,
-  handlePowerScale: PropTypes.func.isRequired,
   areaScale: PropTypes.string.isRequired,
-  handleAreaScale: PropTypes.func.isRequired,
+  absoluteOrRelative: PropTypes.string.isRequired,
+  setAbsoluteOrRelative: PropTypes.func.isRequired,
 };
 
-const RelativeUnits = ({
-  radianceOrIrradiance,
-  setRadianceOrIrradiance,
-  measurementLabels,
-  handleRelativePowers,
-  relativePowers,
-}) => {
-  const luminanceOrIlluminance =
-    radianceOrIrradiance === "radiance" ? "luminance" : "illuminance";
 
-  const handleLuminanceOrIlluminance = ({ target: { value } }) => {
-    setRadianceOrIrradiance(value === "luminance" ? "radiance" : "irradiance");
-  };
 
-  const units = radianceOrIrradiance === "radiance" ? "(cd/m²)" : "(lx)";
 
-  return (
-    <>
-      {"I have separately measured "}
-      <select
-        value={luminanceOrIlluminance}
-        onChange={handleLuminanceOrIlluminance}
-        className="form-control form-control-sm"
-      >
-        <option value="luminance">luminance</option>
-        <option value="illuminance">illuminance</option>
-      </select>
-      {Object.entries(measurementLabels).map(([key, title], index) => (
-        <React.Fragment key={key}>
-          <RelativePower
-            title={title}
-            onChange={handleRelativePowers(index)}
-            value={relativePowers[index]}
-            units={units}
-          />
-          <Separator
-            index={index}
-            length={Object.keys(measurementLabels).length}
-          />
-        </React.Fragment>
-      ))}
-      .
-    </>
-  );
-};
-
-RelativeUnits.propTypes = {
-  radianceOrIrradiance: PropTypes.oneOf(["radiance", "irradiance"]).isRequired,
-  setRadianceOrIrradiance: PropTypes.func.isRequired,
-  measurementLabels: PropTypes.objectOf(PropTypes.string).isRequired,
-  handleRelativePowers: PropTypes.func.isRequired,
-  relativePowers: PropTypes.objectOf(PropTypes.string).isRequired,
-};
-
-const RelativePower = ({ title, onChange, value, units }) => {
-  const handleInput = ({ target }) => {
-    target.reportValidity();
-  };
-
-  return (
-    <>
-      {" "}
-      for <span className="font-italic">{title}</span> at{" "}
-      <input
-        type="number"
-        className="form-control form-control-sm"
-        onChange={onChange}
-        onInput={handleInput}
-        value={value}
-        min="0.00001"
-        step="any"
-        required
-      />{" "}
-      {units}
-    </>
-  );
-};
-
-RelativePower.propTypes = {
-  title: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
-  units: PropTypes.string.isRequired,
-};
-
-const MeasurementLabels = ({ measurementLabels, onChange }) => {
-  return (
-    <>
-      {"Label my measurements as "}
-      {Object.entries(measurementLabels).map(([key, label], index) => (
-        <React.Fragment key={key}>
-          <input
-            className="form-control form-control-sm"
-            value={label}
-            onChange={onChange(key)}
-          />
-          <Separator
-            index={index}
-            length={Object.keys(measurementLabels).length}
-          />
-        </React.Fragment>
-      ))}
-      {". "}
-    </>
-  );
-};
-
-MeasurementLabels.propTypes = {
-  measurementLabels: PropTypes.objectOf(PropTypes.string).isRequired,
-  onChange: PropTypes.func.isRequired,
-};
-
-const Separator = ({ index, length }) => {
-  const penultimateIndex = length - 2;
-
-  if (index < penultimateIndex) {
-    return <>, </>;
-  }
-
-  if (index === penultimateIndex) {
-    return <> and </>;
-  }
-
-  return null;
-};
-
-Separator.propTypes = {
-  index: PropTypes.number.isRequired,
-  length: PropTypes.number.isRequired,
-};
 
 export default UploadForm;
