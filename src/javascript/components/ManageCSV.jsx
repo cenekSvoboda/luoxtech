@@ -354,6 +354,7 @@ const ManageCSV = ({
                   onClick={proceed}
                   className="mx-2 my-1"
                   ref={buttonRef}
+                  disabled={noneSelected}
                 >
                   {allSelected ? "Process all data" : "Process selection" }
                 </Button>
