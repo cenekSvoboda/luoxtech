@@ -15,7 +15,17 @@ const ManageCSV = ({
                      setModalView
                    }) => {
   const [error, setError] = useState(false);
-  const [mode, setMode] = useState("allData");
+  // const [mode, setMode] = useState("allData");
+
+  const [checkboxesState, setCheckboxesState] = useState({...measurementLabels});
+
+  // Toggle the checkbox value when clicked
+  const toggleCheckbox = (key) => {
+    setCheckboxesState(prevState => ({
+      ...prevState,
+      [key]: !prevState[key]
+    }));
+  };
 
   const buttonRef = useRef(null);
 
@@ -30,18 +40,18 @@ const ManageCSV = ({
     }
   }, []);
 
-  const handleChange = (event) => {
+ /* const handleChange = (event) => {
     setMode(event.target.value);
-  };
+  }; */
 
   let selectedRowsArray = [];
-  const selectedRowsColumnsArray = [];
+  // const selectedRowsColumnsArray = [];
   const selectedColumnsArray = [];
   const selectedColumnsKeysArray = [];
 
 
 
-  const addSelectedRow = (row, isChecked) => {
+/* const addSelectedRow = (row, isChecked) => {
     if (isChecked) {
       selectedRowsArray.push(row);
     } else {
@@ -54,7 +64,7 @@ const ManageCSV = ({
         }
       }
     }
-  };
+  }; */
 
   /*  const xuseSelectedRowsAllColumns = () => {
       if (selectedRowsArray.length > 0) {
@@ -67,7 +77,7 @@ const ManageCSV = ({
       }
     }; */
 
-  const xuseSelectedRowsSelectedColumns = () => {
+/* const xuseSelectedRowsSelectedColumns = () => {
     if (selectedRowsArray.length > 0 && selectedColumnsArray.length > 0) {
       if (measurementLabels.length === selectedColumnsArray.length) {
         setError(false);
@@ -96,12 +106,13 @@ const ManageCSV = ({
     } else {
       setError(true);
     }
-  };
-  const xuseAllRowsColumns = () => {
+  }; */
+  /* const xuseAllRowsColumns = () => {
     setSelectedRows(rows);
     setSelectedRowsSampleCount(sampleCount);
     setModalView(false);
-  };
+  }; */
+
   const xuseAllRowsSelectedColumns = () => {
     if (selectedColumnsArray.length > 0) {
       if (measurementLabels.length === selectedColumnsArray.length) {
@@ -153,15 +164,61 @@ const ManageCSV = ({
   };
 
   const proceed = () => {
-    if (mode === "allData") {
+
+    Object.entries(measurementLabels).map(([key, value]) => (
+      changeColumnCheckbox(
+        key,
+        value,
+        checkboxesState[key]
+      )
+    ));
+
+    xuseAllRowsSelectedColumns();
+
+    /* if (mode === "allData") {
       xuseAllRowsColumns();
     } else if (mode === "columnsSelectedAllRows") {
       xuseAllRowsSelectedColumns();
     } else if (mode === "selectionOnly") {
       xuseSelectedRowsSelectedColumns();
-    }
+    } */
     // xuseSelectedRowsAllColumns();
   };
+
+  const selectAll = () => {
+    Object.entries(measurementLabels).map(([key, value]) => (
+      changeColumnCheckbox(
+        key,
+        value,
+        true
+      )
+    ));
+
+    setCheckboxesState(prevState => {
+      return Object.keys(prevState).reduce((acc, key) => {
+        acc[key] = true; // Set all values to true
+        return acc;
+      }, {});
+    });
+  }
+
+  const deselectAll = () => {
+    Object.entries(measurementLabels).map(([key, value]) => (
+      changeColumnCheckbox(
+        key,
+        value,
+        false
+      )
+    ));
+
+    setCheckboxesState(prevState => {
+      return Object.keys(prevState).reduce((acc, key) => {
+        acc[key] = false; // Set all values to true
+        return acc;
+      }, {});
+    });
+  }
+
 
   useEffect(() => {
     const handleGlobalKeyDown = (event) => {
@@ -173,6 +230,8 @@ const ManageCSV = ({
     if (rows && rows[0] && rows[0].length === 2) {
       setTimeout(()=>{document.getElementById("proceedButton").click();},1);
     }
+
+    selectAll();
 
     // Add event listener
     window.addEventListener("keydown", handleGlobalKeyDown);
@@ -187,11 +246,15 @@ const ManageCSV = ({
     return null;
   }
 
+  // Check if all checkboxes are selected
+  const allSelected = Object.values(checkboxesState).every(value => value);
+  const noneSelected = Object.values(checkboxesState).every(value => !value);
+
   return (
     <>
       <Modal size="lg" show={modalView}>
         <Modal.Header>
-          <Modal.Title>Manage Rows</Modal.Title>
+          <Modal.Title>Manage Data</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="row">
@@ -205,9 +268,38 @@ const ManageCSV = ({
                   ""
                 )}
                 <div style={{ paddingTop: "10px" }}>
-                  <h3>Choose mode:</h3>
+                  <h3>Choose data:</h3>
 
                   <div>
+                    <Button
+                      id="selectButton"
+                      variant="secondary"
+                      onClick={()=> {
+                          selectAll();
+                        }
+                      }
+                      className="mx-2 my-1"
+                      disabled={allSelected}
+                    >
+                      Select all
+                    </Button>
+
+                    <br/>
+
+                    <Button
+                      id="deselectButton"
+                      variant="secondary"
+                      onClick={()=> {
+                          deselectAll();
+                        }
+                      }
+                      className="mx-2 my-1"
+                      disabled={noneSelected}
+                    >
+                      Deselect all
+                    </Button>
+
+                    {/*
                     <label htmlFor="allData">
                       <input id="allData" name="allData" type="radio"
                              value="allData"
@@ -235,7 +327,7 @@ const ManageCSV = ({
                       &nbsp;Selection only&nbsp;
                     </label>
                     <br />
-
+                    */}
                   </div>
 
                 </div>
@@ -263,7 +355,7 @@ const ManageCSV = ({
                   className="mx-2 my-1"
                   ref={buttonRef}
                 >
-                  Proceed
+                  {allSelected ? "Process all data" : "Process selection" }
                 </Button>
               </div>
             </form>
@@ -291,20 +383,23 @@ const ManageCSV = ({
               <table className="table table-striped table-bordered table-hover generate-csv-table mb-1">
                 <thead>
                 <tr>
-                  <th></th>
+                  {/* <th></th> */}
                   <th>Wavelength</th>
                   {Object.entries(measurementLabels).map(([key, value]) => (
                     <th key={key}>
                       <input
                         type="checkbox"
                         name="columnCheckbox"
-                        onChange={(event) =>
-                          changeColumnCheckbox(
-                            key,
-                            value,
-                            event.target.checked
-                          )
+                        onChange={(event) => {
+                            changeColumnCheckbox(
+                              key,
+                              value,
+                              event.target.checked
+                            );
+                            toggleCheckbox(key)
+                          }
                         }
+                        checked={checkboxesState[key]}
                       />{" "}
                       {value}
                     </th>
@@ -315,7 +410,7 @@ const ManageCSV = ({
                 {rows && rows.length > 0 ? (
                   rows.map((row) => (
                     <tr key={row[0]}>
-                      <td>
+                      {/* <td>
                         <input
                           type="checkbox"
                           name="rowCheckbox"
@@ -324,7 +419,7 @@ const ManageCSV = ({
                             addSelectedRow(row, event.target.checked)
                           }
                         />
-                      </td>
+                      </td> */}
                       {Object.entries(row).map(([key, value]) => (
                         <td key={key}>{value}</td>
                       ))}

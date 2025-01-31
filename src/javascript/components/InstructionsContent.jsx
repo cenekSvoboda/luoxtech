@@ -24,18 +24,18 @@ const SearchableSelect = ({ onSelect, children }) => {
 
 const InstructionsContent = () => {
   const [isDisabled, setIsDisabled] = useState(true);
-  const [file, setFile] = useState("CIE Standard Illuminant A.csv");
+  // const [file, setFile] = useState("CIE Standard Illuminant A.csv");
   const [url, setUrl] = useState("/u/spd1,380,1,wi,-8,MrMzM8NFNONXNgNpNyN7OEOOOXOgOpOyO8PFPOPYPhPrP0P-QHQRQaQkQuQ3RBRLRUReRoRyR7SFSPSZSjStS3TATKTUTeToTyT8UGUQUbUlUvU5VDVNVXVhVsV2WAWKWUWfWpWzW9XHXSXcXmXxX7YFYPYaYkYuY5ZDZNZYZiZsZ2aBaLaVagaqa0a_bJbTbebobyb9cHcRcbcmcwc6dFdPdZdjdud4eCeMeXehere1e_fKfUfefofyf8gHgRgbglgvg5hDhNhXhhhrh1h_iJiTidinixi7jFjPjZjijsj2kAkKkTkdknkxk6lElOlXlhlrl0l-mHmRmamkmum3nAnKnTndnmnvn5oCoLoVoeonowo6pDpMpVpepnpwp5qCqLqUqdqmqvq4rBrKrTrbrkrtr2r-sHsQsYshspsys7tDtMtUtdtlttt2t-uGuPuXufunuwu4vAvIvQvYvgvovwv4wAwIwQwYwgwowvw3w_xHxOxWxexlxtx0x8yDyLySyayhypywy3y_zGzNzUzbzjzqzxz4z_0G0N0U0b0i0p0w03091E1L1S1Z1f1m1t1z162A2H2N2U2a2h2n2t20263A3H3N3T3Z3g3m3s3y343-4E4K4Q4W4c4i4o4t4z454_5E5K5Q5V5b5h5m5s5x53586C6H6N6S6X6d6i6n6s6y63687B7G7L7Q7V7a7f7k7p7u7z74798C8G8L8Q8V8Z8e8j8n8s8x81868-9D9H9L9Q9U9Z9d9h9m9q9u9y92979_-D-H-L-P-T-X-b-f-j-n-r-v-z-2-6,nObservation%201");
   const handleSelect = (value) => {
     const jsonVal = JSON.parse(value);
-    setFile(jsonVal.file);
+    // setFile(jsonVal.file);
     setUrl(jsonVal.url);
     setIsDisabled(false);
   };
 
-  const getFile = () => {
+  /* const getFile = () => {
     return `/examples/${file}`;
-  }
+  } */
 
   return (<>
     <div className="row">
