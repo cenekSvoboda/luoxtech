@@ -25,12 +25,13 @@ const UploadForm = ({
   setLoaded,
   setModalView,
   setShowInstructions,
-  setFileName,
-  fileName,
+  // setFileName,
+  // fileName,
   powerScale,
   areaScale,
   absoluteOrRelative,
-  setAbsoluteOrRelative
+  setAbsoluteOrRelative,
+  setFileNameInHeader
 }) => {
 
   // const [fileType, setFileType] = useState("csv");
@@ -162,7 +163,8 @@ const UploadForm = ({
       if (file) {
         setLoaded(true);
       }
-      setFileName(file.name);
+      // setFileName(file.name);
+      setFileNameInHeader(file.name)
       if (file.name.toLowerCase().indexOf(".csv") !== -1) {
         parseCSV(file).then(({ data, errors: csvErrors }) => {
           if (csvErrors.length > 0) {
@@ -367,9 +369,9 @@ const UploadForm = ({
                     </div>
                   </form>
                   <ErrorTable errors={errors} />
-                  <p className="lead" style={{ lineHeight: "2.5rem" }}>
+                  {/* <p className="lead" style={{ lineHeight: "2.5rem" }}>
                     {(fileName !== "") ? `Processing file ${fileName}` : ""}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -401,12 +403,13 @@ UploadForm.propTypes = {
   setLoaded: PropTypes.func.isRequired,
   setModalView: PropTypes.func.isRequired,
   setShowInstructions: PropTypes.func.isRequired,
-  setFileName: PropTypes.func.isRequired,
-  fileName: PropTypes.string.isRequired,
+  // setFileName: PropTypes.func.isRequired,
+  // fileName: PropTypes.string.isRequired,
   powerScale: PropTypes.string.isRequired,
   areaScale: PropTypes.string.isRequired,
   absoluteOrRelative: PropTypes.string.isRequired,
   setAbsoluteOrRelative: PropTypes.func.isRequired,
+  setFileNameInHeader: PropTypes.func.isRequired,
 };
 
 

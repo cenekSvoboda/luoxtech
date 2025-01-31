@@ -84,7 +84,7 @@ h6,
 
 #header.header-scrolled {
   background: rgba(0, 0, 0, 0.8);
-  height: 60px;
+  /*height: 60px;*/
 }
 
 #header .logo h1 {

@@ -4,7 +4,9 @@ import UploadForm from "./UploadForm";
 import ManageCSV from "./ManageCSV";
 import Results from "./Results";
 
-const Intro = () => {
+const Intro = ({
+                 setFileNameInHeader
+               }) => {
   const [radianceOrIrradiance, setRadianceOrIrradiance] = useState(
     "irradiance"
   );
@@ -20,7 +22,7 @@ const Intro = () => {
   const [isLoaded, setLoaded] = useState(false);
   const [refHAB, setRefHAB] = useState(null);
   const [modalView, setModalView] = useState(false);
-  const [fileName, setFileName] = useState("");
+  // const [fileName, setFileName] = useState("");
   const [absoluteOrRelative, setAbsoluteOrRelative] = useState("absolute");
   const fileInput = useRef();
 
@@ -232,18 +234,23 @@ const Intro = () => {
               setLoaded={setLoaded}
               setModalView={setModalView}
               setShowInstructions={setShowInstructions}
-              setFileName={setFileName}
-              fileName={fileName}
+              /* setFileName={setFileName} */
+              /* fileName={fileName} */
               powerScale={powerScale}
               areaScale={areaScale}
               absoluteOrRelative={absoluteOrRelative}
               setAbsoluteOrRelative={setAbsoluteOrRelative}
+              setFileNameInHeader={setFileNameInHeader}
             />
           </div>
         </div>
       </section>
     </>
   );
+};
+
+Intro.propTypes = {
+  setFileNameInHeader: PropTypes.func.isRequired,
 };
 
 const AbsoluteUnits = ({

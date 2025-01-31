@@ -4,7 +4,7 @@
 
 #header.header-scrolled {
     background: rgba(0, 0, 0, 1) !important;
-    height: 60px !important;
+    /* height: 60px !important; */
 }
 
 #hero {
@@ -459,5 +459,21 @@
     }
     .modal-lg {
         --bs-modal-width: 100%;
+    }
+}
+
+.fileNameInHeader {
+    background-color: gray;
+    padding: 10px;
+    color: white;
+    position: relative;
+    top: 106px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+@media screen and (min-width: 769px) {
+    .fileNameInHeader {
+        top: 87px;
     }
 }

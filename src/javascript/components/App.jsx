@@ -1,5 +1,5 @@
 import "../../stylesheets/custom.css";
-import React from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
@@ -19,6 +19,9 @@ if (window.location.pathname === "/") {
 }
 
 const App = () => {
+
+  const [fileNameInHeader, setFileNameInHeader] = useState("");
+
   return (
     <div>
       <Router>
@@ -31,7 +34,9 @@ const App = () => {
               : "fixed-top d-flex align-items-center"
           }
         >
-          <NavBarWithRouter />
+          <NavBarWithRouter
+            fileNameInHeader={fileNameInHeader}
+          />
         </header>
 
         <Switch>
@@ -39,7 +44,9 @@ const App = () => {
             <Report />
           </Route>
           <Route path="/upload">
-            <Upload />
+            <Upload
+              /* setFileNameInHeader={setFileNameInHeader} */
+            />
           </Route>
           <Route path="/instructions">
             <Instructions/>
@@ -51,7 +58,9 @@ const App = () => {
             <About />
           </Route>
           <Route path="/">
-            <Intro />
+            <Intro
+              setFileNameInHeader={setFileNameInHeader}
+            />
           </Route>
         </Switch>
       </Router>
