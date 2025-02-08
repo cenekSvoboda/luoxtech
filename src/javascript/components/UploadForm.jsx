@@ -160,9 +160,9 @@ const UploadForm = ({
     reset();
     if (fileInput.current.files.length > 0) {
       const [file] = fileInput.current.files;
-      if (file) {
+      /* if (file) {
         setLoaded(true);
-      }
+      } */
       // setFileName(file.name);
       setFileNameInHeader(file.name)
       if (file.name.toLowerCase().indexOf(".csv") !== -1) {
@@ -175,6 +175,7 @@ const UploadForm = ({
             handleData(data);
             setModalView(true);
             fileInput.current.value = null;
+            setLoaded(true);
           }
         });
       } else if (file.name.toLowerCase().indexOf(".xlsx") !== -1 || (file.name.toLowerCase().indexOf(".xls") !== -1) && file.name.toLowerCase().indexOf(".xlsx") === -1) {
@@ -194,6 +195,7 @@ const UploadForm = ({
               handleData(data);
               setModalView(true);
               fileInput.current.value = null;
+              setLoaded(true);
             }
           });
         };
@@ -254,6 +256,7 @@ const UploadForm = ({
           });
 
           handleData(data);
+          setLoaded(true);
         };
         reader.onerror = () => {
           reset();
