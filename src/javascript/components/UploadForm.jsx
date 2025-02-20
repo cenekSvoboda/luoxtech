@@ -36,7 +36,7 @@ const UploadForm = ({
 
   // const [fileType, setFileType] = useState("csv");
   const [errors, setErrors] = useState([]);
-
+  const [collapseDropZone, setCollapseDropZone] = useState(false);
 
   const SPDX_INVALID =
     "Error Parsing SPDX File. Please Verify That The File Is In The Proper Format.";
@@ -297,10 +297,12 @@ const UploadForm = ({
       }
       setLoaded(true);
       setSampleCount(sampleCount);
+      setCollapseDropZone(true);
       setModalView(true);
     } else {
       setRows([]);
       setSampleCount(0);
+      setCollapseDropZone(false);
     }
   }, [
     setRows,
@@ -327,7 +329,7 @@ const UploadForm = ({
                   <button type="button" className="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
                           aria-expanded="true"
                           aria-controls="collapseOne" style={{ color: "black", fontSize: "1.2em" }}>
-                    {/* Step 1. */}Open your spectral power distribution data.
+                    Step 1. Open your spectral power distribution data.
                   </button>
                 </h5>
               </div>
@@ -337,7 +339,7 @@ const UploadForm = ({
                   <form>
                     <div className="form-group">
                       <div className="col-md-8 offset-md-2 col-xs-12 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-
+                        {(!collapseDropZone)&&
                         <div className="choose-file-button file-drop-area">
                           <div className="file-message" style={{ fontSize: "1.2em" }}>
                             Drag&amp;Drop file here
@@ -366,7 +368,28 @@ const UploadForm = ({
                             className="form-control-file ml-3 mt-2 file-input"
                             id="file-input"
                           />
-                        </div>
+                        </div>}
+                        {(collapseDropZone) &&
+                          <div className="choose-file-button file-drop-area">
+                            <div className="file-message"
+                                 style={{
+                                   fontSize: "1.0em",
+                                   padding: "10px",
+                                   border: "3px solid black",
+                                   borderRadius: "10px",
+                                 }}>
+                              Open or Drag&Drop file
+                            </div>
+                            <input
+                              type="file"
+                              ref={fileInput}
+                              disabled={isLoaded}
+                              onChange={handleFileInput}
+                              className="form-control-file ml-3 mt-2 file-input"
+                              id="file-input"
+                            />
+                          </div>
+                        }
 
                       </div>
                     </div>

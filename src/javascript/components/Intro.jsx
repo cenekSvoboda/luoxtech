@@ -126,7 +126,33 @@ const Intro = ({
       <section className="why-us pt-2 upload-section">
         <div className="container p-4 text-center upload-div">
           <div className="row justify-content-center" style={{paddingTop:"1px"}}>
-
+            <UploadForm
+              radianceOrIrradiance={radianceOrIrradiance}
+              measurementLabels={measurementLabels}
+              setRadianceOrIrradiance={setRadianceOrIrradiance}
+              setRows={setRows}
+              setSampleCount={setSampleCount}
+              setMeasurementLabels={setMeasurementLabels}
+              csv={csv}
+              setCSV={setCSV}
+              relativePowers={relativePowers}
+              setRelativePowers={setRelativePowers}
+              setPowerMode={setPowerMode}
+              powerMode={powerMode}
+              fileInput={fileInput}
+              setRefHAB={setRefHAB}
+              isLoaded={isLoaded}
+              setLoaded={setLoaded}
+              setModalView={setModalView}
+              setShowInstructions={setShowInstructions}
+              /* setFileName={setFileName} */
+              /* fileName={fileName} */
+              powerScale={powerScale}
+              areaScale={areaScale}
+              absoluteOrRelative={absoluteOrRelative}
+              setAbsoluteOrRelative={setAbsoluteOrRelative}
+              setFileNameInHeader={setFileNameInHeader}
+            />
             {csv.length > 0 && (
               <div className="row">
                 <div className="col">
@@ -138,7 +164,7 @@ const Intro = ({
                           <button type="button" className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
                                   aria-expanded="false"
                                   aria-controls="collapseTwo" style={{ color: "black", fontSize: "1.2em" }}>
-                            {/* Step 2. */}Tell us more about your data.
+                            Step 2. Tell us more about your data.
                           </button>
                         </h5>
                       </div>
@@ -215,33 +241,6 @@ const Intro = ({
             ) : (
               <br />
             )}
-            <UploadForm
-              radianceOrIrradiance={radianceOrIrradiance}
-              measurementLabels={measurementLabels}
-              setRadianceOrIrradiance={setRadianceOrIrradiance}
-              setRows={setRows}
-              setSampleCount={setSampleCount}
-              setMeasurementLabels={setMeasurementLabels}
-              csv={csv}
-              setCSV={setCSV}
-              relativePowers={relativePowers}
-              setRelativePowers={setRelativePowers}
-              setPowerMode={setPowerMode}
-              powerMode={powerMode}
-              fileInput={fileInput}
-              setRefHAB={setRefHAB}
-              isLoaded={isLoaded}
-              setLoaded={setLoaded}
-              setModalView={setModalView}
-              setShowInstructions={setShowInstructions}
-              /* setFileName={setFileName} */
-              /* fileName={fileName} */
-              powerScale={powerScale}
-              areaScale={areaScale}
-              absoluteOrRelative={absoluteOrRelative}
-              setAbsoluteOrRelative={setAbsoluteOrRelative}
-              setFileNameInHeader={setFileNameInHeader}
-            />
           </div>
         </div>
       </section>
