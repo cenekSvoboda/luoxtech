@@ -196,14 +196,19 @@ export const uvToCorrelatedColourTemperatureOhno = (
   let Duv = 0;
 
   // 1. find the point i = m, where di is the smallest in the table
-  const m = parseInt(findPlanckianMinimalDistance(planckianTable), 10);
+  let m = parseInt(findPlanckianMinimalDistance(planckianTable), 10);
 
   // CIE plankian table highest index = 302
   // TM30 planckian table highest index = 1569
   // planckian table is bounded, the accessible range should be controlled.
   if (planckianVersion === "CIE") {
-    if (m <= 0 || m >= 302) {
+    if (m <= 0) {
       return { CCT, Duv };
+    }
+    if (m >= 302) {
+      m = 301; /* temporary fix, if the index is at the end of the table,
+      we take the index just before that last index to get previous and next
+      value for calculations */
     }
   } else if (m <= 0 || m >= 1569) {
     // for IES
