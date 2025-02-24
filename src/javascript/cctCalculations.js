@@ -205,10 +205,12 @@ export const uvToCorrelatedColourTemperatureOhno = (
     if (m <= 0) {
       return { CCT, Duv };
     }
-    if (m >= 302) {
+    if (m === 302) {
       m = 301; /* temporary fix, if the index is at the end of the table,
       we take the index just before that last index to get previous and next
       value for calculations */
+    } else if (m >= 303) {
+      return { CCT, Duv };
     }
   } else if (m <= 0 || m >= 1569) {
     // for IES
