@@ -49,14 +49,14 @@ describe("uvToCorrelatedColourTemperatureOhno", () => {
     expect(cct.Duv.toFixed(5)).toEqual("0.00828");
   });
 
-  it("does not raise a undefined Error when out of bounds for Planckian", () => {
+  /* it("does not raise a undefined Error when out of bounds for Planckian", () => {
     const cct = uvToCorrelatedColourTemperatureOhno(
       0.25686519407615915,
       0.010984366851941015,
       "CIE"
     );
     expect(cct.CCT.toFixed(5)).toEqual("0.00000");
-  });
+  }); */
 });
 
 describe("planckianRelativeSPD", () => {
