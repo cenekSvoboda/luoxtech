@@ -514,7 +514,7 @@ export const calculateColourFidelityIndex = (spectra) => {
 
   if (Math.abs(intermediateValuesRf.Duv) >= 0.05) {
     intermediateValuesRf.Rf = "N/A";
-    intermediateValuesRf.CCT = "N/A";
+    // intermediateValuesRf.CCT = "N/A";
   }
 
   return intermediateValuesRf;
