@@ -110,8 +110,8 @@ const createChart = (
                 labelString: "Frequency [THz]",
               },
               ticks: {
-                min: 384,
-                max: 788,
+                min: 380,
+                max: 790,
                 stepSize: 10,
               },
             },
