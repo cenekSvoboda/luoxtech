@@ -19,7 +19,8 @@ const createChart = (
   selectedRowsSampleCount,
   measurementLabels,
   yAxisScaling,
-  displayedReference
+  displayedReference,
+  isByFrequency
 ) => {
   const datasets = [];
   const hues = generateHues(selectedRowsSampleCount);
@@ -61,6 +62,10 @@ const createChart = (
     )}]`;
   }
 
+  if (isByFrequency) {
+    data = data.map((row) => [299792458/row[0]/1000, ...row.slice(1).map(value => value)])
+  }
+
   for (let sampleIdx = 0; sampleIdx < selectedRowsSampleCount; sampleIdx += 1) {
     const lineColor = `hsl(${hues[sampleIdx]},100%,50%)`;
     datasets[sampleIdx] = {
@@ -77,11 +82,51 @@ const createChart = (
 
   if (displayedReference !== "none") {
     const reference = referenceSpectrum(displayedReference, yAxisScaling);
+    if (isByFrequency) {
+      reference.data = reference.data.map((row) => {
+        return { x: 299792458/parseInt(row.x,10)/1000, y: row.y };
+      })
+    }
     datasets.push({
       data: reference.data,
       label: reference.name,
       fill: false,
       pointRadius: 1,
+    });
+  }
+  if (isByFrequency) {
+    return new Chart(chartCanvas, {
+      // eslint-disable-line no-new
+      data: {
+        datasets,
+      },
+      options: {
+        scales: {
+          xAxes: [
+            {
+              type: "linear",
+              scaleLabel: {
+                display: true,
+                labelString: "Frequency [THz]",
+              },
+              ticks: {
+                min: 384,
+                max: 788,
+                stepSize: 10,
+              },
+            },
+          ],
+          yAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: yAxisLabel,
+              },
+            },
+          ],
+        },
+      },
+      type: "line",
     });
   }
 

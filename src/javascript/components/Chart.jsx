@@ -16,6 +16,12 @@ const Chart = ({
   const chartRef = useRef();
   const [yAxisScaling, setYAxisScaling] = useState("raw");
   const [displayedReference, setDisplayedReference] = useState("none");
+  const [isByFrequency, setByFrequency] = useState(false);
+
+  const handleXAxis = ({ target: { value } }) => {
+    setByFrequency(value === "frequency");
+  };
+
   const handleYAxisScaling = ({ target: { value } }) => {
     setYAxisScaling(value);
   };
@@ -49,7 +55,8 @@ const Chart = ({
         selectedRowsSampleCount,
         measurementLabels,
         yAxisScaling,
-        displayedReference
+        displayedReference,
+        isByFrequency
       );
     }
 
@@ -65,6 +72,7 @@ const Chart = ({
     measurementLabels,
     yAxisScaling,
     displayedReference,
+    isByFrequency
   ]);
 
   return (
@@ -119,6 +127,44 @@ const Chart = ({
                         id="log10-y-axis"
                       />
                       Log10
+                    </label>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div className="row">
+              <div>
+                <h5>X-axis</h5>
+                <form>
+                  <div className="form-check">
+                    <label htmlFor="wavelength-x-axis" className="form-check-label">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="chart-data"
+                        value="wavelength"
+                        checked={!isByFrequency }
+                        onChange={handleXAxis}
+                        id="wavelength-x-axis"
+                      />
+                      Wavelength [nm]
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <label
+                      htmlFor="frequency-x-axis"
+                      className="form-check-label"
+                    >
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="chart-data"
+                        value="frequency"
+                        checked={isByFrequency}
+                        onChange={handleXAxis}
+                        id="frequency-x-axis"
+                      />
+                      Frequency (by wavelength in a vacuum)
                     </label>
                   </div>
                 </form>
