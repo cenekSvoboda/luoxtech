@@ -487,7 +487,7 @@ const CalculationTable = ({
 
             <CalculationTableRow
               heading="CCT [K] (Ohno, 2013)"
-              samples={calculation.colourFidelityIndex.map(({ CCT, Duv }) => (Math.abs(Duv) >= 0.05)?`(${CCT})`:CCT)}
+              samples={calculation.colourFidelityIndex.map(({ CCT, Duv }) => (Math.abs(Duv) >= 0.05)?`N/A (${CCT})`:CCT)}
               exponentialNotation={exponentialNotation}
             />
             {/* <CalculationTableRow
