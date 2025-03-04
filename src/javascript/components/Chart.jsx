@@ -132,6 +132,7 @@ const Chart = ({
                 </form>
               </div>
             </div>
+            {/*
             <div className="row">
               <div>
                 <h5>X-axis</h5>
@@ -170,6 +171,7 @@ const Chart = ({
                 </form>
               </div>
             </div>
+            */}
             <div className="row mt-3">
               <h5>Reference spectrum</h5>
               <form>
