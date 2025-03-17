@@ -63,7 +63,7 @@ const createChart = (
   }
 
   if (isByFrequency) {
-    data = data.map((row) => [299792458/row[0]/1000, ...row.slice(1).map(value => value)])
+    data = data.map((row) => [299792458/row[0]/1000, ...row.slice(1).map(value => value*299792458/(299792458/row[0]*1000000000)/(299792458/row[0]*1000000000))])
   }
 
   for (let sampleIdx = 0; sampleIdx < selectedRowsSampleCount; sampleIdx += 1) {
