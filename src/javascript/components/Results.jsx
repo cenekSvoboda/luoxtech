@@ -18,6 +18,7 @@ const Results = ({
   setLoaded,
   refHAB,
   setRefHAB,
+  terahertz
 }) => {
   const originalButtonText = "Copy to clipboard";
   const [buttonText, setButtonText] = useState(originalButtonText);
@@ -81,6 +82,7 @@ const Results = ({
                     selectedRows={selectedRows}
                     selectedRowsSampleCount={selectedRowsSampleCount}
                     measurementLabels={measurementLabels}
+                    terahertz={terahertz}
                   />
                 )}
               </div>
@@ -231,6 +233,7 @@ Results.propTypes = {
   refHAB: PropTypes.arrayOf(PropTypes.shape),
   setLoaded: PropTypes.func.isRequired,
   setRefHAB: PropTypes.func.isRequired,
+  terahertz: PropTypes.bool.isRequired,
 };
 Results.defaultProps = {
   refHAB: undefined,

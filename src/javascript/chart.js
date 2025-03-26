@@ -63,6 +63,16 @@ const createChart = (
   }
 
   if (isByFrequency) {
+    /**
+     * We assume, that the spectral measurement (or modeling) is done in a vacuum and adjusted for a vacuum.
+     * We map X axis to f (frequency) which is c / lambda / 1000 that is ( speed of light / wavelength / 1000 ) [THz].
+     * We map Y axis to Enu (frequency irradiance) = value * c / ( c / value * 10^9 )^2 which
+     * is the original value * speed of light / f^2 [W*m^-2*Hz^-1] with recalculation from original data
+     * requiring multiplication by 10^-18 for unit without prefixes.
+     * We recommend using pW*m^-2*THz^-1 as a unit for good values
+     * for regular light source measurement, however this unit is now not widely adopted by relevant scientists.
+     * author: Čeněk Svoboda, 3/2025
+     */
     data = data.map((row) => [299792458/row[0]/1000, ...row.slice(1).map(value => value*299792458/(299792458/row[0]*1000000000)/(299792458/row[0]*1000000000))])
   }
 
@@ -120,7 +130,7 @@ const createChart = (
             {
               scaleLabel: {
                 display: true,
-                labelString: yAxisLabel,
+                labelString: `Spectral ${  radianceOrIrradiance  } [W*m^-2*Hz^-1]`,
               },
             },
           ],

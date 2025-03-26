@@ -11,6 +11,7 @@ const Chart = ({
   selectedRows,
   selectedRowsSampleCount,
   measurementLabels,
+  terahertz
 }) => {
   const windowWidth = window.innerWidth;
   const chartRef = useRef();
@@ -132,46 +133,46 @@ const Chart = ({
                 </form>
               </div>
             </div>
-            {/*
-            <div className="row">
-              <div>
-                <h5>X-axis</h5>
-                <form>
-                  <div className="form-check">
-                    <label htmlFor="wavelength-x-axis" className="form-check-label">
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="chart-data"
-                        value="wavelength"
-                        checked={!isByFrequency }
-                        onChange={handleXAxis}
-                        id="wavelength-x-axis"
-                      />
-                      Wavelength [nm]
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <label
-                      htmlFor="frequency-x-axis"
-                      className="form-check-label"
-                    >
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="chart-data"
-                        value="frequency"
-                        checked={isByFrequency}
-                        onChange={handleXAxis}
-                        id="frequency-x-axis"
-                      />
-                      Frequency (by wavelength in a vacuum)
-                    </label>
-                  </div>
-                </form>
+            {terahertz && (
+              <div className="row">
+                <div>
+                  <h5>X-axis</h5>
+                  <form>
+                    <div className="form-check">
+                      <label htmlFor="wavelength-x-axis" className="form-check-label">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="chart-data"
+                          value="wavelength"
+                          checked={!isByFrequency}
+                          onChange={handleXAxis}
+                          id="wavelength-x-axis"
+                        />
+                        Wavelength [nm]
+                      </label>
+                    </div>
+                    <div className="form-check">
+                      <label
+                        htmlFor="frequency-x-axis"
+                        className="form-check-label"
+                      >
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="chart-data"
+                          value="frequency"
+                          checked={isByFrequency}
+                          onChange={handleXAxis}
+                          id="frequency-x-axis"
+                        />
+                        Frequency (by wavelength in a vacuum)
+                      </label>
+                    </div>
+                  </form>
+                </div>
               </div>
-            </div>
-            */}
+            )}
             <div className="row mt-3">
               <h5>Reference spectrum</h5>
               <form>
@@ -244,6 +245,7 @@ Chart.propTypes = {
     .isRequired,
   selectedRowsSampleCount: PropTypes.number.isRequired,
   measurementLabels: PropTypes.objectOf(PropTypes.string).isRequired,
+  terahertz: PropTypes.bool.isRequired,
 };
 
 export default Chart;

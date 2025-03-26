@@ -5,7 +5,8 @@ import ManageCSV from "./ManageCSV";
 import Results from "./Results";
 
 const Intro = ({
-                 setFileNameInHeader
+                 setFileNameInHeader,
+                 terahertz
                }) => {
   const [radianceOrIrradiance, setRadianceOrIrradiance] = useState(
     "irradiance"
@@ -226,6 +227,7 @@ const Intro = ({
               setLoaded={setLoaded}
               refHAB={refHAB}
               setRefHAB={setRefHAB}
+              terahertz={terahertz}
             />
             {modalView ? (
               <ManageCSV
@@ -250,6 +252,7 @@ const Intro = ({
 
 Intro.propTypes = {
   setFileNameInHeader: PropTypes.func.isRequired,
+  terahertz: PropTypes.bool.isRequired,
 };
 
 const AbsoluteUnits = ({

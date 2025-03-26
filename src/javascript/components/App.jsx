@@ -40,6 +40,12 @@ const App = () => {
         </header>
 
         <Switch>
+          <Route path="/terahertz">
+            <Intro
+              setFileNameInHeader={setFileNameInHeader}
+              terahertz={true}
+            />
+          </Route>
           <Route path="/u/:id">
             <Report />
           </Route>
@@ -60,6 +66,7 @@ const App = () => {
           <Route path="/">
             <Intro
               setFileNameInHeader={setFileNameInHeader}
+              terahertz={false}
             />
           </Route>
         </Switch>
