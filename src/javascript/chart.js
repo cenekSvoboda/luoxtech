@@ -130,7 +130,7 @@ const createChart = (
             {
               scaleLabel: {
                 display: true,
-                labelString: `Spectral ${  radianceOrIrradiance  } [W*m^-2*Hz^-1]`,
+                labelString: `Frequency ${  radianceOrIrradiance  } [W*m^-2*Hz^-1]`,
               },
             },
           ],
